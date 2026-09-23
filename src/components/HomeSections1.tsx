@@ -9,8 +9,8 @@ export const HeroSection = () => {
 
   return (
     <section className="relative min-h-[90vh] pt-32 pb-24 overflow-hidden flex items-center bg-[#F8F9FA] bg-grid-pattern">
-      <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-[#FFEDD5] rounded-full blur-[120px] opacity-60 mix-blend-multiply -translate-x-1/2 -translate-y-1/4 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#D1FAE5] rounded-full blur-[120px] opacity-60 mix-blend-multiply translate-x-1/3 -translate-y-1/4 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-[800px] h-[800px] opacity-60 mix-blend-multiply -translate-x-1/2 -translate-y-1/4 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, #FFEDD5 0%, rgba(255,237,213,0) 100%)' }} />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] opacity-60 mix-blend-multiply translate-x-1/3 -translate-y-1/4 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, #D1FAE5 0%, rgba(209,250,229,0) 100%)' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full">
         <div className="grid lg:grid-cols-[1.1fr,0.9fr] gap-12 lg:gap-8 items-center">
@@ -178,7 +178,7 @@ export const PainPointsSection = () => {
 
   return (
     <section className="bg-[#FFF5F1] py-32 relative overflow-hidden bg-grid-pattern">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#FFE4D6] rounded-full blur-[150px] opacity-70" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-70 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, #FFE4D6 0%, rgba(255,228,214,0) 100%)' }} />
       
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16">
@@ -239,7 +239,7 @@ export const ServiceTabsSection = () => {
 
   return (
     <section className="bg-[#F0FDF4] py-32 relative overflow-hidden bg-grid-pattern">
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white rounded-full blur-[100px] opacity-80 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-80 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, #ffffff 0%, rgba(255,255,255,0) 100%)' }} />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
         
@@ -274,7 +274,7 @@ export const ServiceTabsSection = () => {
         </div>
 
         <div className="w-full bg-white rounded-[2rem] border border-gray-100 shadow-soft-lg p-8 sm:p-16 flex flex-col lg:flex-row gap-12 lg:gap-24 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-64 h-64 blur-[80px] opacity-10 pointer-events-none" style={{ backgroundColor: active.theme }} />
+          <div className="absolute top-0 left-0 w-64 h-64 opacity-10 pointer-events-none" style={{ background: `radial-gradient(50% 50% at 50% 50%, ${active.theme} 0%, transparent 100%)` }} />
           
           <div className="flex-1 relative z-10">
             <div className="flex items-center gap-3 mb-6">

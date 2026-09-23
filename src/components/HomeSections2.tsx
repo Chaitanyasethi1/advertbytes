@@ -13,8 +13,8 @@ export const ServicesGridSection = () => {
 
   return (
     <section className="bg-[#FFFDF9] py-32 relative overflow-hidden bg-grid-pattern">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FFB800]/5 rounded-full blur-[100px] opacity-50" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#00D084]/5 rounded-full blur-[100px] opacity-50" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] opacity-50 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, rgba(255,184,0,0.05) 0%, transparent 100%)' }} />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-50 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, rgba(0,208,132,0.05) 0%, transparent 100%)' }} />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
         <div className="bg-[#00D084] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-8">
@@ -29,7 +29,7 @@ export const ServicesGridSection = () => {
           {services.map((service, i) => (
             <div key={i} className="bg-white rounded-[2rem] p-8 shadow-soft border border-gray-100 hover:shadow-soft-lg transition-shadow relative overflow-hidden group">
               
-              <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full blur-[40px] opacity-20 transition-opacity group-hover:opacity-40" style={{ backgroundColor: service.color }} />
+              <div className="absolute -top-10 -right-10 w-32 h-32 opacity-20 transition-opacity group-hover:opacity-40 pointer-events-none" style={{ background: `radial-gradient(50% 50% at 50% 50%, ${service.color} 0%, transparent 100%)` }} />
 
               {service.isFlagship && (
                 <div className="absolute top-6 right-6 bg-[#FFB800] text-black text-[9px] font-bold px-2 py-1 rounded-md uppercase tracking-widest flex items-center gap-1 shadow-sm">
