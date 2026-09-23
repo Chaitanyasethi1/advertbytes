@@ -20,6 +20,7 @@ export interface CaseStudyTier1 {
   stats: StatItem[];
   services: string[];
   visualCueType: 'textile' | 'footwear' | 'architectural';
+  imageUrl: string;
 }
 
 export interface CaseStudyTier2 {
@@ -32,6 +33,7 @@ export interface CaseStudyTier2 {
   highlightStat: string;
   stats: StatItem[];
   services?: string[];
+  imageUrl: string;
 }
 
 export const CATEGORIES = [
@@ -57,39 +59,14 @@ export const TIER1_CASE_STUDIES: CaseStudyTier1[] = [
     approach: 'We combined paid social and search campaigns with a conversion-focused ecommerce strategy to reach relevant audiences and optimize towards purchases.',
     story: 'With a carefully crafted Meta & Google Ads strategy, Greenways — a premium ethnic wear brand — scaled new heights in July 2025. By targeting the right audience across platforms (82K+ sessions, 166K+ impressions on Google, 2.5L+ on Meta), Greenways achieved a powerful 9.31x ROAS with smartly optimised ad spend.',
     stats: [
-      {
-        value: '₹13,05,051+',
-        label: 'Total Revenue',
-        numericTarget: 13.05,
-        prefix: '₹',
-        suffix: 'L+',
-        decimals: 2,
-      },
-      {
-        value: '178',
-        label: 'Confirmed Orders',
-        numericTarget: 178,
-        suffix: ' Orders',
-        decimals: 0,
-      },
-      {
-        value: '9.31x',
-        label: 'Blended ROAS',
-        numericTarget: 9.31,
-        suffix: 'x',
-        decimals: 2,
-      },
-      {
-        value: '139%',
-        label: 'Spike in Sessions',
-        numericTarget: 139,
-        prefix: '+',
-        suffix: '%',
-        decimals: 0,
-      },
+      { value: '₹13,05,051+', label: 'Total Revenue', numericTarget: 13.05, prefix: '₹', suffix: 'L+', decimals: 2 },
+      { value: '178', label: 'Confirmed Orders', numericTarget: 178, suffix: ' Orders', decimals: 0 },
+      { value: '9.31x', label: 'Blended ROAS', numericTarget: 9.31, suffix: 'x', decimals: 2 },
+      { value: '139%', label: 'Spike in Sessions', numericTarget: 139, prefix: '+', suffix: '%', decimals: 0 },
     ],
     services: ['Performance Marketing', 'Meta Ads', 'Google Ads', 'Ecommerce Marketing'],
     visualCueType: 'textile',
+    imageUrl: 'https://images.unsplash.com/photo-1583391733958-6752466e7465?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'sole-house',
@@ -102,39 +79,14 @@ export const TIER1_CASE_STUDIES: CaseStudyTier1[] = [
     approach: 'We leveraged targeted reach (80K+ views), precision shopping campaigns, and dynamic creative retargeting to maximize revenue per click.',
     story: "With a carefully designed Shopping Campaign, Sole House — a premium women's footwear brand — made every rupee work harder. By leveraging targeted reach (80K+ views) and optimizing ad spend, Sole House delivered a 3.41x return on ad spend, proving footwear fashion meets data-driven performance.",
     stats: [
-      {
-        value: '₹9,69,346',
-        label: 'Online Sales',
-        numericTarget: 9.69,
-        prefix: '₹',
-        suffix: 'L+',
-        decimals: 2,
-      },
-      {
-        value: '352',
-        label: 'Orders in 4 Months',
-        numericTarget: 352,
-        suffix: ' Orders',
-        decimals: 0,
-      },
-      {
-        value: '3.41x',
-        label: 'Return on Ad Spend',
-        numericTarget: 3.41,
-        suffix: 'x ROAS',
-        decimals: 2,
-      },
-      {
-        value: '125%',
-        label: 'Conv. Rate Growth',
-        numericTarget: 125,
-        prefix: '+',
-        suffix: '%',
-        decimals: 0,
-      },
+      { value: '₹9,69,346', label: 'Online Sales', numericTarget: 9.69, prefix: '₹', suffix: 'L+', decimals: 2 },
+      { value: '352', label: 'Orders in 4 Months', numericTarget: 352, suffix: ' Orders', decimals: 0 },
+      { value: '3.41x', label: 'Return on Ad Spend', numericTarget: 3.41, suffix: 'x ROAS', decimals: 2 },
+      { value: '125%', label: 'Conv. Rate Growth', numericTarget: 125, prefix: '+', suffix: '%', decimals: 0 },
     ],
     services: ['Performance Marketing', 'Meta Ads', 'Ecommerce Growth'],
     visualCueType: 'footwear',
+    imageUrl: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'surface-by-sefar',
@@ -146,39 +98,14 @@ export const TIER1_CASE_STUDIES: CaseStudyTier1[] = [
     approach: 'Consistent lead forms, hyper-local audience segmentation, and campaign scaling to drive cheaper qualified commercial leads.',
     story: 'With a focused lead generation strategy, Surface (tiles & surfaces) generated strong business between July 2025 – March 2026. Consistent lead forms, right-audience targeting, and campaign scaling drove cheaper qualified leads plus a strong boost in profile visits and brand visibility.',
     stats: [
-      {
-        value: '800+',
-        label: 'Qualified Leads',
-        numericTarget: 800,
-        suffix: '+',
-        decimals: 0,
-      },
-      {
-        value: '₹7–8L+',
-        label: 'Revenue Generated',
-        numericTarget: 8,
-        prefix: '₹',
-        suffix: 'L+',
-        decimals: 0,
-      },
-      {
-        value: '₹100–₹115',
-        label: 'Avg. Cost Per Lead',
-        numericTarget: 108,
-        prefix: '₹',
-        suffix: ' CPL',
-        decimals: 0,
-      },
-      {
-        value: '5%',
-        label: 'Conversion Rate',
-        numericTarget: 5,
-        suffix: '% Conv',
-        decimals: 0,
-      },
+      { value: '800+', label: 'Qualified Leads', numericTarget: 800, suffix: '+', decimals: 0 },
+      { value: '₹7–8L+', label: 'Revenue Generated', numericTarget: 8, prefix: '₹', suffix: 'L+', decimals: 0 },
+      { value: '₹100–₹115', label: 'Avg. Cost Per Lead', numericTarget: 108, prefix: '₹', suffix: ' CPL', decimals: 0 },
+      { value: '5%', label: 'Conversion Rate', numericTarget: 5, suffix: '% Conv', decimals: 0 },
     ],
     services: ['Lead Generation', 'Performance Marketing'],
     visualCueType: 'architectural',
+    imageUrl: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&q=80&w=800'
   },
 ];
 
@@ -198,6 +125,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: '11.78x', label: 'ROAS', numericTarget: 11.78, suffix: 'x', decimals: 2 },
     ],
     services: ['Meta Ads', 'Festive Scaling', 'Ecommerce Funnel'],
+    imageUrl: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 'aple-lites',
@@ -213,6 +141,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: '~5%', label: 'Conv. Rate', numericTarget: 5, suffix: '%', decimals: 0 },
     ],
     services: ['Meta Ads', 'Lead Generation', 'Brand Reach'],
+    imageUrl: 'https://images.unsplash.com/photo-1513506003901-1e6a229e9d15?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 'detailing-devils',
@@ -229,6 +158,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: '191', label: 'IG Direct DMs', numericTarget: 191, suffix: ' DMs', decimals: 0 },
     ],
     services: ['Lead Generation', 'Instagram DM Ads', 'High-Ticket Funnel'],
+    imageUrl: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 'exotic-garden',
@@ -243,6 +173,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: '1.78L+', label: 'Targeted Reach', numericTarget: 1.78, suffix: 'L+', decimals: 2 },
     ],
     services: ['DM Automation', 'Meta Ads', 'Local Retail Growth'],
+    imageUrl: 'https://images.unsplash.com/photo-1416879598555-2200dc3a9e38?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 'karara-mujassme',
@@ -258,6 +189,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: '2,71,000+', label: 'Impressions', numericTarget: 2.71, suffix: 'L+', decimals: 2 },
     ],
     services: ['Luxury Meta Ads', 'Direct Enquiries', 'Audience Building'],
+    imageUrl: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 'ayurveda-yogashram',
@@ -274,6 +206,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: '₹7.0L', label: 'PPC Budget', numericTarget: 7, prefix: '₹', suffix: 'L', decimals: 1 },
     ],
     services: ['Google Search', 'Performance Max', 'Global Shopping'],
+    imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 'mee-help',
@@ -289,6 +222,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: '₹40,000', label: 'Total Budget', numericTarget: 40, prefix: '₹', suffix: 'K', decimals: 0 },
     ],
     services: ['App Install Ads', 'Google UAC', 'Cost Optimization'],
+    imageUrl: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 'ims-delhi',
@@ -304,6 +238,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: '6 Months', label: 'Campaign Window', numericTarget: 6, suffix: ' Mo', decimals: 0 },
     ],
     services: ['Education Meta Ads', 'High Intent Forms', 'Retargeting'],
+    imageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 'grodd',
@@ -319,6 +254,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: 'Scale', label: 'High Velocity', numericTarget: 1, suffix: 'st Tier', decimals: 0 },
     ],
     services: ['Ecommerce Conversions', 'Video Creative Scaling', 'Meta Ads'],
+    imageUrl: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 'aakav-gym',
@@ -334,6 +270,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: '1.5%', label: 'Full Gym Setups', numericTarget: 1.5, suffix: '%', decimals: 1 },
     ],
     services: ['B2B Lead Generation', 'Commercial Sales', 'Meta Inquiries'],
+    imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 'deco-arte',
@@ -349,6 +286,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: 'NCR Area', label: 'Geo-Targeted', numericTarget: 100, suffix: '% Local', decimals: 0 },
     ],
     services: ['Architectural Lead Gen', 'Meta Lead Ads', 'High Net Worth Reach'],
+    imageUrl: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 'shop-kaseeda',
@@ -364,6 +302,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: '5.07x', label: 'Blended ROAS', numericTarget: 5.07, suffix: 'x', decimals: 2 },
     ],
     services: ['Fashion Meta Ads', 'Catalog Retargeting', 'Purchase Scaling'],
+    imageUrl: 'https://images.unsplash.com/photo-1520006403909-838d6b92c22e?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 'style-n-flaunt',
@@ -379,6 +318,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: '19.07x', label: 'Return on Ads', numericTarget: 19.07, suffix: 'x', decimals: 2 },
     ],
     services: ['Meta Purchase Ads', 'Lookalike Scaling', 'AOV Optimization'],
+    imageUrl: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 'surface-concept',
@@ -394,6 +334,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: 'B2B/Pro', label: 'Architect Focus', numericTarget: 100, suffix: '% Pro', decimals: 0 },
     ],
     services: ['Architect & Builder Lead Gen', 'Meta Forms', 'CPL Reduction'],
+    imageUrl: 'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&q=80&w=600'
   },
   {
     id: 'snapkids',
@@ -408,6 +349,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
       { value: 'Wholesale', label: 'Retailer Outreach', numericTarget: 100, suffix: '% B2B', decimals: 0 },
     ],
     services: ['B2B Meta Ads', 'Wholesale Lead Gen', 'Lead Qualification'],
+    imageUrl: 'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&q=80&w=600'
   },
 ];
 

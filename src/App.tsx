@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Navbar } from './components/Navbar';
+import { Hero3DIntro } from './components/Hero3DIntro';
 import { NumbersStrip } from './components/NumbersStrip';
 import { ThreeBackground } from './components/ThreeBackground';
 import { SectionHeader } from './components/SectionHeader';
@@ -42,6 +43,9 @@ export function App() {
     <div className="relative min-h-screen bg-[#FBFBFB] text-[#1A1A1A] overflow-x-hidden">
       {/* Agency Navigation Header */}
       <Navbar />
+
+      {/* Stunning 3D Intro Section */}
+      <Hero3DIntro />
 
       {/* Pre-Portfolio Metric Strip ("Numbers Tell a Better Story") */}
       <NumbersStrip />
