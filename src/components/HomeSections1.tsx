@@ -1,114 +1,166 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, BarChart3, Users, Zap, Search } from 'lucide-react';
+import { ArrowRight, Frown, CheckCircle2 } from 'lucide-react';
+import { CountUpStat } from './CountUpStat';
 import { cn } from '../utils/cn';
-import { CLIENT_LOGOS } from '../data/portfolioData';
-
-const FADE_UP = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
-
-const STAGGER = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
-};
 
 export const HeroSection = () => {
+  
+
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden bg-white pt-32 pb-20">
-      {/* Background Floating Labels */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
-        {['SEO ↑', 'ROAS 9.31X', 'LEADS +', 'META', 'GOOGLE', 'WHATSAPP'].map((lbl, i) => (
-          <motion.div
-            key={i}
-            initial={{ y: '100%', opacity: 0 }}
-            animate={{ y: '-100%', opacity: [0, 1, 0] }}
-            transition={{ duration: 10 + i * 2, repeat: Infinity, ease: 'linear', delay: i * 2 }}
-            className="absolute text-5xl font-black text-transparent [-webkit-text-stroke:1px_rgba(0,0,0,0.8)]"
-            style={{ left: `${10 + i * 15}%` }}
-          >
-            {lbl}
-          </motion.div>
-        ))}
-      </div>
+    <section className="relative min-h-[90vh] pt-32 pb-24 overflow-hidden flex items-center bg-[#F8F9FA] bg-grid-pattern">
+      <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-[#FFEDD5] rounded-full blur-[120px] opacity-60 mix-blend-multiply -translate-x-1/2 -translate-y-1/4 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#D1FAE5] rounded-full blur-[120px] opacity-60 mix-blend-multiply translate-x-1/3 -translate-y-1/4 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-        <motion.div initial="hidden" animate="visible" variants={STAGGER} className="max-w-5xl">
-          <motion.div variants={FADE_UP} className="mb-8 inline-flex flex-wrap items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-gray-500">
-            SEO · AEO · GEO · PERFORMANCE · SOCIAL · INFLUENCER · WHATSAPP
-          </motion.div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full">
+        <div className="grid lg:grid-cols-[1.1fr,0.9fr] gap-12 lg:gap-8 items-center">
           
-          <motion.h1 variants={FADE_UP} className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-black text-[#0A0A0C] tracking-tighter leading-[0.95] mb-8">
-            Digital Marketing.<br />
-            <span className="italic font-light text-gray-400">Built for Growth.</span>
-          </motion.h1>
-          
-          <motion.p variants={FADE_UP} className="text-lg sm:text-xl text-gray-600 max-w-2xl font-medium leading-relaxed mb-10">
-            We help businesses build stronger digital brands, reach the right audiences, and turn online attention into measurable business results.
-          </motion.p>
-          
-          <motion.div variants={FADE_UP} className="flex flex-wrap items-center gap-4 mb-16">
-            <button className="rounded-full bg-[#0052FF] px-8 py-4 text-sm font-bold text-white hover:bg-[#0052FF]/90 transition-colors flex items-center gap-2">
-              Get Started <ArrowRight className="h-4 w-4" />
-            </button>
-            <button className="rounded-full bg-white border border-gray-200 px-8 py-4 text-sm font-bold text-gray-900 hover:bg-gray-50 transition-all flex items-center gap-2">
-              View Our Work <ArrowRight className="h-4 w-4" />
-            </button>
-          </motion.div>
-
-          <motion.div variants={FADE_UP} className="border-t border-gray-100 pt-8">
-            <p className="text-xs font-mono uppercase tracking-widest text-gray-400 mb-4">
-              Trusted by 18+ brands across ecommerce, fashion, wellness, education and home décor
-            </p>
-            <div className="flex gap-6 overflow-hidden">
-              <div className="flex gap-8 items-center animate-scroll">
-                {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
-                  <span key={i} className="text-lg font-bold text-gray-300 whitespace-nowrap hover:text-gray-900 transition-colors cursor-default">
-                    {logo.label}
-                  </span>
-                ))}
-              </div>
+          <div className="flex flex-col items-start pt-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/50 backdrop-blur-sm px-4 py-1.5 mb-8">
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#0A0A0C]">
+                SEO • AEO • GEO • PERFORM
+              </span>
             </div>
-          </motion.div>
-        </motion.div>
+            
+            <h1 className="text-[4rem] leading-[1.05] sm:text-[5rem] lg:text-[5.5rem] font-black text-[#0A0A0C] tracking-tighter mb-8 max-w-2xl">
+              We don't take clients.<br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFB800] via-[#00D084] to-[#00D084]">
+                We take partners.
+              </span>
+            </h1>
+
+            <p className="text-lg sm:text-xl text-gray-600 mb-10 max-w-xl font-medium leading-relaxed">
+              We own your pain as our own and run an AI-powered growth engine — filtering leads, outreach, content and ads — that turns attention into a predictable <span className="font-bold text-[#00D084]">high-ticket pipeline.</span>
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+              <button 
+                className="w-full sm:w-auto group relative flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#FFB800] to-[#00D084] px-8 py-4 text-sm font-bold text-[#0A0A0C] hover:shadow-lg hover:shadow-[#00D084]/20 transition-all duration-300"
+                
+                
+              >
+                <span>Get a Free LinkedIn Audit</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </button>
+              
+              <button className="w-full sm:w-auto group flex items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-8 py-4 text-sm font-bold text-[#0A0A0C] hover:bg-gray-50 transition-colors">
+                <span>See how we work</span>
+                <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-[#0A0A0C] transition-colors" />
+              </button>
+            </div>
+          </div>
+
+          <div className="relative w-full h-[400px] lg:h-[500px] flex items-center justify-center">
+            <motion.div 
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative w-full max-w-[500px] bg-white rounded-3xl shadow-soft-lg border border-gray-100 p-8 flex flex-col justify-between h-[400px]"
+            >
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#FFB800]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#00D084]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
+                </div>
+                <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#00D084]" />
+                  LIVE ENGINE
+                </div>
+              </div>
+
+              <div className="relative flex-grow flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <svg width="100%" height="100%" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 80 100 L 250 50" stroke="#E5E7EB" strokeWidth="2" />
+                    <path d="M 80 100 L 250 83" stroke="#E5E7EB" strokeWidth="2" />
+                    <path d="M 80 100 L 250 116" stroke="#E5E7EB" strokeWidth="2" />
+                    <path d="M 80 100 L 250 150" stroke="#E5E7EB" strokeWidth="2" />
+                  </svg>
+                </div>
+                <div className="relative z-10 w-16 h-16 rounded-full bg-white border-2 border-[#00D084] flex items-center justify-center shadow-lg -translate-x-24">
+                  <span className="text-[10px] font-bold text-[#00D084] text-center leading-tight">YOU<br/>+ AI</span>
+                </div>
+                <div className="absolute right-8 flex flex-col gap-4">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="w-32 h-8 rounded-full border border-gray-200 bg-white flex items-center px-3 gap-2 shadow-sm">
+                      <div className={`w-3 h-3 rounded-full ${i === 4 ? 'bg-gray-300' : 'bg-[#00D084]'}`} />
+                      <div className="flex-1 flex flex-col gap-1">
+                        <div className="h-1 bg-gray-200 rounded-full w-full" />
+                        <div className="h-1 bg-gray-100 rounded-full w-2/3" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="mt-8">
+                <div className="inline-block bg-[#00D084]/10 text-[#00D084] px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest mb-2">
+                  Personalized Outreach
+                </div>
+                <div className="text-xs font-medium text-gray-500">Conversations that get replies</div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
 };
 
-export const DifferenceSection = () => {
+export const StatsStrip = () => {
+  const stats = [
+    { value: 3.4, prefix: '', suffix: 'x', label: 'More qualified calls booked', decimals: 1 },
+    { value: 212, prefix: '+', suffix: '%', label: 'Average pipeline growth', decimals: 0 },
+    { value: 480, prefix: '$', suffix: 'K+', label: 'Pipeline generated in 90 days', decimals: 0 },
+    { value: 28, prefix: '', suffix: '%', label: 'Average LinkedIn reply rate', decimals: 0 },
+  ];
+
   return (
-    <section className="bg-[#FBFBFB] py-24 sm:py-32 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-16">
-          <div className="mb-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0052FF]">
-            <span className="h-2 w-2 rounded-full bg-[#0052FF]" /> THE ADVERT BYTES DIFFERENCE
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#0A0A0C] tracking-tight mb-6">
-            Being online is easy. <span className="text-gray-400">Getting chosen is the real challenge.</span>
+    <div className="relative z-20 -mt-16 w-full px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto bg-white rounded-[2rem] shadow-soft-lg border border-gray-100 p-8 sm:p-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-gray-100">
+          {stats.map((stat, i) => (
+            <div key={i} className={`flex flex-col items-center justify-center text-center ${i > 0 && i < 2 ? 'pt-8 lg:pt-0' : i >= 2 ? 'pt-8 lg:pt-0' : ''}`}>
+              <div className={`text-4xl sm:text-5xl font-black mb-2 tracking-tighter ${i === 0 ? 'text-[#00D084]' : i === 1 ? 'text-[#0052FF]' : i === 2 ? 'text-[#FFB800]' : 'text-[#0A0A0C]'}`}>
+                <CountUpStat value={stat.value.toString()} numericTarget={stat.value} prefix={stat.prefix} suffix={stat.suffix} decimals={stat.decimals} />
+              </div>
+              <div className="text-xs font-semibold text-gray-500 max-w-[150px] leading-relaxed">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const DifferenceSection = () => {
+  const cards = [
+    { title: 'We own your pain', num: '01', desc: 'We sit on your side of the table. Your stalled pipeline, your missed targets, your "why isn\'t this working?" — we feel it as if it were ours, because in this partnership, it is.' },
+    { title: 'We strategize as our own', num: '02', desc: 'No copy-paste playbooks. We build the growth strategy we\'d build if it were our own company on the line — rooted in your buyers, your offer and your numbers.' },
+    { title: 'We execute like in-house', num: '03', desc: 'Strategy is worthless without execution. We run the campaigns, write the content and book the calls — accountable to outcomes, not slide decks.' }
+  ];
+
+  return (
+    <section className="bg-white py-32 overflow-hidden relative bg-grid-pattern">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-20">
+          <div className="text-[#FFB800] text-[10px] font-bold uppercase tracking-[0.2em] mb-4">THE PARTNERSHIP DIFFERENCE</div>
+          <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-black text-[#0A0A0C] tracking-tight leading-[1.1] max-w-4xl mx-auto">
+            Most agencies see a client.<br />
+            We see a <span className="text-[#FFB800]">business worth fighting for.</span>
           </h2>
-          <p className="text-gray-600 text-lg leading-relaxed">
-            At Advert Bytes, we build digital marketing strategies that connect your business with the people who matter most — your customers. From search engines and AI-powered discovery to social media, paid advertising and WhatsApp, we bring strategy, creativity and performance together.
-          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { num: '01', title: 'Strategy Before Execution', desc: 'We understand your business, audience, competition and goals before deciding what to run.' },
-            { num: '02', title: 'Creativity With Purpose', desc: 'Great creative gets attention. Great strategy gives that attention a direction.' },
-            { num: '03', title: 'Data That Drives Decisions', desc: 'We look beyond vanity metrics and use performance data to understand what\'s actually working.' }
-          ].map((item, i) => (
-            <motion.div 
-              key={i}
-              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
-              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } } }}
-              className="bg-white border border-gray-200 shadow-sm p-8 rounded-3xl hover:border-[#0052FF]/30 transition-colors"
-            >
-              <div className="text-[#0052FF] font-mono text-xl font-bold mb-6">{item.num}</div>
-              <h3 className="text-xl font-bold text-[#0A0A0C] mb-4">{item.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-            </motion.div>
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {cards.map((card, i) => (
+            <div key={i} className="bg-white rounded-[2rem] p-10 shadow-soft border border-gray-100 hover:shadow-soft-lg transition-shadow duration-500 group">
+              <div className="text-[#FFB800] text-5xl font-black mb-6 tracking-tighter opacity-90">{card.num}</div>
+              <h3 className="text-2xl font-bold text-[#0A0A0C] mb-4">{card.title}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">{card.desc}</p>
+            </div>
           ))}
         </div>
       </div>
@@ -117,40 +169,38 @@ export const DifferenceSection = () => {
 };
 
 export const PainPointsSection = () => {
+  const points = [
+    { title: 'Feast-or-famine pipeline', desc: 'Leads spike then vanish. You can never forecast revenue with confidence.' },
+    { title: 'LinkedIn that doesn\'t convert', desc: 'A profile that reads like a resume and outreach that feels like spam.' },
+    { title: 'Agencies that vanish after onboarding', desc: 'Hand-offs, junior account managers and reports full of vanity metrics.' },
+    { title: 'Marketing disconnected from revenue', desc: 'Lots of activity, likes and traffic — but no clear line to closed high-ticket deals.' }
+  ];
+
   return (
-    <section className="bg-white py-24 sm:py-32">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="mb-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-400">
-            SOUND FAMILIAR?
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#0A0A0C] tracking-tight">
-            More traffic isn't the problem.<br /> <span className="italic font-light text-gray-400">Turning it into customers is.</span>
+    <section className="bg-[#FFF5F1] py-32 relative overflow-hidden bg-grid-pattern">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#FFE4D6] rounded-full blur-[150px] opacity-70" />
+      
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-16">
+          <div className="text-[#FF4F4F] text-[10px] font-bold uppercase tracking-[0.2em] mb-4">SOUND FAMILIAR?</div>
+          <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-black text-[#0A0A0C] tracking-tight leading-[1.1] max-w-3xl mx-auto">
+            You don't have a marketing problem.<br />
+            You have a <span className="text-[#FF4F4F]">partnership problem.</span>
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6 mb-16">
-          {[
-            { icon: <BarChart3 className="text-[#0052FF]" />, title: 'Inconsistent Traffic', desc: 'Sessions spike during a campaign, then disappear the moment ad spend pauses.' },
-            { icon: <Zap className="text-[#0052FF]" />, title: 'Ads That Don\'t Convert', desc: 'Clicks come in, but they don\'t turn into confirmed orders or qualified leads.' },
-            { icon: <Users className="text-[#0052FF]" />, title: 'Agencies That Disappear', desc: 'Onboarding calls are great; after that it\'s a monthly report full of vanity metrics.' },
-            { icon: <Search className="text-[#0052FF]" />, title: 'Marketing Disconnected From Sales', desc: 'Likes, reach and impressions — but no clear line to revenue.' },
-          ].map((item, i) => (
-             <div key={i} className="flex gap-4 p-8 rounded-3xl bg-[#FBFBFB] border border-gray-100">
-              <div className="flex-shrink-0 mt-1">{item.icon}</div>
+        <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
+          {points.map((point, i) => (
+            <div key={i} className="bg-white rounded-[2rem] p-8 flex items-start gap-6 shadow-soft border border-gray-100/50">
+              <div className="w-12 h-12 rounded-full bg-[#FF4F4F]/10 flex items-center justify-center flex-shrink-0">
+                <Frown className="h-5 w-5 text-[#FF4F4F]" />
+              </div>
               <div>
-                <h3 className="text-lg font-bold text-[#0A0A0C] mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-lg font-bold text-[#0A0A0C] mb-2">{point.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{point.desc}</p>
               </div>
             </div>
           ))}
-        </div>
-        
-        <div className="text-center">
-          <p className="text-xl text-[#0A0A0C] font-medium">
-            Every one of these comes down to marketing without a strategy behind it.<br />
-            <span className="text-[#0052FF]">Here's how we fix that.</span>
-          </p>
         </div>
       </div>
     </section>
@@ -158,54 +208,117 @@ export const PainPointsSection = () => {
 };
 
 export const ServiceTabsSection = () => {
-  const [activeTab, setActiveTab] = useState(0);
-  
-  const tabs = [
-    { title: 'SEO, AEO & GEO', headline: 'Get Found. Get Chosen. Get Mentioned.', desc: 'Search is changing — people now discover businesses through AI-powered search and answer engines, not just traditional results. We combine SEO, AEO and GEO to improve visibility across all of them.', stat: 'Technical + Local SEO, AEO, GEO, Schema — 14 sub-services.' },
-    { title: 'Performance Marketing', headline: 'Spend Smarter. Grow Faster.', desc: 'We create, manage and optimise Google and Meta campaigns focused on measurable outcomes.', stat: '9.31x ROAS (Greenways) · 60x ROAS (Grodd) · ₹13L+ revenue in 90 days.' },
-    { title: 'Social & Influencer', headline: 'Make Your Brand Worth Following.', desc: 'Strategy, content and creativity that looks good, communicates clearly and supports business goals — plus creator partnerships that feel authentic.', stat: '830+ DM conversations generated (Exotic Garden Centre).' },
-    { title: 'WhatsApp Marketing', headline: 'Turn Conversations Into Customers.', desc: 'WhatsApp used strategically becomes a channel for engagement, lead nurturing, retention and sales.', stat: '322+ DMs from a single campaign (Karara Mujassme).' },
-  ];
+  const [activeTab, setActiveTab] = useState('B2B');
+  const tabs = ['B2B', 'B2C', 'D2C'];
+
+  const content = {
+    'B2B': {
+      theme: '#FFB800',
+      title: 'LinkedIn-led pipeline for high-ticket sales.',
+      desc: 'Our home turf. We turn founder authority and precise outreach into a predictable stream of qualified calls with economic buyers — built for long cycles and big deal sizes.',
+      tags: ['LinkedIn', 'Cold + warm outreach', 'Demand gen', 'Founder branding'],
+      stats: [{ v: '45+', l: 'qualified calls / quarter' }, { v: '3.4x', l: 'reply rate vs. industry' }, { v: '90 days', l: 'to meaningful pipeline' }]
+    },
+    'B2C': {
+      theme: '#00D084',
+      title: 'Demand, community and conversion at scale.',
+      desc: 'For consumer brands, we build attention into loyalty — performance creative, social-first content and funnels that turn audiences into repeat customers.',
+      tags: ['Meta & Google Ads', 'Social content', 'Influencer/UGC', 'Conversion funnels'],
+      stats: [{ v: '2.8x', l: 'engagement lift' }, { v: '-38%', l: 'cost per acquisition' }, { v: '4.2x', l: 'return on ad spend' }]
+    },
+    'D2C': {
+      theme: '#0052FF',
+      title: 'From first click to repeat purchase.',
+      desc: 'For direct-to-consumer brands, we own the full revenue engine — acquisition, retention and lifetime value — with creative and data working as one system.',
+      tags: ['Performance ads', 'Email & SMS', 'Landing/CRO', 'Retention loops'],
+      stats: [{ v: '+62%', l: 'repeat purchase rate' }, { v: '3.1x', l: 'blended ROAS' }, { v: '+47%', l: 'customer lifetime value' }]
+    }
+  };
+
+  const active = content[activeTab as keyof typeof content];
 
   return (
-    <section className="bg-[#FBFBFB] py-24 sm:py-32 border-y border-gray-100">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-12">
-          <div className="mb-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0052FF]">
-            WHAT WE DO
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#0A0A0C] tracking-tight">
-            One business. One strategy. <br/><span className="text-gray-400">Five growth channels.</span>
-          </h2>
+    <section className="bg-[#F0FDF4] py-32 relative overflow-hidden bg-grid-pattern">
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white rounded-full blur-[100px] opacity-80 pointer-events-none" />
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
+        
+        <div className="bg-[#00D084] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-8">
+          WHO WE GROW
+        </div>
+        
+        <p className="text-xl text-gray-700 font-medium text-center max-w-2xl mb-12">
+          Our flagship is B2B and high-ticket sales. But the same data-driven growth engine powers consumer and direct-to-consumer brands too. Pick your world.
+        </p>
+
+        <div className="bg-gray-100/80 p-1.5 rounded-full flex gap-1 mb-12 shadow-inner border border-gray-200 backdrop-blur-md relative">
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={cn(
+                "relative z-10 px-8 py-3 text-sm font-bold uppercase tracking-wider rounded-full transition-colors duration-300",
+                activeTab === tab ? "text-gray-900" : "text-gray-500 hover:text-gray-700"
+              )}
+            >
+              {tab}
+            </button>
+          ))}
+          <div 
+            className="absolute top-1.5 bottom-1.5 w-[calc(33.33%-2px)] rounded-full shadow-md transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            style={{ 
+              left: activeTab === 'B2B' ? '6px' : activeTab === 'B2C' ? 'calc(33.33% + 4px)' : 'calc(66.66% + 2px)',
+              backgroundColor: active.theme
+            }} 
+          />
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12">
-          <div className="lg:w-1/3 flex flex-col gap-2">
-            {tabs.map((tab, i) => (
-              <button 
-                key={i} onClick={() => setActiveTab(i)}
-                className={cn("text-left px-6 py-4 rounded-xl font-bold text-sm uppercase tracking-widest transition-all", activeTab === i ? "bg-white text-[#0A0A0C] border border-gray-200 shadow-sm" : "text-gray-500 hover:bg-white hover:text-gray-900")}
-              >
-                {tab.title}
-              </button>
+        <div className="w-full bg-white rounded-[2rem] border border-gray-100 shadow-soft-lg p-8 sm:p-16 flex flex-col lg:flex-row gap-12 lg:gap-24 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-64 h-64 blur-[80px] opacity-10 pointer-events-none" style={{ backgroundColor: active.theme }} />
+          
+          <div className="flex-1 relative z-10">
+            <div className="flex items-center gap-3 mb-6">
+              <h3 className="text-5xl font-black text-[#0A0A0C]">{activeTab}</h3>
+              {activeTab === 'B2B' && (
+                <div className="bg-[#FFB800] text-black text-[10px] font-bold px-2 py-1 rounded-md flex items-center gap-1 uppercase tracking-widest">
+                  <span>★</span> Flagship Expertise
+                </div>
+              )}
+              {activeTab === 'B2C' && (
+                <div className="border border-[#00D084] text-[#00D084] bg-[#00D084]/10 text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-widest">
+                  Full-Funnel Growth
+                </div>
+              )}
+              {activeTab === 'D2C' && (
+                <div className="border border-[#0052FF] text-[#0052FF] bg-[#0052FF]/10 text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-widest">
+                  Revenue Engine
+                </div>
+              )}
+            </div>
+            
+            <h4 className="text-xl font-bold mb-6" style={{ color: active.theme }}>{active.title}</h4>
+            <p className="text-gray-600 text-sm leading-relaxed mb-8">{active.desc}</p>
+            
+            <div className="flex flex-wrap gap-2">
+              {active.tags.map((tag, i) => (
+                <div key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 text-xs font-semibold text-gray-600">
+                  <CheckCircle2 className="h-3 w-3" style={{ color: active.theme }} />
+                  {tag}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex-1 flex flex-col gap-4 relative z-10 justify-center">
+            {active.stats.map((stat, i) => (
+              <div key={i} className="bg-white rounded-2xl border border-gray-100 p-6 flex items-center gap-6 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-soft transition-shadow">
+                <div className="text-3xl font-black tracking-tighter" style={{ color: active.theme }}>{stat.v}</div>
+                <div className="text-xs font-semibold text-gray-500 leading-tight w-24">{stat.l}</div>
+              </div>
             ))}
           </div>
-          
-          <div className="lg:w-2/3 bg-white border border-gray-200 shadow-sm rounded-3xl p-8 sm:p-12 relative overflow-hidden">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}
-            >
-              <h3 className="text-3xl font-extrabold text-[#0A0A0C] mb-6">{tabs[activeTab].headline}</h3>
-              <p className="text-lg text-gray-600 leading-relaxed mb-10">{tabs[activeTab].desc}</p>
-              
-              <div className="border-t border-gray-100 pt-6">
-                <div className="text-xs font-mono uppercase tracking-widest text-[#0052FF] mb-2">Impact / Scope</div>
-                <div className="text-[#0A0A0C] font-bold">{tabs[activeTab].stat}</div>
-              </div>
-            </motion.div>
-          </div>
         </div>
+
       </div>
     </section>
   );
@@ -213,91 +326,51 @@ export const ServiceTabsSection = () => {
 
 export const ProcessSection = () => {
   const steps = [
-    { name: 'Discover', desc: 'We understand your business, market, customers and objectives.' },
-    { name: 'Strategize', desc: 'We identify the right channels, audience and growth opportunities.' },
-    { name: 'Create', desc: 'We develop campaigns, content and creatives built around the strategy.' },
-    { name: 'Launch', desc: 'Your campaigns go live with the right tracking and measurement in place.' },
-    { name: 'Optimize', desc: 'We study the data, identify opportunities and continuously improve performance.' },
-    { name: 'Scale', desc: 'When we find what works, we focus on growing it further.' }
+    { num: '01', eyebrow: 'Absorb the pain', title: 'Understand', desc: 'Deep discovery into your offer, buyers, numbers and bottlenecks. We map your ICP and the real reason deals stall — before touching a single campaign.', feat: 'Growth audit & ICP map', color: '#FFB800' },
+    { num: '02', eyebrow: 'Build the engine', title: 'Strategize', desc: 'We design the full growth strategy — positioning, offer, channels and the LinkedIn-led funnel — the way we\'d build it if the company were ours.', feat: 'Strategy & funnel blueprint', color: '#00D084' },
+    { num: '03', eyebrow: 'Run it like in-house', title: 'Execute', desc: 'We build profiles, produce content, run outreach and ads, and book qualified calls. You watch pipeline fill while we own the day-to-day.', feat: 'Live campaigns & booked calls', color: '#0052FF' },
+    { num: '04', eyebrow: 'Compound the wins', title: 'Scale', desc: 'We double down on what converts, kill what doesn\'t, and systemise the engine so growth compounds month over month.', feat: 'Optimised, compounding pipeline', color: '#8B5CF6' }
   ];
 
   return (
-    <section className="bg-white py-24 sm:py-32">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-16">
-          <div className="mb-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-400">
-            HOW WE WORK
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#0A0A0C] tracking-tight">
-            How We Turn Ideas Into Growth.
+    <section className="bg-white py-32 relative overflow-hidden bg-grid-pattern">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-24">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0A0A0C] tracking-tight leading-relaxed max-w-3xl mx-auto">
+            A proven operating system that takes us from understanding your pain to compounding your pipeline — <span className="font-normal italic text-gray-500">owned end-to-end.</span>
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {steps.map((step, i) => (
-            <div key={i} className="relative bg-[#FBFBFB] border border-gray-200 shadow-sm rounded-3xl p-8 hover:border-[#0052FF]/30 transition-colors">
-              <div className="text-[#0052FF] text-4xl font-black opacity-10 absolute top-6 right-8">0{i + 1}</div>
-              <h3 className="text-xl font-bold text-[#0A0A0C] mb-4 relative z-10">{step.name}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed relative z-10">{step.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+        <div className="relative mt-24">
+          <div className="absolute top-10 left-0 right-0 h-1 hidden lg:block bg-gradient-to-r from-[#FFB800] via-[#00D084] via-[#0052FF] to-[#8B5CF6] rounded-full opacity-30" />
 
-export const GrowthEngineSection = () => {
-  const nodes = [
-    { title: 'Visibility (SEO/AEO/GEO)', desc: 'Shows up where customers are searching, including AI search.' },
-    { title: 'Engagement (Social/Content)', desc: 'Builds recognition and trust.' },
-    { title: 'Conversion (Google/Meta)', desc: 'Turns attention into orders and leads.', callout: '9.31x ROAS · 60x ROAS achieved' },
-    { title: 'Retention (WhatsApp)', desc: 'Nurtures and re-engages existing customers.' },
-    { title: 'Compound Growth', desc: 'Data from all four feeds back into strategy, improving the next cycle.' },
-  ];
-
-  return (
-    <section className="bg-[#FBFBFB] py-24 sm:py-32 border-t border-gray-100 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-16 max-w-2xl">
-          <div className="mb-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0052FF]">
-            THE GROWTH ENGINE
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#0A0A0C] tracking-tight mb-6">
-            Watch how the strategy actually works.
-          </h2>
-          <p className="text-gray-600 text-lg">
-            No black box — this is the system we run for every client, from search visibility to WhatsApp retention.
-          </p>
-        </div>
-
-        <div className="relative">
-          {/* Connecting Line */}
-          <div className="absolute left-[27px] top-8 bottom-8 w-0.5 bg-gradient-to-b from-[#0052FF] to-gray-200 md:left-auto md:top-[27px] md:bottom-auto md:w-full md:h-0.5 md:bg-gradient-to-r" />
-
-          <div className="flex flex-col md:flex-row gap-12 md:gap-6 justify-between">
-            {nodes.map((node, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: i * 0.15, duration: 0.5 }}
-                className="relative z-10 flex flex-row md:flex-col items-start gap-6 md:w-1/5"
-              >
-                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-white border-2 border-[#0052FF] flex items-center justify-center shadow-lg">
-                  <div className="w-3 h-3 bg-[#0A0A0C] rounded-full" />
+          <div className="grid lg:grid-cols-4 gap-12 lg:gap-8 relative z-10">
+            {steps.map((step, i) => (
+              <div key={i} className="flex flex-col items-center text-center">
+                <div 
+                  className="w-20 h-20 rounded-full flex items-center justify-center text-white text-3xl font-black mb-8 shadow-lg z-10"
+                  style={{ backgroundImage: `linear-gradient(135deg, ${step.color}, ${step.color}aa)` }}
+                >
+                  {step.num}
                 </div>
-                <div>
-                  <h3 className="text-base font-bold text-[#0A0A0C] mb-2">{node.title}</h3>
-                  <p className="text-xs text-gray-500 leading-relaxed mb-3">{node.desc}</p>
-                  {node.callout && (
-                    <div className="inline-block bg-[#0052FF]/10 text-[#0052FF] border border-[#0052FF]/20 rounded-md px-2 py-1 text-[10px] font-bold uppercase tracking-wider">
-                      {node.callout}
-                    </div>
-                  )}
+                
+                <div 
+                  className="px-3 py-1 rounded-full border text-[10px] font-bold uppercase tracking-widest mb-4"
+                  style={{ borderColor: `${step.color}30`, color: step.color, backgroundColor: `${step.color}05` }}
+                >
+                  {step.eyebrow}
                 </div>
-              </motion.div>
+
+                <h3 className="text-2xl font-black text-[#0A0A0C] mb-4">{step.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed mb-6">{step.desc}</p>
+
+                <div className="flex items-center gap-2 mt-auto">
+                  <div className="w-4 h-4 rounded-full flex items-center justify-center" style={{ backgroundColor: `${step.color}20` }}>
+                    <CheckCircle2 className="w-3 h-3" style={{ color: step.color }} />
+                  </div>
+                  <span className="text-xs font-bold" style={{ color: step.color }}>{step.feat}</span>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -306,39 +379,10 @@ export const GrowthEngineSection = () => {
   );
 };
 
+export const GrowthEngineSection = () => {
+  return null;
+};
+
 export const ToolsSection = () => {
-  const tools = [
-    { title: 'Research & Audits', desc: 'Google Analytics, Google Search Console, SEMrush, Ahrefs.' },
-    { title: 'Paid Media Management', desc: 'Google Ads Manager, Meta Ads Manager, Performance Max, Shopping Campaigns.' },
-    { title: 'SEO & AEO/GEO Execution', desc: 'Schema markup, structured data, keyword research tools.' },
-    { title: 'Social & Content', desc: 'Content calendars, creative production, Reels/short-form workflows.' },
-    { title: 'WhatsApp & Retention', desc: 'WhatsApp Business API, broadcast and automation tools.' },
-  ];
-
-  return (
-    <section className="bg-white py-24 sm:py-32">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-16">
-          <div className="mb-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-400">
-            HOW WE EXECUTE
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#0A0A0C] tracking-tight">
-            Strategy backed by the right tools, <span className="text-gray-400 italic font-light">not guesswork.</span>
-          </h2>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {tools.map((tool, i) => (
-            <div key={i} className="bg-[#FBFBFB] border border-gray-100 p-6 rounded-2xl flex flex-col justify-between hover:shadow-sm transition-shadow">
-              <CheckCircle2 className="text-gray-300 mb-6 h-6 w-6" />
-              <div>
-                <h3 className="text-sm font-bold text-[#0A0A0C] mb-2">{tool.title}</h3>
-                <p className="text-xs text-gray-500 leading-relaxed">{tool.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return null;
 };

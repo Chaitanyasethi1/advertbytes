@@ -1,20 +1,67 @@
-import React from 'react';
-import { Menu } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
+  const [activeItem, setActiveItem] = useState('Home');
+
+  const navItems = [
+    { label: 'Home' },
+    { label: 'Services', hasDropdown: true },
+    { label: 'How We Work' },
+    { label: 'Platform' },
+    { label: 'Insights' },
+    { label: 'About' },
+    { label: 'Contact' },
+  ];
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-md border-b border-gray-100">
-      <div className="flex items-center gap-2 cursor-pointer">
-        <div className="h-4 w-4 bg-[#0052FF]" />
-        <span className="font-extrabold tracking-tight text-xl text-[#0A0A0C]">Advert Bytes</span>
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-white/60 backdrop-blur-xl border-b border-gray-200/50">
+      
+      {/* Logo */}
+      <div className="flex items-center gap-2 cursor-pointer group">
+        <div className="h-6 w-6 relative overflow-hidden">
+          {/* Mocking the triangular logo */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[10px] border-transparent border-b-[#FFB800]" />
+          <div className="absolute bottom-0 left-0 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[10px] border-transparent border-b-[#00D084]" />
+          <div className="absolute bottom-0 right-0 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[10px] border-transparent border-b-[#0052FF]" />
+        </div>
+        <div className="flex flex-col">
+          <span className="font-extrabold tracking-tight text-xl text-[#0A0A0C] leading-none">Advert Bytes</span>
+          <span className="text-[8px] font-bold tracking-[0.2em] text-gray-400 uppercase mt-0.5">VENTURES</span>
+        </div>
       </div>
       
-      <div>
-        <button className="flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 text-xs font-semibold uppercase tracking-wider hover:bg-gray-50 text-[#0A0A0C] transition-colors">
-          <span>Menu</span>
-          <Menu className="h-4 w-4" />
+      {/* Centered Navigation Pills */}
+      <div className="hidden lg:flex items-center gap-1 bg-white border border-gray-200/60 shadow-sm rounded-full p-1.5">
+        {navItems.map((item) => (
+          <button
+            key={item.label}
+            onClick={() => setActiveItem(item.label)}
+            className={`
+              flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-300
+              ${activeItem === item.label 
+                ? 'text-[#FFB800] bg-transparent' // Based on screenshot, active is colored text
+                : 'text-gray-600 hover:text-black hover:bg-gray-50'
+              }
+            `}
+          >
+            {item.label}
+            {item.hasDropdown && <ChevronDown className="h-3 w-3 opacity-60" />}
+          </button>
+        ))}
+      </div>
+
+      {/* Right Actions */}
+      <div className="flex items-center gap-4">
+        <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hidden sm:flex p-2 rounded-full border border-gray-200 text-gray-500 hover:text-[#0077b5] hover:border-[#0077b5] transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <button className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FFB800] to-[#00D084] px-6 py-2.5 text-[13px] font-bold text-[#0A0A0C] hover:opacity-90 transition-opacity shadow-sm">
+          <span>Book a Strategy Call</span>
+          <ArrowRight className="h-4 w-4" />
         </button>
       </div>
+
     </nav>
   );
 };
