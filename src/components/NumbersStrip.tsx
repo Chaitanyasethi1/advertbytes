@@ -1,79 +1,55 @@
 import React from 'react';
 import { CountUpStat } from './CountUpStat';
-import { TrendingUp, ShieldCheck, Zap, Target } from 'lucide-react';
 
 export const NumbersStrip: React.FC = () => {
-  const highlights = [
-    {
-      icon: TrendingUp,
-      stat: '₹1.5Cr+',
-      numericTarget: 1.5,
-      prefix: '₹',
-      suffix: 'Cr+',
-      decimals: 1,
-      label: 'Verified Revenue Generated',
-    },
-    {
-      icon: Target,
-      stat: '9.31x',
-      numericTarget: 9.31,
-      suffix: 'x',
-      decimals: 2,
-      label: 'Peak Return on Ad Spend',
-    },
-    {
-      icon: Zap,
-      stat: '35,000+',
-      numericTarget: 35,
-      suffix: 'K+',
-      decimals: 0,
-      label: 'Qualified Leads & Orders',
-    },
-    {
-      icon: ShieldCheck,
-      stat: '18+',
-      numericTarget: 18,
-      suffix: '+',
-      decimals: 0,
-      label: 'Scalable Brand Stories',
-    },
-  ];
-
   return (
-    <div className="relative border-y border-[#E5E7EB] bg-white py-10 shadow-sm">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#F0F1F4] pb-4">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#0052FF]">
-            Agency Benchmark
-          </span>
-          <span className="text-sm font-semibold text-[#0A0A0C]">
-            Numbers Tell a Better Story
-          </span>
+    <div className="relative border-y border-white/5 bg-[#0A0A0C]">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        
+        <div className="mb-12 text-center">
+           <h3 className="text-xl sm:text-2xl font-bold text-white tracking-widest uppercase">
+            The Advert Bytes <span className="text-[#0052FF]">Benchmark.</span>
+          </h3>
         </div>
 
-        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-          {highlights.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div key={idx} className="flex items-center gap-4">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#0052FF]/10 text-[#0052FF]">
-                  <Icon className="h-6 w-6" />
-                </div>
-                <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#0A0A0C]">
-                    <CountUpStat
-                      value={item.stat}
-                      numericTarget={item.numericTarget}
-                      prefix={item.prefix}
-                      suffix={item.suffix}
-                      decimals={item.decimals}
-                    />
-                  </div>
-                  <div className="text-xs font-medium text-[#6B7280]">{item.label}</div>
-                </div>
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-2 divide-x divide-white/5 border-t border-white/5 md:grid-cols-4">
+          
+          <div className="flex flex-col items-center justify-center p-8 text-center transition-colors hover:bg-white/5">
+            <span className="text-4xl font-extrabold text-white md:text-5xl tracking-tighter">
+              <CountUpStat value="₹5.5L+" numericTarget={5.5} prefix="₹" suffix="L+" decimals={1} />
+            </span>
+            <span className="mt-3 text-xs font-medium uppercase tracking-widest text-[#8E8E9F]">
+              Avg. Monthly Ad Spend Managed
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center justify-center p-8 text-center transition-colors hover:bg-white/5">
+            <span className="text-4xl font-extrabold text-white md:text-5xl tracking-tighter">
+              <CountUpStat value="4.8x" numericTarget={4.8} suffix="x" decimals={1} />
+            </span>
+            <span className="mt-3 text-xs font-medium uppercase tracking-widest text-[#8E8E9F]">
+              Blended ROAS Across Brands
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center justify-center p-8 text-center transition-colors hover:bg-white/5">
+            <span className="text-4xl font-extrabold text-white md:text-5xl tracking-tighter">
+              <CountUpStat value="85,000+" numericTarget={85000} suffix="+" decimals={0} />
+            </span>
+            <span className="mt-3 text-xs font-medium uppercase tracking-widest text-[#8E8E9F]">
+              High-Intent Leads Generated
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center justify-center p-8 text-center transition-colors hover:bg-white/5">
+            <span className="text-4xl font-extrabold text-white md:text-5xl tracking-tighter">
+              <CountUpStat value="18" numericTarget={18} decimals={0} />
+            </span>
+            <span className="mt-3 text-xs font-medium uppercase tracking-widest text-[#8E8E9F]">
+              Brands Scaled
+            </span>
+          </div>
+
         </div>
       </div>
     </div>

@@ -12,96 +12,86 @@ export const Hero3DIntro: React.FC = () => {
     const container = containerRef.current;
     const scene = new THREE.Scene();
     
-    // Add Fog for depth
-    scene.fog = new THREE.FogExp2(0x0a0a0c, 0.0015);
+    // Very subtle fog to blend into background
+    scene.fog = new THREE.Fog(0x050505, 50, 200);
 
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 2000);
-    camera.position.z = 1000;
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
+    camera.position.z = 100;
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'low-power' });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    // Particles Geometry
-    const geometry = new THREE.BufferGeometry();
-    const particleCount = isMobile ? 1500 : 4000;
-    
-    const positions = new Float32Array(particleCount * 3);
-    const colors = new Float32Array(particleCount * 3);
-
-    const color1 = new THREE.Color(0x0052ff); // Electric Blue
-    const color2 = new THREE.Color(0xffffff); // White
-    const color3 = new THREE.Color(0x4a4a5e); // Grey
-
-    for (let i = 0; i < particleCount; i++) {
-      // Spherical distribution
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(Math.random() * 2 - 1);
-      const radius = 200 + Math.random() * 1200;
-
-      positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
-      positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
-      positions[i * 3 + 2] = radius * Math.cos(phi);
-
-      // Mix colors
-      const mixedColor = [color1, color2, color3][Math.floor(Math.random() * 3)];
-      colors[i * 3] = mixedColor.r;
-      colors[i * 3 + 1] = mixedColor.g;
-      colors[i * 3 + 2] = mixedColor.b;
-    }
-
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-    const material = new THREE.PointsMaterial({
-      size: isMobile ? 3 : 4,
-      vertexColors: true,
+    // Create a sleek, elegant organic wireframe plane
+    const geometry = new THREE.PlaneGeometry(300, 300, 40, 40);
+    const material = new THREE.MeshBasicMaterial({ 
+      color: 0x333333, 
+      wireframe: true,
       transparent: true,
-      opacity: 0.8,
-      sizeAttenuation: true,
+      opacity: 0.15
     });
+    
+    const plane = new THREE.Mesh(geometry, material);
+    plane.rotation.x = -Math.PI / 2.5;
+    plane.position.y = -30;
+    scene.add(plane);
 
-    const particles = new THREE.Points(geometry, material);
-    scene.add(particles);
+    // Store original vertices for organic wave animation
+    const positionAttribute = geometry.attributes.position;
+    const vertexData = [];
+    for (let i = 0; i < positionAttribute.count; i++) {
+      vertexData.push({
+        x: positionAttribute.getX(i),
+        y: positionAttribute.getY(i),
+        z: positionAttribute.getZ(i),
+        ang: Math.random() * Math.PI * 2,
+        amp: 2 + Math.random() * 4,
+        speed: 0.01 + Math.random() * 0.02
+      });
+    }
 
     let mouseX = 0;
     let mouseY = 0;
     
-    const onDocumentMouseMove = (event: MouseEvent) => {
-      mouseX = event.clientX - window.innerWidth / 2;
-      mouseY = event.clientY - window.innerHeight / 2;
+    const onMouseMove = (event: MouseEvent) => {
+      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+      mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
     };
 
     if (!isMobile) {
-      document.addEventListener('mousemove', onDocumentMouseMove);
+      document.addEventListener('mousemove', onMouseMove);
     }
 
-    const onWindowResize = () => {
+    const onResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     };
 
-    window.addEventListener('resize', onWindowResize);
+    window.addEventListener('resize', onResize);
 
     let animationFrameId: number;
     let time = 0;
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      time += 0.001;
+      time += 0.005;
 
-      // Rotate particle system slowly
-      particles.rotation.y = time * 0.5;
-      particles.rotation.x = time * 0.2;
-
-      // Mouse parallax
-      if (!isMobile) {
-        camera.position.x += (mouseX * 0.5 - camera.position.x) * 0.02;
-        camera.position.y += (-mouseY * 0.5 - camera.position.y) * 0.02;
+      // Animate vertices for organic wave effect
+      for (let i = 0; i < positionAttribute.count; i++) {
+        const v = vertexData[i];
+        v.ang += v.speed;
+        positionAttribute.setZ(i, Math.sin(v.ang) * v.amp + Math.sin(time + v.x * 0.05) * 5);
       }
-      camera.lookAt(scene.position);
+      positionAttribute.needsUpdate = true;
+
+      // Subtle parallax
+      if (!isMobile) {
+        camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
+        camera.position.y += (mouseY * 5 - camera.position.y) * 0.05;
+        camera.lookAt(scene.position);
+      }
 
       renderer.render(scene, camera);
     };
@@ -110,8 +100,8 @@ export const Hero3DIntro: React.FC = () => {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      if (!isMobile) document.removeEventListener('mousemove', onDocumentMouseMove);
-      window.removeEventListener('resize', onWindowResize);
+      if (!isMobile) document.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('resize', onResize);
       container.removeChild(renderer.domElement);
       geometry.dispose();
       material.dispose();
@@ -124,42 +114,36 @@ export const Hero3DIntro: React.FC = () => {
   };
 
   return (
-    <div className="relative h-screen w-full bg-[#0A0A0C] overflow-hidden flex flex-col justify-center items-center">
-      <div ref={containerRef} className="absolute inset-0 z-0 opacity-80" />
+    <div className="relative h-screen w-full bg-[#050505] overflow-hidden flex flex-col justify-center items-center pt-20">
+      {/* 3D Canvas Container */}
+      <div ref={containerRef} className="absolute inset-0 z-0 opacity-60 mix-blend-screen" />
       
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white shadow-xl">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#0052FF] opacity-75"></span>
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0052FF]"></span>
-          </span>
-          Digital Growth Portfolio
+      {/* Glow overlay */}
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0052FF]/10 via-[#050505]/80 to-[#050505] pointer-events-none" />
+      
+      <div className="relative z-10 text-center px-4 w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
+        
+        <div className="overflow-hidden mb-6">
+          <h1 className="text-6xl sm:text-8xl md:text-[9rem] font-bold text-white tracking-tighter leading-[0.9] mix-blend-difference">
+            ENGINEERED<br/>
+            <span className="text-[#8E8E9F] italic font-light tracking-tight">GROWTH.</span>
+          </h1>
         </div>
         
-        <h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-white tracking-tighter mb-6 leading-tight">
-          DATA MEETS <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0052FF] to-[#60A5FA]">
-            AESTHETICS.
-          </span>
-        </h1>
-        
-        <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-medium mb-12">
-          Discover how Advert Bytes engineered scalable growth for 18 industry-leading brands through precision performance marketing.
+        <p className="text-sm sm:text-base text-[#8E8E9F] max-w-lg mx-auto font-medium mb-12 uppercase tracking-widest leading-relaxed">
+          Transforming Ad Spend into Measurable Scale. <br/> A 2026 Performance Portfolio.
         </p>
         
         <button 
           onClick={handleScrollDown}
-          className="group flex flex-col items-center justify-center gap-3 text-white/50 hover:text-white transition-colors"
+          className="group flex items-center justify-center gap-3 text-[#4A4A5A] hover:text-white transition-colors mt-8"
         >
-          <span className="text-[10px] font-mono tracking-[0.2em] uppercase">Scroll to explore</span>
-          <div className="p-3 rounded-full border border-white/10 bg-white/5 group-hover:bg-[#0052FF] group-hover:border-[#0052FF] transition-all duration-300 backdrop-blur-md">
-            <ArrowDown className="h-5 w-5 animate-bounce" />
+          <span className="text-[10px] font-mono tracking-[0.2em] uppercase">Explore</span>
+          <div className="p-3 rounded-full border border-white/5 bg-white/5 group-hover:border-white/20 transition-all duration-300">
+            <ArrowDown className="h-4 w-4" />
           </div>
         </button>
       </div>
-      
-      {/* Bottom fade gradient to blend with the next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#FBFBFB] to-transparent z-10 pointer-events-none" />
     </div>
   );
 };

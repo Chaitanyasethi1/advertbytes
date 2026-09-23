@@ -1,7 +1,6 @@
 import React from 'react';
 import { ExternalLink, ArrowUpRight } from 'lucide-react';
 import type { CaseStudyTier1 } from '../data/portfolioData';
-import { Card3DTilt } from './Card3DTilt';
 import { CountUpStat } from './CountUpStat';
 import { InstagramIcon } from './Icons';
 
@@ -17,113 +16,91 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
   onOpenDetails,
 }) => {
   return (
-    <Card3DTilt
-      maxTilt={4}
-      className="flex flex-col shadow-lg hover:shadow-2xl transition-all duration-300 bg-white"
-    >
-      {/* Top Image Banner */}
-      <div className="relative h-48 w-full overflow-hidden">
+    <div className="group relative flex flex-col bg-[#0A0A0C] border border-white/10 rounded-3xl overflow-hidden transition-all duration-500 hover:border-white/30 hover:shadow-2xl hover:shadow-[#0052FF]/10">
+      
+      {/* High-End Image Container */}
+      <div className="relative h-[300px] w-full overflow-hidden bg-[#111]">
         <div 
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100 grayscale-[30%] group-hover:grayscale-0"
           style={{ backgroundImage: `url(${caseStudy.imageUrl})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+        {/* Sleek gradient fade */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0C] via-transparent to-transparent" />
         
-        <div className="absolute bottom-4 left-6 right-6 flex items-end justify-between">
-          <div>
-            <div className="mb-2 inline-flex items-center gap-2">
-              <span className="font-mono text-[10px] font-bold text-white bg-[#0052FF] px-2 py-0.5 rounded-sm uppercase tracking-wider">
-                CASE 0{index + 1}
-              </span>
-              <span className="rounded-sm bg-white/20 backdrop-blur-md px-2 py-0.5 text-[10px] font-semibold text-white">
-                {caseStudy.categoryTag}
-              </span>
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-              {caseStudy.client}
-            </h3>
-            <p className="text-sm text-gray-300 font-medium">{caseStudy.subtitle}</p>
-          </div>
+        {/* Floating Labels */}
+        <div className="absolute top-6 left-6 flex items-center gap-2">
+          <span className="font-mono text-[10px] font-bold text-white bg-[#0052FF] px-2 py-1 rounded uppercase tracking-widest backdrop-blur-sm">
+            0{index + 1}
+          </span>
+          <span className="rounded bg-black/40 backdrop-blur-md px-3 py-1 text-[10px] font-semibold text-white uppercase tracking-widest border border-white/10">
+            {caseStudy.categoryTag}
+          </span>
         </div>
       </div>
 
-      <div className="p-6 sm:p-8 flex flex-col flex-grow justify-between">
-        {/* Social / Web Links */}
-        <div className="flex items-center gap-2 mb-6 justify-end -mt-12 relative z-10">
-          {caseStudy.instagram && (
-            <a
-              href={`https://${caseStudy.instagram}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-white p-2.5 text-[#0A0A0C] shadow-md transition-colors hover:bg-[#0052FF] hover:text-white"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <InstagramIcon className="h-4 w-4" />
-            </a>
-          )}
-          {caseStudy.website && (
-            <a
-              href={`https://${caseStudy.website}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-white p-2.5 text-[#0A0A0C] shadow-md transition-colors hover:bg-[#0052FF] hover:text-white"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <ExternalLink className="h-4 w-4" />
-            </a>
-          )}
+      {/* Content Area */}
+      <div className="p-8 sm:p-10 flex flex-col flex-grow justify-between relative -mt-10">
+        
+        {/* Title Block */}
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <div>
+            <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-1">
+              {caseStudy.client}
+            </h3>
+            <p className="text-sm font-medium text-[#8E8E9F] tracking-wide uppercase">
+              {caseStudy.subtitle}
+            </p>
+          </div>
+          
+          <div className="flex gap-2">
+            {caseStudy.instagram && (
+              <a href={`https://${caseStudy.instagram}`} target="_blank" rel="noreferrer" className="p-2.5 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white hover:text-black transition-all">
+                <InstagramIcon className="h-4 w-4" />
+              </a>
+            )}
+            {caseStudy.website && (
+              <a href={`https://${caseStudy.website}`} target="_blank" rel="noreferrer" className="p-2.5 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white hover:text-black transition-all">
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            )}
+          </div>
         </div>
 
-        {/* Campaign Story */}
-        <p className="text-sm leading-relaxed text-[#4A4A5A] line-clamp-3 mb-6">
+        {/* Narrative */}
+        <p className="text-sm leading-relaxed text-[#A1A1AA] line-clamp-2 mb-8">
           {caseStudy.story}
         </p>
 
-        {/* Hero Numbers Grid */}
-        <div className="my-2 grid grid-cols-2 gap-4 rounded-xl border border-[#EDEEF2] bg-[#FAFBFD] p-5">
+        {/* Crisp Metrics Grid */}
+        <div className="grid grid-cols-2 gap-y-8 gap-x-4 mb-8">
           {caseStudy.stats.map((stat, statIdx) => (
-            <div
-              key={statIdx}
-              className="flex flex-col border-l-2 border-[#0052FF]/40 pl-3 transition-transform duration-300 group-hover:scale-[1.02]"
-            >
-              <span className="text-2xl sm:text-3xl font-black tracking-tight text-[#0A0A0C]">
-                <CountUpStat
-                  value={stat.value}
-                  numericTarget={stat.numericTarget}
-                  prefix={stat.prefix}
-                  suffix={stat.suffix}
-                  decimals={stat.decimals}
-                />
+            <div key={statIdx} className="flex flex-col border-l border-white/10 pl-4">
+              <span className="text-3xl font-bold tracking-tighter text-white">
+                <CountUpStat value={stat.value} numericTarget={stat.numericTarget} prefix={stat.prefix} suffix={stat.suffix} decimals={stat.decimals} />
               </span>
-              <span className="mt-1 text-[10px] font-bold uppercase tracking-wider text-[#6B7280]">
+              <span className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-[#6B7280]">
                 {stat.label}
               </span>
             </div>
           ))}
         </div>
 
-        {/* Card Footer: Tags & Deep Dive Button */}
-        <div className="mt-6 border-t border-[#F0F1F4] pt-5">
-          <div className="flex flex-wrap gap-1.5 mb-4">
-            {caseStudy.services.map((service, sIdx) => (
-              <span
-                key={sIdx}
-                className="rounded-md border border-[#E5E7EB] bg-white px-2 py-1 text-[10px] font-semibold text-[#4B5563]"
-              >
-                {service}
+        {/* Action & Tags */}
+        <div className="mt-auto border-t border-white/10 pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex flex-wrap gap-2">
+            {caseStudy.services.slice(0, 3).map((service, sIdx) => (
+              <span key={sIdx} className="text-[10px] font-mono text-[#8E8E9F] uppercase tracking-wider">
+                {service} {sIdx < 2 && <span className="ml-2 text-white/20">/</span>}
               </span>
             ))}
           </div>
 
-          <button
-            onClick={() => onOpenDetails(caseStudy)}
-            className="inline-flex w-full items-center justify-between rounded-xl bg-[#0A0A0C] px-4 py-3.5 text-xs font-bold text-white transition-all duration-200 hover:bg-[#0052FF]"
-          >
-            <span>Explore Campaign Details</span>
-            <ArrowUpRight className="h-4 w-4" />
+          <button onClick={() => onOpenDetails(caseStudy)} className="inline-flex items-center gap-2 text-xs font-bold text-white group/btn hover:text-[#0052FF] transition-colors uppercase tracking-widest">
+            View Case <ArrowUpRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
           </button>
         </div>
+
       </div>
-    </Card3DTilt>
+    </div>
   );
 };
