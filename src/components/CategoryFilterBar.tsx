@@ -19,7 +19,7 @@ export const CategoryFilterBar: React.FC<CategoryFilterBarProps> = ({
 
   return (
     <div className="sticky top-20 z-40 mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 mb-8">
-      <div className="flex items-center gap-3 overflow-x-auto no-scrollbar rounded-2xl bg-[#0A0A0C]/80 border border-white/5 backdrop-blur-xl p-2 shadow-2xl">
+      <div className="flex items-center gap-3 overflow-x-auto no-scrollbar rounded-2xl bg-white/80 border border-gray-200 backdrop-blur-xl p-2 shadow-sm">
         {CATEGORIES.map((category) => {
           const isActive = activeCategory === category;
           const count = getCount(category);
@@ -32,8 +32,8 @@ export const CategoryFilterBar: React.FC<CategoryFilterBarProps> = ({
                 group relative flex min-w-max items-center justify-center gap-2 rounded-xl px-5 py-3 text-xs font-semibold uppercase tracking-wider transition-all duration-300
                 ${
                   isActive
-                    ? 'bg-white text-black shadow-md'
-                    : 'bg-transparent text-[#8E8E9F] hover:bg-white/5 hover:text-white'
+                    ? 'bg-[#0A0A0C] text-white shadow-md'
+                    : 'bg-transparent text-gray-500 hover:bg-gray-100 hover:text-gray-900'
                 }
               `}
             >
@@ -41,7 +41,7 @@ export const CategoryFilterBar: React.FC<CategoryFilterBarProps> = ({
               <span 
                 className={`
                   flex h-5 items-center justify-center rounded-md px-1.5 text-[10px] font-mono transition-colors
-                  ${isActive ? 'bg-black/10 text-black' : 'bg-white/10 text-white group-hover:bg-white/20'}
+                  ${isActive ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-600 group-hover:bg-gray-300'}
                 `}
               >
                 {count}

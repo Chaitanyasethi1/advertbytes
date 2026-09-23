@@ -71,9 +71,9 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#050505] text-[#E5E7EB] selection:bg-[#0052FF] selection:text-white font-sans overflow-x-hidden">
-      {/* Subtle Noise Overlay for premium texture */}
-      <div className="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.03] mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+    <div className="relative min-h-screen bg-white text-[#0A0A0C] selection:bg-[#0052FF] selection:text-white font-sans overflow-x-hidden">
+      {/* Subtle Noise Overlay for premium texture - Light Mode */}
+      <div className="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.02] mix-blend-multiply" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
 
       <Navbar />
 
@@ -106,7 +106,7 @@ export default function App() {
         <ResultsStripSection />
 
         {/* Section 10: PORTFOLIO */}
-        <section id="portfolio-grid" className="bg-[#050505] py-24 sm:py-32">
+        <section id="portfolio-grid" className="bg-[#FBFBFB] py-24 sm:py-32">
           <SectionHeader onExploreClick={handleScrollToGrid} />
           
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12">
