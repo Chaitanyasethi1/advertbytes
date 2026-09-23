@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { CountUpStat } from './CountUpStat';
 import { CLIENT_LOGOS } from '../data/portfolioData';

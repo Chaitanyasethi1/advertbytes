@@ -1,5 +1,6 @@
 import React from 'react';
-import { CATEGORIES, CategoryFilter, TIER2_CASE_STUDIES } from '../data/portfolioData';
+import { CATEGORIES, TIER2_CASE_STUDIES } from '../data/portfolioData';
+import type { CategoryFilter } from '../data/portfolioData';
 
 interface CategoryFilterBarProps {
   activeCategory: CategoryFilter;

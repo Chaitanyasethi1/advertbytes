@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, ChevronRight, BarChart3, Users, Zap, Search, MessageCircle } from 'lucide-react';
-import { CountUpStat } from './CountUpStat';
+import { ArrowRight, CheckCircle2, BarChart3, Users, Zap, Search } from 'lucide-react';
 import { cn } from '../utils/cn';
 import { CLIENT_LOGOS } from '../data/portfolioData';
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
 };
 
 const STAGGER = {

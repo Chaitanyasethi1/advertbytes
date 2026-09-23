@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import type { CaseStudyTier2 } from '../data/portfolioData';
 import { CountUpStat } from './CountUpStat';
 
