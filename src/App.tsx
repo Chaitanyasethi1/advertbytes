@@ -1,39 +1,70 @@
-import { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import Lenis from 'lenis';
+
+// Core Components
 import { Navbar } from './components/Navbar';
-import { Hero3DIntro } from './components/Hero3DIntro';
-import { NumbersStrip } from './components/NumbersStrip';
-import { ThreeBackground } from './components/ThreeBackground';
 import { SectionHeader } from './components/SectionHeader';
 import { Tier1FeaturedCard } from './components/Tier1FeaturedCard';
 import { CategoryFilterBar } from './components/CategoryFilterBar';
 import { Tier2CompactCard } from './components/Tier2CompactCard';
-import { ClientBrandStrip } from './components/ClientBrandStrip';
 import { CaseStudyDetailModal } from './components/CaseStudyDetailModal';
-import { FooterSummary } from './components/FooterSummary';
-import {
-  TIER1_CASE_STUDIES,
-  TIER2_CASE_STUDIES,
-} from './data/portfolioData';
-import type {
-  CategoryFilter,
-  CaseStudyTier1,
-  CaseStudyTier2,
-} from './data/portfolioData';
 
-export function App() {
+// Homepage Sections
+import { 
+  HeroSection, 
+  DifferenceSection, 
+  PainPointsSection, 
+  ServiceTabsSection, 
+  ProcessSection, 
+  GrowthEngineSection, 
+  ToolsSection 
+} from './components/HomeSections1';
+
+import { 
+  ServicesGridSection, 
+  ResultsStripSection, 
+  ClientLogoStripSection, 
+  ComparisonSection, 
+  TestimonialsSection, 
+  FinalCTA, 
+  Footer 
+} from './components/HomeSections2';
+
+import { TIER1_CASE_STUDIES, TIER2_CASE_STUDIES } from './data/portfolioData';
+import type { CategoryFilter, CaseStudyTier1, CaseStudyTier2 } from './data/portfolioData';
+
+export default function App() {
+  // Setup Lenis Smooth Scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    return () => lenis.destroy();
+  }, []);
+
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>('All');
-  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudyTier1 | CaseStudyTier2 | null>(
-    null
-  );
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudyTier1 | CaseStudyTier2 | null>(null);
 
-  // Filter Tier 2 case studies by selected category
   const filteredTier2 = useMemo(() => {
     if (activeCategory === 'All') return TIER2_CASE_STUDIES;
     return TIER2_CASE_STUDIES.filter((item) => item.categoryTag === activeCategory);
   }, [activeCategory]);
 
   const handleScrollToGrid = () => {
-    const el = document.getElementById('results-grid');
+    const el = document.getElementById('portfolio-grid');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
@@ -41,119 +72,85 @@ export function App() {
 
   return (
     <div className="relative min-h-screen bg-[#050505] text-[#E5E7EB] selection:bg-[#0052FF] selection:text-white font-sans overflow-x-hidden">
-      {/* Subtle Noise Overlay for texture */}
+      {/* Subtle Noise Overlay for premium texture */}
       <div className="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.03] mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
 
-      {/* Agency Navigation Header */}
       <Navbar />
 
-      {/* Stunning 3D Intro Section */}
-      <Hero3DIntro />
+      <main>
+        {/* Section 1: Hero */}
+        <HeroSection />
 
-      {/* Pre-Portfolio Metric Strip ("Numbers Tell a Better Story") */}
-      <NumbersStrip />
+        {/* Section 2: Difference */}
+        <DifferenceSection />
 
-      {/* MAIN PORTFOLIO SECTION */}
-      <section id="portfolio" className="relative pt-12 pb-24 bg-grid-pattern">
-        {/* Subtle Ambient 3D Three.js Wireframe Canvas */}
-        <ThreeBackground />
+        {/* Section 3: Pain Points */}
+        <PainPointsSection />
 
-        {/* Section Header */}
-        <SectionHeader onExploreClick={handleScrollToGrid} />
+        {/* Section 4: Service Tabs */}
+        <ServiceTabsSection />
 
-        {/* TIER 1: FEATURED CASE STUDIES (3 Large Hero 3D Tilt Cards) */}
-        <div id="tier1" className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-24">
-          <div className="mb-6 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#0052FF]" />
-              <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[#4A4A5A]">
-                Tier 1 // Featured Flagship Campaigns
-              </h3>
-            </div>
-            <span className="font-mono text-xs text-[#8E8E9F]">
-              3 Featured Brands
-            </span>
-          </div>
+        {/* Section 5: Process */}
+        <ProcessSection />
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {TIER1_CASE_STUDIES.map((caseStudy, index) => (
-              <Tier1FeaturedCard
-                key={caseStudy.id}
-                caseStudy={caseStudy}
-                index={index}
-                onOpenDetails={setSelectedCaseStudy}
-              />
-            ))}
-          </div>
-        </div>
+        {/* Section 6: Growth Engine */}
+        <GrowthEngineSection />
 
-        {/* TIER 2: RESULTS GRID (15 Filterable Compact Cards) */}
-        <div id="results-grid" className="relative scroll-mt-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-4">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#E5E7EB] pb-6">
-              <div>
-                <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#0052FF]">
-                  Tier 2 // Proven Results Across Industries
-                </span>
-                <h3 className="mt-2 text-2xl sm:text-3xl font-extrabold text-[#0A0A0C]">
-                  Full Campaign Results Archive
-                </h3>
-                <p className="mt-1 text-sm text-[#6B7280]">
-                  Filter across ecommerce, high-ticket lead generation, health, education and interior design.
-                </p>
-              </div>
+        {/* Section 7: Execution & Tools */}
+        <ToolsSection />
 
-              <div className="font-mono text-xs text-[#6B7280]">
-                Showing <strong className="text-[#0A0A0C]">{filteredTier2.length}</strong> of{' '}
-                <strong>{TIER2_CASE_STUDIES.length}</strong> verified cases
-              </div>
-            </div>
-          </div>
+        {/* Section 8: Services Grid */}
+        <ServicesGridSection />
 
-          {/* Sticky Category Filter Bar */}
-          <CategoryFilterBar
-            activeCategory={activeCategory}
-            onSelectCategory={setActiveCategory}
-          />
+        {/* Section 9: Results Strip */}
+        <ResultsStripSection />
 
-          {/* Compact Cards Grid (3 cols desktop, 2 cols tablet, 1 col mobile) */}
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 transition-all duration-300">
-              {filteredTier2.map((caseStudy) => (
-                <Tier2CompactCard
-                  key={caseStudy.id}
-                  caseStudy={caseStudy}
-                  onOpenDetails={setSelectedCaseStudy}
-                />
+        {/* Section 10: PORTFOLIO */}
+        <section id="portfolio-grid" className="bg-[#050505] py-24 sm:py-32">
+          <SectionHeader onExploreClick={handleScrollToGrid} />
+          
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12">
+            <div className="grid gap-8 lg:grid-cols-3 mb-24">
+              {TIER1_CASE_STUDIES.map((study, idx) => (
+                <Tier1FeaturedCard key={study.id} caseStudy={study} index={idx} onOpenDetails={setSelectedCaseStudy} />
               ))}
             </div>
-
-            {filteredTier2.length === 0 && (
-              <div className="py-20 text-center">
-                <p className="text-base font-medium text-[#6B7280]">
-                  No case studies found for this category.
-                </p>
-              </div>
-            )}
           </div>
-        </div>
 
-        {/* CLIENTS STRIP: Brands We've Worked With */}
-        <div id="clients">
-          <ClientBrandStrip />
-        </div>
-      </section>
+          <CategoryFilterBar activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
+          
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {filteredTier2.map((study) => (
+                <Tier2CompactCard key={study.id} caseStudy={study} onOpenDetails={setSelectedCaseStudy} />
+              ))}
+            </div>
+          </div>
+        </section>
 
-      {/* Case Study Detail Modal */}
-      <CaseStudyDetailModal
-        selectedItem={selectedCaseStudy}
-        onClose={() => setSelectedCaseStudy(null)}
-      />
+        {/* Section 11: Clients */}
+        <ClientLogoStripSection />
 
-      {/* Footer */}
-      <FooterSummary />
+        {/* Section 12: Comparison */}
+        <ComparisonSection />
+
+        {/* Section 13: Testimonials */}
+        <TestimonialsSection />
+
+        {/* Section 14: Final CTA */}
+        <FinalCTA />
+      </main>
+
+      {/* Section 15: Footer */}
+      <Footer />
+
+      {/* Case Study Modal */}
+      {selectedCaseStudy && (
+        <CaseStudyDetailModal
+          caseStudy={selectedCaseStudy}
+          onClose={() => setSelectedCaseStudy(null)}
+        />
+      )}
     </div>
   );
 }
-
-export default App;
