@@ -249,15 +249,15 @@ const LiveEngineCarousel = () => {
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[85vh] pt-24 sm:pt-28 pb-16 overflow-hidden flex items-start bg-[#F8F9FA] bg-grid-pattern">
+    <section className="relative min-h-[85vh] pt-20 sm:pt-24 pb-16 overflow-hidden flex items-start bg-[#F8F9FA] bg-grid-pattern">
       <div className="absolute top-0 left-0 w-[800px] h-[800px] opacity-60 mix-blend-multiply -translate-x-1/2 -translate-y-1/4 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, #FFEDD5 0%, rgba(255,237,213,0) 100%)' }} />
       <div className="absolute top-0 right-0 w-[800px] h-[800px] opacity-60 mix-blend-multiply translate-x-1/3 -translate-y-1/4 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, #D1FAE5 0%, rgba(209,250,229,0) 100%)' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full">
-        <div className="grid lg:grid-cols-[1.05fr,0.95fr] gap-12 lg:gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
           
-          <div className="flex flex-col items-start pt-2">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/60 backdrop-blur-sm px-4 py-1.5 mb-8 shadow-sm">
+          <div className="flex flex-col items-start pt-0">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/60 backdrop-blur-sm px-4 py-1.5 mb-6 shadow-sm">
               <svg className="w-3.5 h-3.5 text-[#0A66C2]" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24Z" />
               </svg>
@@ -266,18 +266,18 @@ export const HeroSection = () => {
               </span>
             </div>
             
-            <h1 className="text-[4rem] leading-[1.05] sm:text-[5rem] lg:text-[5.2rem] font-black text-[#0A0A0C] tracking-tighter mb-8 max-w-2xl">
+            <h1 className="text-[3.8rem] leading-[1.05] sm:text-[4.8rem] lg:text-[5rem] font-black text-[#0A0A0C] tracking-tighter mb-6 max-w-2xl">
               We don't take clients.<br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFB800] via-[#34C759] to-[#34C759]">
                 We take partners.
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-gray-600 mb-10 max-w-xl font-medium leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-xl font-medium leading-relaxed">
               We own your pain as our own and run an AI-powered growth engine — filtering leads, outreach, content and ads — that turns attention into a predictable <span className="font-bold text-[#34C759]">high-ticket pipeline.</span>
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-10">
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-8">
               <button className="w-full sm:w-auto group relative flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#FFB800] to-[#34C759] px-8 py-4 text-sm font-bold text-[#0A0A0C] hover:shadow-lg hover:shadow-[#34C759]/20 transition-all duration-300">
                 <span>Get a Free LinkedIn Audit</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -308,7 +308,7 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          <div className="relative w-full flex items-start justify-center lg:justify-end -mt-4 lg:-mt-10 pt-2">
+          <div className="relative w-full flex items-start justify-center lg:justify-end -mt-6 lg:-mt-20 pt-0">
             <LiveEngineCarousel />
           </div>
         </div>
