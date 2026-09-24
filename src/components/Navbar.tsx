@@ -18,18 +18,13 @@ export const Navbar: React.FC = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-white/60 backdrop-blur-xl border-b border-gray-200/50">
       
       {/* Logo */}
-      <div className="flex items-center gap-2 cursor-pointer group">
-        <div className="h-6 w-6 relative overflow-hidden">
-          {/* Mocking the triangular logo */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[10px] border-transparent border-b-[#FFB800]" />
-          <div className="absolute bottom-0 left-0 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[10px] border-transparent border-b-[#00D084]" />
-          <div className="absolute bottom-0 right-0 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[10px] border-transparent border-b-[#0052FF]" />
-        </div>
+      <a href="/" className="flex items-center gap-3 cursor-pointer group">
+        <img src="/favicon.svg" alt="AdvertBytes Logo" className="h-8 w-auto object-contain transition-transform group-hover:scale-105" />
         <div className="flex flex-col">
-          <span className="font-extrabold tracking-tight text-xl text-[#0A0A0C] leading-none">Advert Bytes</span>
-          <span className="text-[8px] font-bold tracking-[0.2em] text-gray-400 uppercase mt-0.5">VENTURES</span>
+          <span className="font-black tracking-[0.08em] text-xl text-[#0A0A0C] leading-none uppercase">ADVERTBYTES</span>
+          <span className="text-[7.5px] font-extrabold tracking-[0.25em] text-gray-400 uppercase mt-1">VENTURES</span>
         </div>
-      </div>
+      </a>
       
       {/* Centered Navigation Pills */}
       <div className="hidden lg:flex items-center gap-1 bg-white border border-gray-200/60 shadow-sm rounded-full p-1.5">

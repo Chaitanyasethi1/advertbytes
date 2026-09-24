@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" fill="none">
+  <g fill="#0A0A0C">
+    <!-- AB Logo Icon -->
+    <path d="M185 60c-14 0-26 8-32 20L45 340c-5 10-1 22 8 28 9 7 21 5 28-3l38-42h132l38 42c8 8 20 10 28 3 9-6 13-18 8-28L217 80c-6-12-18-20-32-20zm-38 200l38-84 38 84h-76z"/>
+    <polygon points="185,230 148,310 222,310"/>
+    <path d="M255 60h125c56 0 100 45 100 100 0 34-17 64-43 82 35 17 60 53 60 95 0 58-47 105-105 105H230c-15 0-28-12-28-28s13-28 28-28h155c29 0 52-23 52-52s-23-52-52-52H255c-15 0-28-12-28-28s13-28 28-28h135c25 0 45-20 45-45s-20-45-45-45H255c-15 0-28-12-28-28s13-28 28-28z"/>
+    
+    <!-- ADVERTBYTES Text -->
+    <text x="300" y="470" font-family="'Syne', 'Plus Jakarta Sans', sans-serif" font-size="52" font-weight="800" letter-spacing="8" text-anchor="middle" fill="#0A0A0C">ADVERTBYTES</text>
+  </g>
+</svg>
