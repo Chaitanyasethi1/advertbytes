@@ -18,8 +18,11 @@ export const Navbar: React.FC = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-white/60 backdrop-blur-xl border-b border-gray-200/50">
       
       {/* Logo */}
-      <a href="/" className="flex items-center cursor-pointer group">
-        <img src="/logo.png" alt="AdvertBytes" className="h-9 md:h-10 w-auto object-contain transition-transform group-hover:scale-105" />
+      <a href="/" className="flex items-center gap-3 cursor-pointer group">
+        <img src="/logo.png" alt="AdvertBytes Logo" className="h-11 md:h-13 w-auto object-contain transition-transform group-hover:scale-105" />
+        <span className="text-xl md:text-2xl font-black tracking-tight text-[#0A0A0C] font-sans transition-colors group-hover:text-black">
+          AdvertBytes
+        </span>
       </a>
       
       {/* Centered Navigation Pills */}
