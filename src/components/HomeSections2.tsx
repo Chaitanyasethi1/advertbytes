@@ -206,13 +206,13 @@ export const FinalCTA = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="w-full sm:w-auto bg-gradient-to-r from-[#FFB800] to-[#00D084] text-[#0A0A0C] px-8 py-4 rounded-full font-bold text-sm shadow-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+          <a href="tel:7827778719" className="w-full sm:w-auto bg-gradient-to-r from-[#FFB800] to-[#00D084] text-[#0A0A0C] px-8 py-4 rounded-full font-bold text-sm shadow-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
             Book a Strategy Call <ArrowRight className="w-4 h-4" />
-          </button>
+          </a>
           
-          <button className="w-full sm:w-auto bg-transparent border border-white/30 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
-            Connect on LinkedIn
-          </button>
+          <a href="tel:7827778719" className="w-full sm:w-auto bg-transparent border border-white/30 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+            Direct Call (+91 78277 78719)
+          </a>
         </div>
         
         <p className="text-white/60 text-xs mt-8 font-medium">No pressure. No fluff. Just a clear plan for your pipeline.</p>

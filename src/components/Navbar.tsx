@@ -48,10 +48,10 @@ export const Navbar: React.FC = () => {
         <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hidden sm:flex p-2 rounded-full border border-gray-200 text-gray-500 hover:text-[#0077b5] hover:border-[#0077b5] transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
-        <button className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FFB800] to-[#00D084] px-6 py-2.5 text-[13px] font-bold text-[#0A0A0C] hover:opacity-90 transition-opacity shadow-sm">
+        <a href="tel:7827778719" className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FFB800] to-[#00D084] px-6 py-2.5 text-[13px] font-bold text-[#0A0A0C] hover:opacity-90 transition-opacity shadow-sm">
           <span>Book a Strategy Call</span>
           <ArrowRight className="h-4 w-4" />
-        </button>
+        </a>
       </div>
 
     </nav>
