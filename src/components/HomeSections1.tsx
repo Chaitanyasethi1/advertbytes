@@ -249,14 +249,14 @@ const LiveEngineCarousel = () => {
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[90vh] pt-32 pb-24 overflow-hidden flex items-center bg-[#F8F9FA] bg-grid-pattern">
+    <section className="relative min-h-[85vh] pt-28 sm:pt-32 pb-20 overflow-hidden flex items-center bg-[#F8F9FA] bg-grid-pattern">
       <div className="absolute top-0 left-0 w-[800px] h-[800px] opacity-60 mix-blend-multiply -translate-x-1/2 -translate-y-1/4 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, #FFEDD5 0%, rgba(255,237,213,0) 100%)' }} />
       <div className="absolute top-0 right-0 w-[800px] h-[800px] opacity-60 mix-blend-multiply translate-x-1/3 -translate-y-1/4 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, #D1FAE5 0%, rgba(209,250,229,0) 100%)' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full">
-        <div className="grid lg:grid-cols-[1.05fr,0.95fr] gap-12 lg:gap-8 items-center">
+        <div className="grid lg:grid-cols-[1.05fr,0.95fr] gap-12 lg:gap-8 items-start">
           
-          <div className="flex flex-col items-start pt-4">
+          <div className="flex flex-col items-start pt-2">
             <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/60 backdrop-blur-sm px-4 py-1.5 mb-8 shadow-sm">
               <svg className="w-3.5 h-3.5 text-[#0A66C2]" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24Z" />
@@ -308,7 +308,7 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          <div className="relative w-full h-[440px] lg:h-[500px] flex items-center justify-center lg:justify-end">
+          <div className="relative w-full flex items-start justify-center lg:justify-end pt-2">
             <LiveEngineCarousel />
           </div>
         </div>
