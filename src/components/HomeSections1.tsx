@@ -308,7 +308,7 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          <div className="relative w-full flex items-start justify-center lg:justify-end pt-0 mt-0">
+          <div className="relative w-full flex items-start justify-center lg:justify-end pt-14 lg:pt-20">
             <LiveEngineCarousel />
           </div>
         </div>
