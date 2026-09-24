@@ -227,17 +227,12 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-10 mb-20">
         
         <div className="lg:col-span-1">
-          <div className="flex items-center gap-2 mb-6 group">
-            <div className="h-7 w-7 relative overflow-hidden">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[7px] border-r-[7px] border-b-[11px] border-transparent border-b-[#FFB800]" />
-              <div className="absolute bottom-0 left-0 w-0 h-0 border-l-[7px] border-r-[7px] border-b-[11px] border-transparent border-b-[#00D084]" />
-              <div className="absolute bottom-0 right-0 w-0 h-0 border-l-[7px] border-r-[7px] border-b-[11px] border-transparent border-b-[#0052FF]" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-extrabold tracking-tight text-2xl text-[#0A0A0C] leading-none">Advert Bytes</span>
-              <span className="text-[9px] font-bold tracking-[0.2em] text-gray-400 uppercase mt-0.5">VENTURES</span>
-            </div>
-          </div>
+          <a href="/" className="flex items-center gap-3.5 mb-6 group cursor-pointer">
+            <img src="/logo.png" alt="AdvertBytes Logo" className="h-14 w-auto object-contain transition-transform group-hover:scale-105" />
+            <span className="font-black tracking-tight text-2xl text-[#0A0A0C] font-sans">
+              AdvertBytes
+            </span>
+          </a>
           <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
             We don't take clients. We take partners. We own your pain points as our own, strategize yours, and execute like your in-house growth team.
           </p>
