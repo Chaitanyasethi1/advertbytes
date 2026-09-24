@@ -6,6 +6,8 @@ import { cn } from '../utils/cn';
 
 const LiveEngineCarousel = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -14,46 +16,53 @@ const LiveEngineCarousel = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setMousePos({ x, y });
+  };
+
   const slides = [
     {
       title: 'AI Decision Engine',
       subtitle: 'Data decides every move',
       badgeColor: 'text-[#FFB800]',
-      badgeBg: 'bg-[#FFB800]/10',
+      badgeBg: 'bg-[#FFB800]/10 border-[#FFB800]/20',
       dotColor: 'bg-[#FFB800]',
       content: (
-        <div className="relative w-full h-full flex items-center justify-center">
-          <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#FFB800] to-[#00D084] flex items-center justify-center shadow-lg shadow-[#00D084]/20">
-            <span className="text-[10px] font-bold text-white text-center leading-tight">AI<br/>ENGINE</span>
+        <div className="relative w-full h-full flex items-center justify-center [transform-style:preserve-3d]">
+          <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#FFB800] via-[#00D084] to-[#0052FF] flex items-center justify-center shadow-xl shadow-[#00D084]/25 [transform:translateZ(40px)]">
+            <span className="text-[10px] font-black text-white text-center leading-tight tracking-wider">AI<br/>ENGINE</span>
           </div>
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 200">
-            <path d="M110 80 L180 100" stroke="#FFB800" strokeWidth="1" strokeOpacity="0.4" />
-            <path d="M110 100 L180 100" stroke="#FFB800" strokeWidth="1" strokeOpacity="0.4" />
-            <path d="M110 120 L180 100" stroke="#FFB800" strokeWidth="1" strokeOpacity="0.4" />
-            <path d="M130 140 L180 100" stroke="#FFB800" strokeWidth="1" strokeOpacity="0.4" />
-            <path d="M290 80 L220 100" stroke="#00D084" strokeWidth="1" strokeOpacity="0.4" />
-            <path d="M290 100 L220 100" stroke="#00D084" strokeWidth="1" strokeOpacity="0.4" />
-            <path d="M290 120 L220 100" stroke="#00D084" strokeWidth="1" strokeOpacity="0.4" />
-            <path d="M270 140 L220 100" stroke="#00D084" strokeWidth="1" strokeOpacity="0.4" />
+          <svg className="absolute inset-0 w-full h-full [transform:translateZ(10px)]" viewBox="0 0 400 200">
+            <path d="M110 80 L180 100" stroke="#FFB800" strokeWidth="1.5" strokeOpacity="0.5" />
+            <path d="M110 100 L180 100" stroke="#FFB800" strokeWidth="1.5" strokeOpacity="0.5" />
+            <path d="M110 120 L180 100" stroke="#FFB800" strokeWidth="1.5" strokeOpacity="0.5" />
+            <path d="M130 140 L180 100" stroke="#FFB800" strokeWidth="1.5" strokeOpacity="0.5" />
+            <path d="M290 80 L220 100" stroke="#00D084" strokeWidth="1.5" strokeOpacity="0.5" />
+            <path d="M290 100 L220 100" stroke="#00D084" strokeWidth="1.5" strokeOpacity="0.5" />
+            <path d="M290 120 L220 100" stroke="#00D084" strokeWidth="1.5" strokeOpacity="0.5" />
+            <path d="M270 140 L220 100" stroke="#00D084" strokeWidth="1.5" strokeOpacity="0.5" />
             
-            <circle cx="110" cy="80" r="2" fill="#FFB800" />
-            <circle cx="110" cy="100" r="2" fill="#FFB800" />
-            <circle cx="110" cy="120" r="2" fill="#FFB800" />
-            <circle cx="130" cy="140" r="2" fill="#FFB800" />
-            <circle cx="290" cy="80" r="2" fill="#00D084" />
-            <circle cx="290" cy="100" r="2" fill="#00D084" />
-            <circle cx="290" cy="120" r="2" fill="#00D084" />
-            <circle cx="270" cy="140" r="2" fill="#00D084" />
+            <circle cx="110" cy="80" r="3" fill="#FFB800" />
+            <circle cx="110" cy="100" r="3" fill="#FFB800" />
+            <circle cx="110" cy="120" r="3" fill="#FFB800" />
+            <circle cx="130" cy="140" r="3" fill="#FFB800" />
+            <circle cx="290" cy="80" r="3" fill="#00D084" />
+            <circle cx="290" cy="100" r="3" fill="#00D084" />
+            <circle cx="290" cy="120" r="3" fill="#00D084" />
+            <circle cx="270" cy="140" r="3" fill="#00D084" />
           </svg>
-          <div className="absolute left-6 top-16 px-3 py-1 rounded-full border border-[#FFB800]/30 bg-white text-[10px] text-[#FFB800] shadow-sm">Intent</div>
-          <div className="absolute left-6 top-[5.5rem] px-3 py-1 rounded-full border border-[#FFB800]/30 bg-white text-[10px] text-[#FFB800] shadow-sm">Engage</div>
-          <div className="absolute left-6 top-[7.5rem] px-3 py-1 rounded-full border border-[#FFB800]/30 bg-white text-[10px] text-[#FFB800] shadow-sm">ICP fit</div>
-          <div className="absolute left-10 top-[9.5rem] px-3 py-1 rounded-full border border-[#FFB800]/30 bg-white text-[10px] text-[#FFB800] shadow-sm">Signals</div>
+          <div className="absolute left-6 top-16 px-3 py-1 rounded-full border border-[#FFB800]/30 bg-white/90 backdrop-blur-md text-[10px] font-bold text-[#FFB800] shadow-md [transform:translateZ(30px)]">Intent</div>
+          <div className="absolute left-6 top-[5.5rem] px-3 py-1 rounded-full border border-[#FFB800]/30 bg-white/90 backdrop-blur-md text-[10px] font-bold text-[#FFB800] shadow-md [transform:translateZ(30px)]">Engage</div>
+          <div className="absolute left-6 top-[7.5rem] px-3 py-1 rounded-full border border-[#FFB800]/30 bg-white/90 backdrop-blur-md text-[10px] font-bold text-[#FFB800] shadow-md [transform:translateZ(30px)]">ICP fit</div>
+          <div className="absolute left-10 top-[9.5rem] px-3 py-1 rounded-full border border-[#FFB800]/30 bg-white/90 backdrop-blur-md text-[10px] font-bold text-[#FFB800] shadow-md [transform:translateZ(30px)]">Signals</div>
           
-          <div className="absolute right-6 top-16 px-3 py-1 rounded-full border border-[#00D084]/30 bg-white text-[10px] text-[#00D084] shadow-sm">Target</div>
-          <div className="absolute right-6 top-[5.5rem] px-3 py-1 rounded-full border border-[#00D084]/30 bg-white text-[10px] text-[#00D084] shadow-sm">Message</div>
-          <div className="absolute right-6 top-[7.5rem] px-3 py-1 rounded-full border border-[#00D084]/30 bg-white text-[10px] text-[#00D084] shadow-sm">Timing</div>
-          <div className="absolute right-10 top-[9.5rem] px-3 py-1 rounded-full border border-[#00D084]/30 bg-white text-[10px] text-[#00D084] shadow-sm">Spend</div>
+          <div className="absolute right-6 top-16 px-3 py-1 rounded-full border border-[#00D084]/30 bg-white/90 backdrop-blur-md text-[10px] font-bold text-[#00D084] shadow-md [transform:translateZ(30px)]">Target</div>
+          <div className="absolute right-6 top-[5.5rem] px-3 py-1 rounded-full border border-[#00D084]/30 bg-white/90 backdrop-blur-md text-[10px] font-bold text-[#00D084] shadow-md [transform:translateZ(30px)]">Message</div>
+          <div className="absolute right-6 top-[7.5rem] px-3 py-1 rounded-full border border-[#00D084]/30 bg-white/90 backdrop-blur-md text-[10px] font-bold text-[#00D084] shadow-md [transform:translateZ(30px)]">Timing</div>
+          <div className="absolute right-10 top-[9.5rem] px-3 py-1 rounded-full border border-[#00D084]/30 bg-white/90 backdrop-blur-md text-[10px] font-bold text-[#00D084] shadow-md [transform:translateZ(30px)]">Spend</div>
         </div>
       )
     },
@@ -61,24 +70,24 @@ const LiveEngineCarousel = () => {
       title: 'Personalized Outreach',
       subtitle: 'Conversations that get replies',
       badgeColor: 'text-[#00D084]',
-      badgeBg: 'bg-[#00D084]/10',
+      badgeBg: 'bg-[#00D084]/10 border-[#00D084]/20',
       dotColor: 'bg-[#00D084]',
       content: (
-        <div className="relative flex-grow flex items-center justify-center w-full h-full">
-          <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative flex-grow flex items-center justify-center w-full h-full [transform-style:preserve-3d]">
+          <div className="absolute inset-0 flex items-center justify-center [transform:translateZ(10px)]">
             <svg width="100%" height="100%" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M 120 100 L 250 50" stroke="#E5E7EB" strokeWidth="2" />
-              <path d="M 120 100 L 250 83" stroke="#E5E7EB" strokeWidth="2" />
-              <path d="M 120 100 L 250 116" stroke="#E5E7EB" strokeWidth="2" />
-              <path d="M 120 100 L 250 150" stroke="#E5E7EB" strokeWidth="2" />
+              <path d="M 120 100 L 250 50" stroke="#00D084" strokeWidth="1.5" strokeOpacity="0.4" />
+              <path d="M 120 100 L 250 83" stroke="#00D084" strokeWidth="1.5" strokeOpacity="0.4" />
+              <path d="M 120 100 L 250 116" stroke="#00D084" strokeWidth="1.5" strokeOpacity="0.4" />
+              <path d="M 120 100 L 250 150" stroke="#E5E7EB" strokeWidth="1.5" />
             </svg>
           </div>
-          <div className="relative z-10 w-16 h-16 rounded-full bg-white border-2 border-[#00D084] flex items-center justify-center shadow-lg -translate-x-12">
+          <div className="relative z-10 w-16 h-16 rounded-full bg-white border-2 border-[#00D084] flex items-center justify-center shadow-lg shadow-[#00D084]/20 -translate-x-12 [transform:translateZ(35px)]">
             <span className="text-[10px] font-bold text-[#00D084] text-center leading-tight">YOU<br/>+ AI</span>
           </div>
-          <div className="absolute right-8 flex flex-col gap-3">
+          <div className="absolute right-8 flex flex-col gap-3 [transform:translateZ(25px)]">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="w-28 h-8 rounded-full border border-gray-200 bg-white flex items-center px-3 gap-2 shadow-sm">
+              <div key={i} className="w-32 h-8 rounded-full border border-gray-100 bg-white/90 backdrop-blur-md flex items-center px-3 gap-2 shadow-md">
                 <div className={`w-3 h-3 rounded-full ${i === 4 ? 'bg-gray-300' : 'bg-[#00D084]'}`} />
                 <div className="flex-1 flex flex-col gap-1">
                   <div className="h-1 bg-gray-200 rounded-full w-full" />
@@ -94,19 +103,19 @@ const LiveEngineCarousel = () => {
       title: 'Content Creation',
       subtitle: 'Authority content, built fast',
       badgeColor: 'text-[#0052FF]',
-      badgeBg: 'bg-[#0052FF]/10',
+      badgeBg: 'bg-[#0052FF]/10 border-[#0052FF]/20',
       dotColor: 'bg-[#0052FF]',
       content: (
-        <div className="relative w-full h-full flex items-center justify-center gap-6 translate-y-4">
-          <div className="flex flex-col items-center">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB800" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v8"/><path d="m4.93 10.93 5.66-5.66"/><path d="m19.07 10.93-5.66-5.66"/></svg>
-            <span className="text-[10px] text-gray-400 font-medium mt-2">IDEA</span>
+        <div className="relative w-full h-full flex items-center justify-center gap-6 translate-y-4 [transform-style:preserve-3d]">
+          <div className="flex flex-col items-center [transform:translateZ(20px)]">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB800" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v8"/><path d="m4.93 10.93 5.66-5.66"/><path d="m19.07 10.93-5.66-5.66"/></svg>
+            <span className="text-[10px] text-gray-500 font-bold mt-2">IDEA</span>
           </div>
-          <div className="w-8 border-t-2 border-dashed border-[#FFB800]/50" />
-          <div className="w-12 h-12 rounded-full border-2 border-[#FFB800] flex items-center justify-center bg-white z-10 text-[10px] font-bold text-[#FFB800]">AI</div>
-          <div className="w-8 border-t-2 border-dashed border-[#00D084]/50" />
-          <div className="w-28 h-36 rounded-xl border-2 border-gray-100 bg-white shadow-md p-3 flex flex-col gap-3">
-            <div className="w-full h-14 rounded-lg bg-[#00D084]/20 border border-[#00D084]/30" />
+          <div className="w-8 border-t-2 border-dashed border-[#FFB800]/60 [transform:translateZ(10px)]" />
+          <div className="w-12 h-12 rounded-full border-2 border-[#FFB800] flex items-center justify-center bg-white z-10 text-[10px] font-bold text-[#FFB800] shadow-md [transform:translateZ(30px)]">AI</div>
+          <div className="w-8 border-t-2 border-dashed border-[#00D084]/60 [transform:translateZ(10px)]" />
+          <div className="w-28 h-36 rounded-2xl border-2 border-gray-100 bg-white/95 backdrop-blur-md shadow-xl p-3 flex flex-col gap-3 [transform:translateZ(40px)]">
+            <div className="w-full h-14 rounded-lg bg-[#00D084]/20 border border-[#00D084]/40 shadow-inner" />
             <div className="w-4/5 h-2 rounded-full bg-[#FFB800]" />
             <div className="w-full h-1.5 rounded-full bg-gray-200" />
             <div className="w-2/3 h-1.5 rounded-full bg-gray-200" />
@@ -119,25 +128,25 @@ const LiveEngineCarousel = () => {
       title: 'Smart Posting',
       subtitle: 'Right channel, right moment',
       badgeColor: 'text-[#FFB800]',
-      badgeBg: 'bg-[#FFB800]/10',
+      badgeBg: 'bg-[#FFB800]/10 border-[#FFB800]/20',
       dotColor: 'bg-[#FFB800]',
       content: (
-        <div className="relative w-full h-full flex items-center justify-center gap-6 translate-y-4">
-          <div className="flex flex-col items-center opacity-30">
+        <div className="relative w-full h-full flex items-center justify-center gap-6 translate-y-4 [transform-style:preserve-3d]">
+          <div className="flex flex-col items-center opacity-40 [transform:translateZ(10px)]">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB800" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v8"/><path d="m4.93 10.93 5.66-5.66"/><path d="m19.07 10.93-5.66-5.66"/></svg>
             <span className="text-[10px] text-gray-400 font-medium mt-2">IDEA</span>
           </div>
-          <div className="w-8 border-t-2 border-dashed border-[#FFB800]/20 opacity-30" />
-          <div className="w-12 h-12 rounded-full border-2 border-[#FFB800] flex items-center justify-center bg-white z-10 text-[10px] font-bold text-[#FFB800] opacity-30">AI</div>
-          <div className="w-8 border-t-2 border-dashed border-[#00D084]/20 opacity-30" />
-          <div className="relative w-28 h-36 rounded-xl border-2 border-gray-100 bg-white shadow-md p-3 flex flex-col gap-3">
-            <div className="w-full h-14 rounded-lg bg-[#00D084]/10 border border-[#00D084]/20" />
-            <div className="w-4/5 h-2 rounded-full bg-[#FFB800]/50" />
+          <div className="w-8 border-t-2 border-dashed border-[#FFB800]/20 opacity-40" />
+          <div className="w-12 h-12 rounded-full border-2 border-[#FFB800] flex items-center justify-center bg-white z-10 text-[10px] font-bold text-[#FFB800] opacity-40 [transform:translateZ(15px)]">AI</div>
+          <div className="w-8 border-t-2 border-dashed border-[#00D084]/20 opacity-40" />
+          <div className="relative w-28 h-36 rounded-2xl border-2 border-gray-100 bg-white/95 backdrop-blur-md shadow-xl p-3 flex flex-col gap-3 [transform:translateZ(40px)]">
+            <div className="w-full h-14 rounded-lg bg-[#00D084]/15 border border-[#00D084]/30" />
+            <div className="w-4/5 h-2 rounded-full bg-[#FFB800]/60" />
             <div className="w-full h-1.5 rounded-full bg-gray-200" />
             <div className="w-2/3 h-1.5 rounded-full bg-gray-200" />
             {/* Pulsating dot over the post */}
-            <div className="absolute top-[4.5rem] left-5 w-5 h-5 rounded-full border border-black flex items-center justify-center bg-white shadow-sm z-20">
-              <div className="w-2 h-2 rounded-full bg-[#8bc34a]" />
+            <div className="absolute top-[4.5rem] left-5 w-6 h-6 rounded-full border border-gray-900 flex items-center justify-center bg-white shadow-lg z-20 [transform:translateZ(20px)]">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#8bc34a] animate-pulse" />
             </div>
           </div>
         </div>
@@ -147,35 +156,35 @@ const LiveEngineCarousel = () => {
       title: 'Paid Amplification',
       subtitle: 'Scale only what converts',
       badgeColor: 'text-[#00D084]',
-      badgeBg: 'bg-[#00D084]/10',
+      badgeBg: 'bg-[#00D084]/10 border-[#00D084]/20',
       dotColor: 'bg-[#00D084]',
       content: (
-        <div className="relative w-full h-full flex items-center justify-center gap-8 translate-y-4">
-          <div className="flex flex-col items-center">
-            <div className="relative w-20 h-20 rounded-full border border-[#FFB800]/40 flex items-center justify-center">
-              <div className="w-14 h-14 rounded-full border border-[#00D084]/60 flex items-center justify-center">
+        <div className="relative w-full h-full flex items-center justify-center gap-7 translate-y-4 [transform-style:preserve-3d]">
+          <div className="flex flex-col items-center [transform:translateZ(20px)]">
+            <div className="relative w-20 h-20 rounded-full border border-[#FFB800]/50 flex items-center justify-center shadow-sm">
+              <div className="w-14 h-14 rounded-full border-2 border-[#00D084] flex items-center justify-center">
                 <div className="w-4 h-4 rounded-full bg-[#00D084]" />
               </div>
             </div>
-            <span className="text-[10px] text-gray-400 font-medium mt-4">TARGET</span>
+            <span className="text-[10px] text-gray-500 font-bold mt-3">TARGET</span>
           </div>
           
-          <div className="w-12 h-12 rounded-xl bg-[#FFB800]/20 border border-[#FFB800] flex flex-col p-2 gap-1.5 justify-center shadow-sm -translate-y-2">
+          <div className="w-12 h-12 rounded-xl bg-[#FFB800]/20 border border-[#FFB800] flex flex-col p-2 gap-1.5 justify-center shadow-md -translate-y-2 [transform:translateZ(30px)]">
             <div className="w-full h-3 bg-[#FFB800] rounded-sm" />
-            <div className="w-full h-1 bg-[#FFB800]/50 rounded-sm" />
-            <div className="w-2/3 h-1 bg-[#FFB800]/50 rounded-sm" />
+            <div className="w-full h-1 bg-[#FFB800]/60 rounded-sm" />
+            <div className="w-2/3 h-1 bg-[#FFB800]/60 rounded-sm" />
           </div>
           
-          <div className="w-24 h-32 rounded-2xl border-2 border-[#00D084] bg-[#00D084]/5 shadow-md p-3 flex flex-col justify-end gap-1.5 relative">
+          <div className="w-26 h-34 rounded-2xl border-2 border-[#00D084] bg-white/95 backdrop-blur-md shadow-2xl p-3 flex flex-col justify-end gap-1.5 relative [transform:translateZ(45px)]">
             <div className="absolute top-3 left-0 w-full text-center text-[9px] font-bold text-gray-500">CONVERSIONS</div>
-            <div className="absolute top-12 left-0 w-full text-center text-sm font-black text-[#00D084] leading-tight">4.2x<br/><span className="text-[8px] font-bold text-[#00D084]/70 uppercase">ROAS</span></div>
+            <div className="absolute top-11 left-0 w-full text-center text-sm font-black text-[#00D084] leading-tight">4.2x<br/><span className="text-[8px] font-bold text-[#00D084]/80 uppercase">ROAS</span></div>
             <div className="flex items-end gap-1.5 h-10 mt-auto justify-center px-1">
               <div className="w-3.5 bg-[#00D084]/70 rounded-t-sm h-4" />
               <div className="w-3.5 bg-[#00D084]/80 rounded-t-sm h-6" />
               <div className="w-3.5 bg-[#00D084] rounded-t-sm h-10" />
             </div>
             {/* Cursor */}
-            <div className="absolute -top-3 left-6 w-6 h-6 rounded-full border border-black flex items-center justify-center bg-white z-20 shadow-sm">
+            <div className="absolute -top-3 left-6 w-6 h-6 rounded-full border border-gray-900 flex items-center justify-center bg-white z-20 shadow-lg">
               <div className="w-2 h-2 rounded-full bg-[#8bc34a]" />
             </div>
           </div>
@@ -184,60 +193,83 @@ const LiveEngineCarousel = () => {
     }
   ];
 
-  return (
-    <motion.div 
-      initial={{ y: 20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-      className="relative w-full max-w-[500px] bg-white rounded-3xl shadow-soft-lg border border-gray-100 p-8 flex flex-col justify-between h-[400px] overflow-hidden group"
-    >
-      <div className="flex items-center justify-between mb-8 relative z-20">
-        <div className="flex gap-1.5">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#FFB800]" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[#00D084]" />
-          <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
-        </div>
-        <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#00D084]" />
-          LIVE ENGINE
-        </div>
-      </div>
+  const calcRotateX = isHovered ? -mousePos.y * 20 : 4;
+  const calcRotateY = isHovered ? mousePos.x * 20 : -8;
 
-      <div className="relative flex-grow flex items-center justify-center">
-        {slides.map((slide, index) => (
-          <div 
-            key={index} 
-            className={`absolute inset-0 transition-all duration-700 ease-in-out flex items-center justify-center ${activeSlide === index ? 'opacity-100 z-10 translate-x-0' : 'opacity-0 z-0 translate-x-4'}`}
-          >
-            {slide.content}
+  return (
+    <div 
+      className="relative w-full max-w-[500px] py-4 [perspective:1200px]"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setMousePos({ x: 0, y: 0 });
+      }}
+    >
+      <motion.div 
+        animate={{ 
+          rotateX: calcRotateX, 
+          rotateY: calcRotateY,
+          y: isHovered ? -6 : [0, -10, 0]
+        }}
+        transition={{ 
+          rotateX: { type: 'spring', stiffness: 200, damping: 20 },
+          rotateY: { type: 'spring', stiffness: 200, damping: 20 },
+          y: isHovered ? { duration: 0.3 } : { duration: 6, repeat: Infinity, ease: 'easeInOut' }
+        }}
+        className="relative w-full bg-white/90 backdrop-blur-xl rounded-[2.5rem] p-8 flex flex-col justify-between h-[420px] overflow-hidden border border-white/80 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.12),0_10px_30px_-10px_rgba(0,208,132,0.15)] [transform-style:preserve-3d]"
+      >
+        {/* Ambient 3D Glow Backlight */}
+        <div className="absolute -inset-4 bg-gradient-to-r from-[#FFB800]/20 via-[#00D084]/20 to-[#0052FF]/20 rounded-[3rem] blur-2xl opacity-50 -z-10 pointer-events-none [transform:translateZ(-40px)]" />
+
+        <div className="flex items-center justify-between mb-6 relative z-20 [transform:translateZ(25px)]">
+          <div className="flex gap-1.5">
+            <div className="w-2.5 h-2.5 rounded-full bg-[#FFB800]" />
+            <div className="w-2.5 h-2.5 rounded-full bg-[#00D084]" />
+            <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
           </div>
-        ))}
-      </div>
-      
-      <div className="mt-8 flex items-end justify-between relative z-20">
-        <div>
-          <div className={`inline-block px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2 transition-colors duration-500 ${slides[activeSlide].badgeBg} ${slides[activeSlide].badgeColor}`}>
-            {slides[activeSlide].title}
+          <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-[#00D084] animate-ping" />
+            LIVE ENGINE
           </div>
-          <div className="text-xs font-medium text-gray-500">{slides[activeSlide].subtitle}</div>
         </div>
-        
-        <div className="flex gap-1.5 items-center mb-1">
+
+        <div className="relative flex-grow flex items-center justify-center [transform-style:preserve-3d]">
           {slides.map((slide, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveSlide(index)}
-              className={`transition-all duration-300 rounded-full h-1.5 ${
-                activeSlide === index 
-                  ? `w-5 ${slide.dotColor}` 
-                  : 'w-1.5 bg-gray-200 hover:bg-gray-300'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
+            <div 
+              key={index} 
+              className={`absolute inset-0 transition-all duration-700 ease-out flex items-center justify-center ${activeSlide === index ? 'opacity-100 z-10 scale-100' : 'opacity-0 z-0 scale-95'}`}
+            >
+              {slide.content}
+            </div>
           ))}
         </div>
-      </div>
-    </motion.div>
+        
+        <div className="mt-6 flex items-end justify-between relative z-20 [transform:translateZ(30px)]">
+          <div>
+            <div className={`inline-block px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider mb-2 border transition-all duration-500 shadow-sm ${slides[activeSlide].badgeBg} ${slides[activeSlide].badgeColor}`}>
+              {slides[activeSlide].title}
+            </div>
+            <div className="text-xs font-semibold text-gray-500">{slides[activeSlide].subtitle}</div>
+          </div>
+          
+          <div className="flex gap-1.5 items-center mb-1">
+            {slides.map((slide, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveSlide(index)}
+                className={`transition-all duration-300 rounded-full h-2 ${
+                  activeSlide === index 
+                    ? `w-6 ${slide.dotColor} shadow-sm` 
+                    : 'w-2 bg-gray-200 hover:bg-gray-300'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </div>
   );
 };
 
