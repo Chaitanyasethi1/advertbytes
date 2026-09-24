@@ -249,7 +249,7 @@ const LiveEngineCarousel = () => {
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[85vh] pt-28 sm:pt-32 pb-20 overflow-hidden flex items-center bg-[#F8F9FA] bg-grid-pattern">
+    <section className="relative min-h-[85vh] pt-24 sm:pt-28 pb-16 overflow-hidden flex items-start bg-[#F8F9FA] bg-grid-pattern">
       <div className="absolute top-0 left-0 w-[800px] h-[800px] opacity-60 mix-blend-multiply -translate-x-1/2 -translate-y-1/4 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, #FFEDD5 0%, rgba(255,237,213,0) 100%)' }} />
       <div className="absolute top-0 right-0 w-[800px] h-[800px] opacity-60 mix-blend-multiply translate-x-1/3 -translate-y-1/4 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, #D1FAE5 0%, rgba(209,250,229,0) 100%)' }} />
 
@@ -308,7 +308,7 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          <div className="relative w-full flex items-start justify-center lg:justify-end pt-2">
+          <div className="relative w-full flex items-start justify-center lg:justify-end -mt-4 lg:-mt-10 pt-2">
             <LiveEngineCarousel />
           </div>
         </div>
