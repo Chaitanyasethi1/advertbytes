@@ -193,9 +193,9 @@ export const FinalCTA = () => {
 export const Footer = () => {
   return (
     <footer className="bg-[#FAF9F6] pt-24 pb-12 border-t border-gray-200 text-[#0A0A0C]">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-10 mb-20">
         
-        <div className="md:col-span-1">
+        <div className="lg:col-span-1">
           <div className="flex items-center gap-2 mb-6 group">
             <div className="h-6 w-6 relative overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[10px] border-transparent border-b-[#FFB800]" />
@@ -236,8 +236,10 @@ export const Footer = () => {
             <li><a href="#about" className="hover:text-[#00D084] transition-colors">About</a></li>
             <li><a href="#contact" className="hover:text-[#00D084] transition-colors">Contact</a></li>
           </ul>
-          
-          <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6 mt-10">Legal</h4>
+        </div>
+
+        <div>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Legal</h4>
           <ul className="space-y-4 text-xs font-semibold text-gray-600">
             <li><a href="#" className="hover:text-[#00D084] transition-colors">Privacy Policy</a></li>
             <li><a href="#" className="hover:text-[#00D084] transition-colors">Terms of Service</a></li>
