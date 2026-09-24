@@ -1,4 +1,5 @@
-import { ArrowRight, CheckCircle2, XCircle } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
 
 export const ServicesGridSection = () => {
@@ -68,51 +69,81 @@ export const ClientLogoStripSection = () => {
 };
 
 export const ComparisonSection = () => {
-  const comparisons = [
-    { label: 'Partner, not vendor', us: 'We own your number with you and act like your team.', them: 'Treats you as a ticket and a monthly retainer.' },
-    { label: 'Senior operators on your account', us: 'Strategists who\'ve built B2B pipelines do the work.', them: 'Hands you to a junior account manager after the pitch.' },
-    { label: 'Revenue-obsessed', us: 'Every action tied to pipeline and closed deals.', them: 'Reports impressions, likes and other vanity metrics.' },
-    { label: 'B2B & LinkedIn specialists', us: 'Deep focus on high-ticket B2B and LinkedIn.', them: 'Generalists spread thin across every industry.' },
-    { label: 'Strategy + execution', us: 'We build the plan and run it end-to-end.', them: 'Sells you a strategy deck, then disappears.' }
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const faqs = [
+    {
+      question: "How is AdvertBytes different from a traditional marketing agency?",
+      answer: "Traditional agencies treat you as a retainer ticket and delegate your account to junior managers reporting vanity metrics like likes & impressions. At AdvertBytes, we act as your embedded growth partner — senior strategists owning your revenue pipeline with custom B2B strategies, high-ticket LinkedIn outreach, and transparent ROI."
+    },
+    {
+      question: "How quickly can we expect to see results and booked calls?",
+      answer: "Our initial setup, ICP targeting, and campaign launch take 1-2 weeks. Most partners see high-intent LinkedIn engagement and their first qualified pipeline calls within 14 to 30 days of campaign launch."
+    },
+    {
+      question: "What industries or business types do you specialize in?",
+      answer: "We specialize in high-ticket B2B services, SaaS, agencies, consulting firms, and founders selling high-value solutions ($5k - $50k+ deal sizes). We also run specialized performance campaigns for B2C & D2C brands."
+    },
+    {
+      question: "Do I need to manage the outreach or write the content myself?",
+      answer: "Zero effort required on your end. We handle full pipeline creation — market research, personal branding, authority content writing, multi-touch LinkedIn outreach, and lead qualification. You only show up to close the calls we book on your calendar."
+    },
+    {
+      question: "What is the structure of your partnership pricing?",
+      answer: "We work on transparent, aligned growth structures tailored to your scale. No long-term lock-in traps — our model ensures we only win when your pipeline wins. Book a strategy call to get a custom roadmap and proposal."
+    }
   ];
 
   return (
-    <section className="bg-white py-32 bg-grid-pattern">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+    <section id="faq" className="bg-[#FAF9F6] py-28 sm:py-32 bg-grid-pattern relative border-t border-gray-100">
+      <div className="max-w-4xl mx-auto px-6">
+        
+        {/* Header */}
         <div className="text-center mb-16">
-          <div className="bg-[#FFB800] text-black text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-8 inline-block">
-            WHY ONLY ADVERT BYTES
+          <div className="bg-[#FFB800] text-black text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-6 inline-block shadow-sm">
+            FREQUENTLY ASKED QUESTIONS
           </div>
-          <h2 className="text-2xl sm:text-3xl font-medium text-gray-700 tracking-tight max-w-2xl mx-auto leading-relaxed">
-            Anyone can run campaigns. Few will own your outcome. Here's what changes when marketing is treated as a partnership.
+          <h2 className="text-4xl sm:text-5xl font-black text-[#0A0A0C] tracking-tight leading-tight mb-4">
+            Everything you need to know about <span className="text-[#FFB800]">partnering with us.</span>
           </h2>
+          <p className="text-base text-gray-500 font-medium max-w-xl mx-auto leading-relaxed">
+            Have questions about how we scale your B2B growth and LinkedIn pipeline? We've got answers.
+          </p>
         </div>
 
-        <div className="flex flex-col gap-3">
-          {/* Header Row */}
-          <div className="grid grid-cols-1 md:grid-cols-[1fr,1.5fr,1.5fr] gap-4 px-6 pb-2">
-            <div className="hidden md:block"></div>
-            <div className="text-center text-sm font-bold text-[#FFB800] uppercase tracking-widest">Advert Bytes</div>
-            <div className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest hidden md:block">Typical agency</div>
-          </div>
+        {/* Accordion List */}
+        <div className="flex flex-col gap-4">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
+                key={index}
+                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden shadow-sm ${
+                  isOpen ? 'border-[#FFB800] shadow-md' : 'border-gray-200/80 hover:border-gray-300'
+                }`}
+              >
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-base text-[#0A0A0C] hover:text-[#00D084] transition-colors"
+                >
+                  <span className="leading-snug">{faq.question}</span>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
+                    isOpen ? 'bg-[#FFB800] text-black rotate-180' : 'bg-gray-100 text-gray-500'
+                  }`}>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </button>
 
-          {/* Rows */}
-          {comparisons.map((row, i) => (
-            <div key={i} className="grid grid-cols-1 md:grid-cols-[1fr,1.5fr,1.5fr] gap-4 items-center">
-              <div className="text-sm font-bold text-[#0A0A0C] px-2">{row.label}</div>
-              
-              <div className="bg-[#F0FDF4] rounded-full px-6 py-4 flex items-center gap-3 border border-[#00D084]/20 shadow-sm">
-                <CheckCircle2 className="w-5 h-5 text-[#00D084] shrink-0" />
-                <span className="text-sm font-semibold text-[#00D084] leading-tight">{row.us}</span>
+                {isOpen && (
+                  <div className="px-6 pb-6 pt-1 text-sm text-gray-600 leading-relaxed border-t border-gray-100/60 font-sans">
+                    {faq.answer}
+                  </div>
+                )}
               </div>
-              
-              <div className="bg-white rounded-full px-6 py-4 flex items-center gap-3 border border-gray-100 shadow-sm opacity-60">
-                <XCircle className="w-5 h-5 text-red-400 shrink-0" />
-                <span className="text-sm text-gray-500 leading-tight">{row.them}</span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
+
       </div>
     </section>
   );
