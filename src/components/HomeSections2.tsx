@@ -197,27 +197,27 @@ export const Footer = () => {
         
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2 mb-6 group">
-            <div className="h-6 w-6 relative overflow-hidden">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[10px] border-transparent border-b-[#FFB800]" />
-              <div className="absolute bottom-0 left-0 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[10px] border-transparent border-b-[#00D084]" />
-              <div className="absolute bottom-0 right-0 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[10px] border-transparent border-b-[#0052FF]" />
+            <div className="h-7 w-7 relative overflow-hidden">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[7px] border-r-[7px] border-b-[11px] border-transparent border-b-[#FFB800]" />
+              <div className="absolute bottom-0 left-0 w-0 h-0 border-l-[7px] border-r-[7px] border-b-[11px] border-transparent border-b-[#00D084]" />
+              <div className="absolute bottom-0 right-0 w-0 h-0 border-l-[7px] border-r-[7px] border-b-[11px] border-transparent border-b-[#0052FF]" />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold tracking-tight text-xl text-[#0A0A0C] leading-none">Advert Bytes</span>
-              <span className="text-[8px] font-bold tracking-[0.2em] text-gray-400 uppercase mt-0.5">VENTURES</span>
+              <span className="font-extrabold tracking-tight text-2xl text-[#0A0A0C] leading-none">Advert Bytes</span>
+              <span className="text-[9px] font-bold tracking-[0.2em] text-gray-400 uppercase mt-0.5">VENTURES</span>
             </div>
           </div>
-          <p className="text-gray-500 text-xs leading-relaxed max-w-xs">
+          <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
             We don't take clients. We take partners. We own your pain points as our own, strategize yours, and execute like your in-house growth team.
           </p>
           <div className="mt-6 flex items-center gap-3">
-             <div className="w-8 h-8 rounded bg-gray-200/50 flex items-center justify-center text-gray-500 hover:text-black transition-colors cursor-pointer text-xs font-bold">in</div>
+             <div className="w-9 h-9 rounded bg-gray-200/60 flex items-center justify-center text-gray-600 hover:text-black transition-colors cursor-pointer text-sm font-bold">in</div>
           </div>
         </div>
         
         <div>
-          <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Services</h4>
-          <ul className="space-y-4 text-xs font-semibold text-gray-600">
+          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-6">Services</h4>
+          <ul className="space-y-3.5 text-sm font-semibold text-gray-700">
             <li><a href="#" className="hover:text-[#00D084] transition-colors">LinkedIn Lead Gen</a></li>
             <li><a href="#" className="hover:text-[#00D084] transition-colors">Demand Gen</a></li>
             <li><a href="#" className="hover:text-[#00D084] transition-colors">Personal Branding</a></li>
@@ -228,8 +228,8 @@ export const Footer = () => {
         </div>
         
         <div>
-          <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Company</h4>
-          <ul className="space-y-4 text-xs font-semibold text-gray-600">
+          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-6">Company</h4>
+          <ul className="space-y-3.5 text-sm font-semibold text-gray-700">
             <li><a href="#" className="hover:text-[#00D084] transition-colors">Home</a></li>
             <li><a href="#services" className="hover:text-[#00D084] transition-colors">Services</a></li>
             <li><a href="#portfolio" className="hover:text-[#00D084] transition-colors">Portfolio</a></li>
@@ -239,8 +239,8 @@ export const Footer = () => {
         </div>
 
         <div>
-          <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Legal</h4>
-          <ul className="space-y-4 text-xs font-semibold text-gray-600">
+          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-6">Legal</h4>
+          <ul className="space-y-3.5 text-sm font-semibold text-gray-700">
             <li><a href="#" className="hover:text-[#00D084] transition-colors">Privacy Policy</a></li>
             <li><a href="#" className="hover:text-[#00D084] transition-colors">Terms of Service</a></li>
             <li><a href="#" className="hover:text-[#00D084] transition-colors">Cookie Policy</a></li>
@@ -248,25 +248,25 @@ export const Footer = () => {
         </div>
         
         <div>
-          <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Get in touch</h4>
-          <ul className="space-y-6 text-xs text-gray-500 leading-relaxed">
-            <li className="flex gap-3">
-              <span className="text-[#FFB800] shrink-0">✉</span> 
-              <a href="mailto:gauravaaa15@gmail.com" className="font-semibold text-gray-600 hover:text-[#00D084] cursor-pointer">gauravaaa15@gmail.com</a>
+          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-6">Get in touch</h4>
+          <ul className="space-y-4 text-sm text-gray-600 leading-relaxed">
+            <li className="flex items-center gap-3">
+              <span className="text-[#FFB800] shrink-0 text-base">✉</span> 
+              <a href="mailto:gauravaaa15@gmail.com" className="font-semibold text-gray-700 hover:text-[#00D084] cursor-pointer">gauravaaa15@gmail.com</a>
             </li>
-            <li className="flex gap-3">
-              <span className="text-[#00D084] shrink-0">📞</span> 
-              <a href="tel:7827778719" className="font-semibold text-gray-600 hover:text-[#00D084]">+91 78277 78719</a>
+            <li className="flex items-center gap-3">
+              <span className="text-[#00D084] shrink-0 text-base">📞</span> 
+              <a href="tel:7827778719" className="font-semibold text-gray-700 hover:text-[#00D084]">+91 78277 78719</a>
             </li>
-            <li className="flex gap-3">
-              <span className="text-[#0052FF] shrink-0">📍</span> 
-              <span>Delhi, India</span>
+            <li className="flex items-center gap-3">
+              <span className="text-[#0052FF] shrink-0 text-base">📍</span> 
+              <span className="font-semibold text-gray-700">Delhi, India</span>
             </li>
           </ul>
         </div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-400 font-medium">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-medium border-t border-gray-200/60 pt-8">
         <p>© 2026 Advert Bytes. All rights reserved.</p>
         <p className="mt-2 md:mt-0">B2B growth partners - LinkedIn-led high-ticket pipeline</p>
       </div>
