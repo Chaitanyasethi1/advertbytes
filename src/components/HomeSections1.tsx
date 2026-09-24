@@ -8,8 +8,8 @@ const LiveEngineCarousel = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % 5);
-    }, 4000);
+      setActiveSlide((prev) => (prev + 1) % 4);
+    }, 4500);
     return () => clearInterval(timer);
   }, []);
 
@@ -22,134 +22,159 @@ const LiveEngineCarousel = () => {
       activeDotColor: 'bg-[#FFB800]',
       content: (
         <div className="relative w-full h-full flex items-center justify-center">
-          {/* Central glowing AI Engine circle */}
-          <div className="relative z-10 w-20 h-20 rounded-full bg-gradient-to-b from-[#72D98D] via-[#34C759] to-[#28A745] p-[3px] shadow-[0_0_35px_rgba(52,199,89,0.35)] flex items-center justify-center">
-            <div className="w-full h-full rounded-full bg-[#34C759] flex flex-col items-center justify-center text-center shadow-inner">
-              <span className="text-[12px] font-black text-[#0A0A0C] leading-none">AI</span>
-              <span className="text-[8px] font-extrabold text-[#0A0A0C] tracking-wider mt-0.5">ENGINE</span>
+          {/* Central glowing AI Engine node */}
+          <div className="relative z-10 w-22 h-22 rounded-full bg-gradient-to-tr from-[#FFB800] via-[#85C744] to-[#00D084] p-[3px] shadow-[0_10px_30px_rgba(0,208,132,0.3)] flex items-center justify-center">
+            <div className="w-full h-full rounded-full bg-white flex flex-col items-center justify-center text-center shadow-inner">
+              <span className="text-xs font-black text-[#0A0A0C] tracking-tight">YOU + AI</span>
+              <span className="text-[9px] font-bold text-[#00D084] uppercase tracking-wider">ENGINE</span>
             </div>
           </div>
 
-          {/* SVG Connecting Lines with Nodes */}
+          {/* SVG Connecting Lines with Glowing Dots */}
           <svg className="absolute inset-0 w-full h-full" viewBox="0 0 420 220" fill="none">
-            {/* Left lines */}
-            <path d="M 125 45 L 210 110" stroke="#FFC107" strokeWidth="1.5" strokeOpacity="0.4" />
-            <path d="M 125 88 L 210 110" stroke="#FFC107" strokeWidth="1.5" strokeOpacity="0.4" />
-            <path d="M 125 132 L 210 110" stroke="#FFC107" strokeWidth="1.5" strokeOpacity="0.4" />
-            <path d="M 125 175 L 210 110" stroke="#FFC107" strokeWidth="1.5" strokeOpacity="0.4" />
+            <path d="M 115 42 L 210 110" stroke="#FFB800" strokeWidth="2" strokeDasharray="4 4" strokeOpacity="0.7" />
+            <path d="M 115 85 L 210 110" stroke="#FFB800" strokeWidth="2" strokeDasharray="4 4" strokeOpacity="0.7" />
+            <path d="M 115 128 L 210 110" stroke="#FFB800" strokeWidth="2" strokeDasharray="4 4" strokeOpacity="0.7" />
+            <path d="M 115 170 L 210 110" stroke="#FFB800" strokeWidth="2" strokeDasharray="4 4" strokeOpacity="0.7" />
             
-            {/* Left nodes */}
-            <circle cx="178" cy="85" r="3.5" fill="#FFC107" />
-            <circle cx="188" cy="98" r="3.5" fill="#FFC107" />
-            <circle cx="165" cy="120" r="3.5" fill="#FFC107" />
-            <circle cx="152" cy="144" r="3.5" fill="#FFC107" />
+            <path d="M 305 42 L 210 110" stroke="#00D084" strokeWidth="2" strokeDasharray="4 4" strokeOpacity="0.7" />
+            <path d="M 305 85 L 210 110" stroke="#00D084" strokeWidth="2" strokeDasharray="4 4" strokeOpacity="0.7" />
+            <path d="M 305 128 L 210 110" stroke="#00D084" strokeWidth="2" strokeDasharray="4 4" strokeOpacity="0.7" />
+            <path d="M 305 170 L 210 110" stroke="#00D084" strokeWidth="2" strokeDasharray="4 4" strokeOpacity="0.7" />
 
-            {/* Right lines */}
-            <path d="M 295 45 L 210 110" stroke="#34C759" strokeWidth="1.5" strokeOpacity="0.4" />
-            <path d="M 295 88 L 210 110" stroke="#34C759" strokeWidth="1.5" strokeOpacity="0.4" />
-            <path d="M 295 132 L 210 110" stroke="#34C759" strokeWidth="1.5" strokeOpacity="0.4" />
-            <path d="M 295 175 L 210 110" stroke="#34C759" strokeWidth="1.5" strokeOpacity="0.4" />
-
-            {/* Right nodes */}
-            <circle cx="280" cy="56" r="3.5" fill="#34C759" />
-            <circle cx="270" cy="98" r="3.5" fill="#34C759" />
-            <circle cx="258" cy="122" r="3.5" fill="#34C759" />
-            <circle cx="245" cy="148" r="3.5" fill="#34C759" />
+            <circle cx="165" cy="76" r="4" fill="#FFB800" />
+            <circle cx="155" cy="120" r="4" fill="#FFB800" />
+            <circle cx="255" cy="76" r="4" fill="#00D084" />
+            <circle cx="265" cy="120" r="4" fill="#00D084" />
           </svg>
 
-          {/* Left Pill Labels */}
-          <div className="absolute left-6 top-[28px] px-4 py-1.5 rounded-xl border border-[#FFE082] bg-[#FFFDE7] text-xs font-semibold text-[#D7CCC8] shadow-sm tracking-wide">Intent</div>
-          <div className="absolute left-6 top-[72px] px-4 py-1.5 rounded-xl border border-[#FFE082] bg-[#FFFDE7] text-xs font-semibold text-[#E6A100] shadow-sm tracking-wide">Engage</div>
-          <div className="absolute left-6 top-[116px] px-4 py-1.5 rounded-xl border border-[#FFE082] bg-[#FFFDE7] text-xs font-semibold text-[#E6A100] shadow-sm tracking-wide">ICP fit</div>
-          <div className="absolute left-6 top-[160px] px-4 py-1.5 rounded-xl border border-[#FFE082] bg-[#FFFDE7] text-xs font-semibold text-[#E6A100] shadow-sm tracking-wide">Signals</div>
+          {/* Left Inputs */}
+          <div className="absolute left-4 top-[24px] px-3.5 py-1.5 rounded-full border border-amber-200 bg-amber-50 text-[11px] font-bold text-[#D97706] shadow-sm">Intent Signals</div>
+          <div className="absolute left-4 top-[68px] px-3.5 py-1.5 rounded-full border border-amber-200 bg-amber-50 text-[11px] font-bold text-[#D97706] shadow-sm">99% ICP Fit</div>
+          <div className="absolute left-4 top-[112px] px-3.5 py-1.5 rounded-full border border-amber-200 bg-amber-50 text-[11px] font-bold text-[#D97706] shadow-sm">Decision Makers</div>
+          <div className="absolute left-4 top-[156px] px-3.5 py-1.5 rounded-full border border-amber-200 bg-amber-50 text-[11px] font-bold text-[#D97706] shadow-sm">Buying Stage</div>
 
-          {/* Right Pill Labels */}
-          <div className="absolute right-6 top-[28px] px-4 py-1.5 rounded-xl border border-[#C8E6C9] bg-[#F1F8E9] text-xs font-semibold text-[#388E3C] shadow-sm tracking-wide">Target</div>
-          <div className="absolute right-6 top-[72px] px-4 py-1.5 rounded-xl border border-[#C8E6C9] bg-[#F1F8E9] text-xs font-semibold text-[#388E3C] shadow-sm tracking-wide">Message</div>
-          <div className="absolute right-6 top-[116px] px-4 py-1.5 rounded-xl border border-[#C8E6C9] bg-[#F1F8E9] text-xs font-semibold text-[#388E3C] shadow-sm tracking-wide">Timing</div>
-          <div className="absolute right-6 top-[160px] px-4 py-1.5 rounded-xl border border-[#C8E6C9] bg-[#F1F8E9] text-xs font-semibold text-[#388E3C] shadow-sm tracking-wide">Spend</div>
+          {/* Right Outputs */}
+          <div className="absolute right-4 top-[24px] px-3.5 py-1.5 rounded-full border border-emerald-200 bg-emerald-50 text-[11px] font-bold text-[#059669] shadow-sm">Smart Target</div>
+          <div className="absolute right-4 top-[68px] px-3.5 py-1.5 rounded-full border border-emerald-200 bg-emerald-50 text-[11px] font-bold text-[#059669] shadow-sm">1:1 Hook</div>
+          <div className="absolute right-4 top-[112px] px-3.5 py-1.5 rounded-full border border-emerald-200 bg-emerald-50 text-[11px] font-bold text-[#059669] shadow-sm">Optimal Time</div>
+          <div className="absolute right-4 top-[156px] px-3.5 py-1.5 rounded-full border border-emerald-200 bg-emerald-50 text-[11px] font-bold text-[#059669] shadow-sm">High Reply %</div>
         </div>
       )
     },
     {
       title: 'Personalized Outreach',
       subtitle: 'Conversations that get replies',
-      badgeColor: 'text-[#2E7D32]',
-      badgeBg: 'bg-[#E8F5E9]',
-      activeDotColor: 'bg-[#34C759]',
+      badgeColor: 'text-[#059669]',
+      badgeBg: 'bg-[#ECFDF5]',
+      activeDotColor: 'bg-[#00D084]',
       content: (
-        <div className="relative flex-grow flex items-center justify-center w-full h-full">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <svg width="100%" height="100%" viewBox="0 0 400 200" fill="none">
-              <path d="M 125 100 L 255 45" stroke="#E5E7EB" strokeWidth="2" />
-              <path d="M 125 100 L 255 82" stroke="#E5E7EB" strokeWidth="2" />
-              <path d="M 125 100 L 255 118" stroke="#E5E7EB" strokeWidth="2" />
-              <path d="M 125 100 L 255 155" stroke="#E5E7EB" strokeWidth="2" />
-            </svg>
+        <div className="relative w-full h-full flex items-center justify-between px-2">
+          {/* Left Node */}
+          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#00D084] to-[#0052FF] p-0.5 shadow-lg flex items-center justify-center shrink-0">
+            <div className="w-full h-full rounded-full bg-white flex flex-col items-center justify-center text-center p-2">
+              <div className="w-6 h-6 rounded-full bg-[#00D084]/20 flex items-center justify-center text-[#00D084] font-black text-[10px] mb-1">⚡</div>
+              <span className="text-[11px] font-black text-[#0A0A0C] leading-none">YOU + AI</span>
+              <span className="text-[8px] font-bold text-gray-400 mt-0.5">SMART OUTREACH</span>
+            </div>
           </div>
-          <div className="relative z-10 w-20 h-20 rounded-full bg-white border-2 border-[#34C759] flex items-center justify-center shadow-lg -translate-x-12">
-            <span className="text-[11px] font-bold text-[#34C759] text-center leading-tight">YOU<br/>+ AI</span>
+
+          {/* SVG Connectors */}
+          <svg className="absolute left-20 right-44 h-full pointer-events-none" viewBox="0 0 100 200" preserveAspectRatio="none">
+            <path d="M 0 100 C 40 100, 40 30, 100 30" stroke="#00D084" strokeWidth="2" fill="none" opacity="0.6" />
+            <path d="M 0 100 C 40 100, 40 75, 100 75" stroke="#00D084" strokeWidth="2" fill="none" opacity="0.6" />
+            <path d="M 0 100 C 40 100, 40 125, 100 125" stroke="#00D084" strokeWidth="2" fill="none" opacity="0.6" />
+            <path d="M 0 100 C 40 100, 40 170, 100 170" stroke="#00D084" strokeWidth="2" fill="none" opacity="0.6" />
+          </svg>
+
+          {/* Right Cards List */}
+          <div className="flex flex-col gap-2.5 w-60 z-10">
+            <div className="p-2.5 rounded-xl border border-emerald-200 bg-emerald-50/90 shadow-sm flex items-center gap-2.5">
+              <div className="w-7 h-7 rounded-full bg-[#00D084] text-white font-bold text-xs flex items-center justify-center shrink-0">SJ</div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-gray-900 truncate">Sarah J. (VP Sales)</span>
+                  <span className="w-2 h-2 rounded-full bg-[#00D084]"></span>
+                </div>
+                <p className="text-[9px] text-gray-600 truncate">"Let's talk tomorrow at 3 PM!"</p>
+              </div>
+            </div>
+
+            <div className="p-2.5 rounded-xl border border-amber-200 bg-amber-50/90 shadow-sm flex items-center gap-2.5">
+              <div className="w-7 h-7 rounded-full bg-[#FFB800] text-black font-bold text-xs flex items-center justify-center shrink-0">DC</div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-gray-900 truncate">David C. (Head Growth)</span>
+                  <span className="w-2 h-2 rounded-full bg-[#FFB800]"></span>
+                </div>
+                <p className="text-[9px] text-gray-600 truncate">"Send over your deck!"</p>
+              </div>
+            </div>
+
+            <div className="p-2.5 rounded-xl border border-blue-200 bg-blue-50/90 shadow-sm flex items-center gap-2.5">
+              <div className="w-7 h-7 rounded-full bg-[#0052FF] text-white font-bold text-xs flex items-center justify-center shrink-0">ER</div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-gray-900 truncate">Elena R. (CMO)</span>
+                  <span className="w-2 h-2 rounded-full bg-[#0052FF]"></span>
+                </div>
+                <p className="text-[9px] text-gray-600 truncate">"Confirmed slot for Thursday"</p>
+              </div>
+            </div>
+
+            <div className="p-2.5 rounded-xl border border-gray-200 bg-white shadow-sm flex items-center gap-2.5">
+              <div className="w-7 h-7 rounded-full bg-gray-800 text-white font-bold text-xs flex items-center justify-center shrink-0">MV</div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-gray-900 truncate">Marcus V. (CEO)</span>
+                  <span className="w-2 h-2 rounded-full bg-gray-400"></span>
+                </div>
+                <p className="text-[9px] text-gray-600 truncate">"Sounds aligned, cc my EA"</p>
+              </div>
+            </div>
           </div>
-          <div className="absolute right-8 flex flex-col gap-3.5">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="w-36 h-9 rounded-full border border-gray-200 bg-white flex items-center px-3.5 gap-2.5 shadow-sm">
-                <div className={`w-3.5 h-3.5 rounded-full ${i === 4 ? 'bg-gray-300' : 'bg-[#34C759]'}`} />
-                <div className="flex-1 flex flex-col gap-1">
-                  <div className="h-1.5 bg-gray-200 rounded-full w-full" />
-                  <div className="h-1.5 bg-gray-100 rounded-full w-2/3" />
+        </div>
+      )
+    },
+    {
+      title: 'Content Engine',
+      subtitle: 'Authority content, built fast',
+      badgeColor: 'text-[#1D4ED8]',
+      badgeBg: 'bg-[#EFF6FF]',
+      activeDotColor: 'bg-[#0052FF]',
+      content: (
+        <div className="relative w-full h-full flex items-center justify-center px-4">
+          <div className="w-full max-w-sm bg-white rounded-2xl border border-gray-200 shadow-md p-4 flex flex-col gap-3">
+            <div className="flex items-center justify-between border-b border-gray-100 pb-2.5">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#FFB800] to-[#00D084] flex items-center justify-center font-bold text-xs text-black">AB</div>
+                <div>
+                  <div className="text-[11px] font-bold text-gray-900">LinkedIn Authority Post</div>
+                  <div className="text-[9px] text-gray-400">AI Generated & Optimised</div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      )
-    },
-    {
-      title: 'Content Creation',
-      subtitle: 'Authority content, built fast',
-      badgeColor: 'text-[#1565C0]',
-      badgeBg: 'bg-[#E3F2FD]',
-      activeDotColor: 'bg-[#1976D2]',
-      content: (
-        <div className="relative w-full h-full flex items-center justify-center gap-6 translate-y-3">
-          <div className="flex flex-col items-center">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFB800" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v8"/><path d="m4.93 10.93 5.66-5.66"/><path d="m19.07 10.93-5.66-5.66"/></svg>
-            <span className="text-[10px] text-gray-400 font-bold tracking-wider mt-2">IDEA</span>
-          </div>
-          <div className="w-8 border-t-2 border-dashed border-[#FFB800]/50" />
-          <div className="w-13 h-13 rounded-full border-2 border-[#FFB800] flex items-center justify-center bg-white z-10 text-[11px] font-bold text-[#FFB800] shadow-md">AI</div>
-          <div className="w-8 border-t-2 border-dashed border-[#34C759]/50" />
-          <div className="w-32 h-40 rounded-2xl border-2 border-gray-100 bg-white shadow-lg p-3.5 flex flex-col gap-3">
-            <div className="w-full h-16 rounded-xl bg-[#34C759]/15 border border-[#34C759]/30" />
-            <div className="w-4/5 h-2 rounded-full bg-[#FFB800]" />
-            <div className="w-full h-1.5 rounded-full bg-gray-200" />
-            <div className="w-2/3 h-1.5 rounded-full bg-gray-200" />
-          </div>
-        </div>
-      )
-    },
-    {
-      title: 'Smart Posting',
-      subtitle: 'Right channel, right moment',
-      badgeColor: 'text-[#E6A100]',
-      badgeBg: 'bg-[#FFF9E6]',
-      activeDotColor: 'bg-[#FFB800]',
-      content: (
-        <div className="relative w-full h-full flex items-center justify-center gap-6 translate-y-3">
-          <div className="flex flex-col items-center opacity-30">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFB800" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v8"/><path d="m4.93 10.93 5.66-5.66"/><path d="m19.07 10.93-5.66-5.66"/></svg>
-            <span className="text-[10px] text-gray-400 font-medium mt-2">IDEA</span>
-          </div>
-          <div className="w-8 border-t-2 border-dashed border-[#FFB800]/20 opacity-30" />
-          <div className="w-12 h-12 rounded-full border-2 border-[#FFB800] flex items-center justify-center bg-white z-10 text-[11px] font-bold text-[#FFB800] opacity-30">AI</div>
-          <div className="w-8 border-t-2 border-dashed border-[#34C759]/20 opacity-30" />
-          <div className="relative w-32 h-40 rounded-2xl border-2 border-gray-100 bg-white shadow-lg p-3.5 flex flex-col gap-3">
-            <div className="w-full h-16 rounded-xl bg-[#34C759]/10 border border-[#34C759]/20" />
-            <div className="w-4/5 h-2 rounded-full bg-[#FFB800]/60" />
-            <div className="w-full h-1.5 rounded-full bg-gray-200" />
-            <div className="w-2/3 h-1.5 rounded-full bg-gray-200" />
-            <div className="absolute top-20 left-6 w-6 h-6 rounded-full border border-gray-900 flex items-center justify-center bg-white shadow-md z-20">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#8bc34a]" />
+              <span className="px-2 py-0.5 rounded-md bg-emerald-100 text-[#059669] text-[9px] font-bold">LIVE</span>
+            </div>
+
+            <div className="space-y-1.5">
+              <div className="h-2 bg-gray-200 rounded-full w-full"></div>
+              <div className="h-2 bg-gray-200 rounded-full w-4/5"></div>
+              <div className="h-2 bg-gray-100 rounded-full w-3/5"></div>
+            </div>
+
+            <div className="grid grid-cols-3 gap-2 pt-2 border-t border-gray-100 text-center">
+              <div className="bg-amber-50 p-2 rounded-lg border border-amber-100">
+                <div className="text-xs font-black text-[#D97706]">842</div>
+                <div className="text-[8px] font-bold text-gray-500 uppercase">Engagements</div>
+              </div>
+              <div className="bg-emerald-50 p-2 rounded-lg border border-emerald-100">
+                <div className="text-xs font-black text-[#059669]">48</div>
+                <div className="text-[8px] font-bold text-gray-500 uppercase">DMs Received</div>
+              </div>
+              <div className="bg-blue-50 p-2 rounded-lg border border-blue-100">
+                <div className="text-xs font-black text-[#1D4ED8]">12</div>
+                <div className="text-[8px] font-bold text-gray-500 uppercase">Calls Booked</div>
+              </div>
             </div>
           </div>
         </div>
@@ -158,33 +183,43 @@ const LiveEngineCarousel = () => {
     {
       title: 'Paid Amplification',
       subtitle: 'Scale only what converts',
-      badgeColor: 'text-[#2E7D32]',
-      badgeBg: 'bg-[#E8F5E9]',
-      activeDotColor: 'bg-[#34C759]',
+      badgeColor: 'text-[#059669]',
+      badgeBg: 'bg-[#ECFDF5]',
+      activeDotColor: 'bg-[#00D084]',
       content: (
-        <div className="relative w-full h-full flex items-center justify-center gap-7 translate-y-3">
-          <div className="flex flex-col items-center">
-            <div className="relative w-20 h-20 rounded-full border border-[#FFB800]/40 flex items-center justify-center">
-              <div className="w-14 h-14 rounded-full border-2 border-[#34C759] flex items-center justify-center">
-                <div className="w-4 h-4 rounded-full bg-[#34C759]" />
+        <div className="relative w-full h-full flex items-center justify-center px-4">
+          <div className="w-full max-w-sm bg-white rounded-2xl border border-gray-200 shadow-md p-4 flex flex-col gap-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-[#00D084]"></div>
+                <span className="text-xs font-bold text-gray-900">Campaign Performance</span>
+              </div>
+              <span className="text-xs font-black text-[#00D084] bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">4.8x ROAS</span>
+            </div>
+
+            {/* Visual Graph Bars */}
+            <div className="flex items-end gap-3 h-24 pt-4 px-2 justify-between border-b border-gray-100">
+              <div className="flex flex-col items-center gap-1 flex-1">
+                <div className="w-full bg-amber-200 rounded-t-md h-10"></div>
+                <span className="text-[9px] text-gray-400 font-bold">Wk 1</span>
+              </div>
+              <div className="flex flex-col items-center gap-1 flex-1">
+                <div className="w-full bg-amber-400 rounded-t-md h-14"></div>
+                <span className="text-[9px] text-gray-400 font-bold">Wk 2</span>
+              </div>
+              <div className="flex flex-col items-center gap-1 flex-1">
+                <div className="w-full bg-[#00D084]/70 rounded-t-md h-18"></div>
+                <span className="text-[9px] text-gray-400 font-bold">Wk 3</span>
+              </div>
+              <div className="flex flex-col items-center gap-1 flex-1">
+                <div className="w-full bg-gradient-to-t from-[#FFB800] to-[#00D084] rounded-t-md h-22 shadow-md"></div>
+                <span className="text-[9px] text-[#00D084] font-black">Wk 4</span>
               </div>
             </div>
-            <span className="text-[10px] text-gray-400 font-bold mt-3">TARGET</span>
-          </div>
-          
-          <div className="w-12 h-12 rounded-xl bg-[#FFB800]/20 border border-[#FFB800] flex flex-col p-2 gap-1.5 justify-center shadow-sm -translate-y-2">
-            <div className="w-full h-3 bg-[#FFB800] rounded-sm" />
-            <div className="w-full h-1 bg-[#FFB800]/60 rounded-sm" />
-            <div className="w-2/3 h-1 bg-[#FFB800]/60 rounded-sm" />
-          </div>
-          
-          <div className="w-28 h-36 rounded-2xl border-2 border-[#34C759] bg-white shadow-xl p-3 flex flex-col justify-end gap-1.5 relative">
-            <div className="absolute top-3 left-0 w-full text-center text-[9px] font-bold text-gray-500">CONVERSIONS</div>
-            <div className="absolute top-11 left-0 w-full text-center text-sm font-black text-[#34C759] leading-tight">4.2x<br/><span className="text-[8px] font-bold text-[#34C759]/80 uppercase">ROAS</span></div>
-            <div className="flex items-end gap-1.5 h-10 mt-auto justify-center px-1">
-              <div className="w-3.5 bg-[#34C759]/70 rounded-t-sm h-4" />
-              <div className="w-3.5 bg-[#34C759]/80 rounded-t-sm h-6" />
-              <div className="w-3.5 bg-[#34C759] rounded-t-sm h-10" />
+
+            <div className="flex items-center justify-between text-[11px] font-semibold text-gray-600 pt-1">
+              <span>Pipeline Growth</span>
+              <span className="text-[#00D084] font-bold">+312% YoY</span>
             </div>
           </div>
         </div>
