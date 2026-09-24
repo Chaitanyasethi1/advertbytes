@@ -353,7 +353,7 @@ export const DifferenceSection = () => {
   ];
 
   return (
-    <section className="bg-white py-32 overflow-hidden relative bg-grid-pattern">
+    <section id="about" className="bg-white py-32 overflow-hidden relative bg-grid-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-20">
           <div className="text-[#FFB800] text-[10px] font-bold uppercase tracking-[0.2em] mb-4">THE PARTNERSHIP DIFFERENCE</div>
@@ -447,7 +447,7 @@ export const ServiceTabsSection = () => {
   const active = content[activeTab as keyof typeof content];
 
   return (
-    <section className="bg-[#F0FDF4] py-32 relative overflow-hidden bg-grid-pattern">
+    <section id="services" className="bg-[#F0FDF4] py-32 relative overflow-hidden bg-grid-pattern">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-80 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, #ffffff 0%, rgba(255,255,255,0) 100%)' }} />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">

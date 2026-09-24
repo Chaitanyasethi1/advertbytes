@@ -49,9 +49,9 @@ export const FooterSummary: React.FC = () => {
             <h3 className="text-lg font-bold text-white tracking-tight">Quick Links</h3>
             <ul className="space-y-2.5 text-sm text-[#9CA3AF]">
               <li><a href="#" className="hover:text-[#FFB800] transition-colors">Home</a></li>
-              <li><a href="#about" className="hover:text-[#FFB800] transition-colors">About Us</a></li>
               <li><a href="#services" className="hover:text-[#FFB800] transition-colors">Services</a></li>
-              <li><a href="#platform" className="hover:text-[#FFB800] transition-colors">Platform</a></li>
+              <li><a href="#portfolio" className="hover:text-[#FFB800] transition-colors">Portfolio</a></li>
+              <li><a href="#about" className="hover:text-[#FFB800] transition-colors">About Us</a></li>
               <li><a href="#contact" className="hover:text-[#FFB800] transition-colors">Contact</a></li>
             </ul>
           </div>
@@ -60,10 +60,9 @@ export const FooterSummary: React.FC = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-bold text-white tracking-tight">Contact Us</h3>
             <div className="space-y-2.5 text-sm text-[#9CA3AF] leading-relaxed">
-              <p>123 Innovation Street</p>
-              <p>Tech City, TC 12345</p>
-              <p>Phone: <a href="tel:+919876543210" className="hover:text-white transition-colors">+91 98765 43210</a></p>
-              <p>Email: <a href="mailto:hello@advertbytes.com" className="hover:text-white transition-colors">hello@advertbytes.com</a></p>
+              <p>Delhi, India</p>
+              <p>Phone: <a href="tel:7827778719" className="hover:text-white transition-colors">+91 78277 78719</a></p>
+              <p>Email: <a href="mailto:gauravaaa15@gmail.com" className="hover:text-white transition-colors">gauravaaa15@gmail.com</a></p>
             </div>
           </div>
 

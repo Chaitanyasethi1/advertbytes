@@ -7,9 +7,7 @@ export const Navbar: React.FC = () => {
   const navItems = [
     { label: 'Home' },
     { label: 'Services', hasDropdown: true },
-    { label: 'How We Work' },
-    { label: 'Platform' },
-    { label: 'Insights' },
+    { label: 'Portfolio' },
     { label: 'About' },
     { label: 'Contact' },
   ];

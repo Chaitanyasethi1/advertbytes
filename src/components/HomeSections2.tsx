@@ -162,7 +162,7 @@ export const TestimonialsSection = () => {
 
 export const FinalCTA = () => {
   return (
-    <section className="relative py-32 overflow-hidden flex flex-col items-center justify-center text-center">
+    <section id="contact" className="relative py-32 overflow-hidden flex flex-col items-center justify-center text-center">
       {/* Massive Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#FFB800] via-[#85C744] to-[#00D084]" />
       
@@ -230,10 +230,11 @@ export const Footer = () => {
         <div>
           <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Company</h4>
           <ul className="space-y-4 text-xs font-semibold text-gray-600">
-            <li><a href="#" className="hover:text-[#00D084] transition-colors">How We Work</a></li>
-            <li><a href="#" className="hover:text-[#00D084] transition-colors">About</a></li>
-            <li><a href="#" className="hover:text-[#00D084] transition-colors">Insights</a></li>
-            <li><a href="#" className="hover:text-[#00D084] transition-colors">Contact</a></li>
+            <li><a href="#" className="hover:text-[#00D084] transition-colors">Home</a></li>
+            <li><a href="#services" className="hover:text-[#00D084] transition-colors">Services</a></li>
+            <li><a href="#portfolio" className="hover:text-[#00D084] transition-colors">Portfolio</a></li>
+            <li><a href="#about" className="hover:text-[#00D084] transition-colors">About</a></li>
+            <li><a href="#contact" className="hover:text-[#00D084] transition-colors">Contact</a></li>
           </ul>
           
           <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6 mt-10">Legal</h4>
@@ -241,7 +242,6 @@ export const Footer = () => {
             <li><a href="#" className="hover:text-[#00D084] transition-colors">Privacy Policy</a></li>
             <li><a href="#" className="hover:text-[#00D084] transition-colors">Terms of Service</a></li>
             <li><a href="#" className="hover:text-[#00D084] transition-colors">Cookie Policy</a></li>
-            <li><a href="#" className="hover:text-[#00D084] transition-colors">Compliance</a></li>
           </ul>
         </div>
         
@@ -250,15 +250,15 @@ export const Footer = () => {
           <ul className="space-y-6 text-xs text-gray-500 leading-relaxed">
             <li className="flex gap-3">
               <span className="text-[#FFB800] shrink-0">✉</span> 
-              <span className="font-semibold text-gray-600 hover:text-[#00D084] cursor-pointer">info@advertbytes.com</span>
+              <a href="mailto:gauravaaa15@gmail.com" className="font-semibold text-gray-600 hover:text-[#00D084] cursor-pointer">gauravaaa15@gmail.com</a>
             </li>
             <li className="flex gap-3">
               <span className="text-[#00D084] shrink-0">📞</span> 
-              <span className="font-semibold text-gray-600">+91-9876543210 (India)</span>
+              <a href="tel:7827778719" className="font-semibold text-gray-600 hover:text-[#00D084]">+91 78277 78719</a>
             </li>
             <li className="flex gap-3">
               <span className="text-[#0052FF] shrink-0">📍</span> 
-              <span>India Office: 123 Growth Avenue, DLF Phase 3, Gurugram, HR 122002</span>
+              <span>Delhi, India</span>
             </li>
           </ul>
         </div>
