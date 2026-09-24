@@ -1,8 +1,245 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Frown, CheckCircle2 } from 'lucide-react';
 import { CountUpStat } from './CountUpStat';
 import { cn } from '../utils/cn';
+
+const LiveEngineCarousel = () => {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % 5);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const slides = [
+    {
+      title: 'AI Decision Engine',
+      subtitle: 'Data decides every move',
+      badgeColor: 'text-[#FFB800]',
+      badgeBg: 'bg-[#FFB800]/10',
+      dotColor: 'bg-[#FFB800]',
+      content: (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-[#FFB800] to-[#00D084] flex items-center justify-center shadow-lg shadow-[#00D084]/20">
+            <span className="text-[10px] font-bold text-white text-center leading-tight">AI<br/>ENGINE</span>
+          </div>
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 200">
+            <path d="M110 80 L180 100" stroke="#FFB800" strokeWidth="1" strokeOpacity="0.4" />
+            <path d="M110 100 L180 100" stroke="#FFB800" strokeWidth="1" strokeOpacity="0.4" />
+            <path d="M110 120 L180 100" stroke="#FFB800" strokeWidth="1" strokeOpacity="0.4" />
+            <path d="M130 140 L180 100" stroke="#FFB800" strokeWidth="1" strokeOpacity="0.4" />
+            <path d="M290 80 L220 100" stroke="#00D084" strokeWidth="1" strokeOpacity="0.4" />
+            <path d="M290 100 L220 100" stroke="#00D084" strokeWidth="1" strokeOpacity="0.4" />
+            <path d="M290 120 L220 100" stroke="#00D084" strokeWidth="1" strokeOpacity="0.4" />
+            <path d="M270 140 L220 100" stroke="#00D084" strokeWidth="1" strokeOpacity="0.4" />
+            
+            <circle cx="110" cy="80" r="2" fill="#FFB800" />
+            <circle cx="110" cy="100" r="2" fill="#FFB800" />
+            <circle cx="110" cy="120" r="2" fill="#FFB800" />
+            <circle cx="130" cy="140" r="2" fill="#FFB800" />
+            <circle cx="290" cy="80" r="2" fill="#00D084" />
+            <circle cx="290" cy="100" r="2" fill="#00D084" />
+            <circle cx="290" cy="120" r="2" fill="#00D084" />
+            <circle cx="270" cy="140" r="2" fill="#00D084" />
+          </svg>
+          <div className="absolute left-6 top-16 px-3 py-1 rounded-full border border-[#FFB800]/30 bg-white text-[10px] text-[#FFB800] shadow-sm">Intent</div>
+          <div className="absolute left-6 top-[5.5rem] px-3 py-1 rounded-full border border-[#FFB800]/30 bg-white text-[10px] text-[#FFB800] shadow-sm">Engage</div>
+          <div className="absolute left-6 top-[7.5rem] px-3 py-1 rounded-full border border-[#FFB800]/30 bg-white text-[10px] text-[#FFB800] shadow-sm">ICP fit</div>
+          <div className="absolute left-10 top-[9.5rem] px-3 py-1 rounded-full border border-[#FFB800]/30 bg-white text-[10px] text-[#FFB800] shadow-sm">Signals</div>
+          
+          <div className="absolute right-6 top-16 px-3 py-1 rounded-full border border-[#00D084]/30 bg-white text-[10px] text-[#00D084] shadow-sm">Target</div>
+          <div className="absolute right-6 top-[5.5rem] px-3 py-1 rounded-full border border-[#00D084]/30 bg-white text-[10px] text-[#00D084] shadow-sm">Message</div>
+          <div className="absolute right-6 top-[7.5rem] px-3 py-1 rounded-full border border-[#00D084]/30 bg-white text-[10px] text-[#00D084] shadow-sm">Timing</div>
+          <div className="absolute right-10 top-[9.5rem] px-3 py-1 rounded-full border border-[#00D084]/30 bg-white text-[10px] text-[#00D084] shadow-sm">Spend</div>
+        </div>
+      )
+    },
+    {
+      title: 'Personalized Outreach',
+      subtitle: 'Conversations that get replies',
+      badgeColor: 'text-[#00D084]',
+      badgeBg: 'bg-[#00D084]/10',
+      dotColor: 'bg-[#00D084]',
+      content: (
+        <div className="relative flex-grow flex items-center justify-center w-full h-full">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <svg width="100%" height="100%" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 120 100 L 250 50" stroke="#E5E7EB" strokeWidth="2" />
+              <path d="M 120 100 L 250 83" stroke="#E5E7EB" strokeWidth="2" />
+              <path d="M 120 100 L 250 116" stroke="#E5E7EB" strokeWidth="2" />
+              <path d="M 120 100 L 250 150" stroke="#E5E7EB" strokeWidth="2" />
+            </svg>
+          </div>
+          <div className="relative z-10 w-16 h-16 rounded-full bg-white border-2 border-[#00D084] flex items-center justify-center shadow-lg -translate-x-12">
+            <span className="text-[10px] font-bold text-[#00D084] text-center leading-tight">YOU<br/>+ AI</span>
+          </div>
+          <div className="absolute right-8 flex flex-col gap-3">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="w-28 h-8 rounded-full border border-gray-200 bg-white flex items-center px-3 gap-2 shadow-sm">
+                <div className={`w-3 h-3 rounded-full ${i === 4 ? 'bg-gray-300' : 'bg-[#00D084]'}`} />
+                <div className="flex-1 flex flex-col gap-1">
+                  <div className="h-1 bg-gray-200 rounded-full w-full" />
+                  <div className="h-1 bg-gray-100 rounded-full w-2/3" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    },
+    {
+      title: 'Content Creation',
+      subtitle: 'Authority content, built fast',
+      badgeColor: 'text-[#0052FF]',
+      badgeBg: 'bg-[#0052FF]/10',
+      dotColor: 'bg-[#0052FF]',
+      content: (
+        <div className="relative w-full h-full flex items-center justify-center gap-6 translate-y-4">
+          <div className="flex flex-col items-center">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB800" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v8"/><path d="m4.93 10.93 5.66-5.66"/><path d="m19.07 10.93-5.66-5.66"/></svg>
+            <span className="text-[10px] text-gray-400 font-medium mt-2">IDEA</span>
+          </div>
+          <div className="w-8 border-t-2 border-dashed border-[#FFB800]/50" />
+          <div className="w-12 h-12 rounded-full border-2 border-[#FFB800] flex items-center justify-center bg-white z-10 text-[10px] font-bold text-[#FFB800]">AI</div>
+          <div className="w-8 border-t-2 border-dashed border-[#00D084]/50" />
+          <div className="w-28 h-36 rounded-xl border-2 border-gray-100 bg-white shadow-md p-3 flex flex-col gap-3">
+            <div className="w-full h-14 rounded-lg bg-[#00D084]/20 border border-[#00D084]/30" />
+            <div className="w-4/5 h-2 rounded-full bg-[#FFB800]" />
+            <div className="w-full h-1.5 rounded-full bg-gray-200" />
+            <div className="w-2/3 h-1.5 rounded-full bg-gray-200" />
+            <div className="mt-auto w-3 h-3 rounded-full bg-gray-200" />
+          </div>
+        </div>
+      )
+    },
+    {
+      title: 'Smart Posting',
+      subtitle: 'Right channel, right moment',
+      badgeColor: 'text-[#FFB800]',
+      badgeBg: 'bg-[#FFB800]/10',
+      dotColor: 'bg-[#FFB800]',
+      content: (
+        <div className="relative w-full h-full flex items-center justify-center gap-6 translate-y-4">
+          <div className="flex flex-col items-center opacity-30">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB800" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v8"/><path d="m4.93 10.93 5.66-5.66"/><path d="m19.07 10.93-5.66-5.66"/></svg>
+            <span className="text-[10px] text-gray-400 font-medium mt-2">IDEA</span>
+          </div>
+          <div className="w-8 border-t-2 border-dashed border-[#FFB800]/20 opacity-30" />
+          <div className="w-12 h-12 rounded-full border-2 border-[#FFB800] flex items-center justify-center bg-white z-10 text-[10px] font-bold text-[#FFB800] opacity-30">AI</div>
+          <div className="w-8 border-t-2 border-dashed border-[#00D084]/20 opacity-30" />
+          <div className="relative w-28 h-36 rounded-xl border-2 border-gray-100 bg-white shadow-md p-3 flex flex-col gap-3">
+            <div className="w-full h-14 rounded-lg bg-[#00D084]/10 border border-[#00D084]/20" />
+            <div className="w-4/5 h-2 rounded-full bg-[#FFB800]/50" />
+            <div className="w-full h-1.5 rounded-full bg-gray-200" />
+            <div className="w-2/3 h-1.5 rounded-full bg-gray-200" />
+            {/* Pulsating dot over the post */}
+            <div className="absolute top-[4.5rem] left-5 w-5 h-5 rounded-full border border-black flex items-center justify-center bg-white shadow-sm z-20">
+              <div className="w-2 h-2 rounded-full bg-[#8bc34a]" />
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: 'Paid Amplification',
+      subtitle: 'Scale only what converts',
+      badgeColor: 'text-[#00D084]',
+      badgeBg: 'bg-[#00D084]/10',
+      dotColor: 'bg-[#00D084]',
+      content: (
+        <div className="relative w-full h-full flex items-center justify-center gap-8 translate-y-4">
+          <div className="flex flex-col items-center">
+            <div className="relative w-20 h-20 rounded-full border border-[#FFB800]/40 flex items-center justify-center">
+              <div className="w-14 h-14 rounded-full border border-[#00D084]/60 flex items-center justify-center">
+                <div className="w-4 h-4 rounded-full bg-[#00D084]" />
+              </div>
+            </div>
+            <span className="text-[10px] text-gray-400 font-medium mt-4">TARGET</span>
+          </div>
+          
+          <div className="w-12 h-12 rounded-xl bg-[#FFB800]/20 border border-[#FFB800] flex flex-col p-2 gap-1.5 justify-center shadow-sm -translate-y-2">
+            <div className="w-full h-3 bg-[#FFB800] rounded-sm" />
+            <div className="w-full h-1 bg-[#FFB800]/50 rounded-sm" />
+            <div className="w-2/3 h-1 bg-[#FFB800]/50 rounded-sm" />
+          </div>
+          
+          <div className="w-24 h-32 rounded-2xl border-2 border-[#00D084] bg-[#00D084]/5 shadow-md p-3 flex flex-col justify-end gap-1.5 relative">
+            <div className="absolute top-3 left-0 w-full text-center text-[9px] font-bold text-gray-500">CONVERSIONS</div>
+            <div className="absolute top-12 left-0 w-full text-center text-sm font-black text-[#00D084] leading-tight">4.2x<br/><span className="text-[8px] font-bold text-[#00D084]/70 uppercase">ROAS</span></div>
+            <div className="flex items-end gap-1.5 h-10 mt-auto justify-center px-1">
+              <div className="w-3.5 bg-[#00D084]/70 rounded-t-sm h-4" />
+              <div className="w-3.5 bg-[#00D084]/80 rounded-t-sm h-6" />
+              <div className="w-3.5 bg-[#00D084] rounded-t-sm h-10" />
+            </div>
+            {/* Cursor */}
+            <div className="absolute -top-3 left-6 w-6 h-6 rounded-full border border-black flex items-center justify-center bg-white z-20 shadow-sm">
+              <div className="w-2 h-2 rounded-full bg-[#8bc34a]" />
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ];
+
+  return (
+    <motion.div 
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="relative w-full max-w-[500px] bg-white rounded-3xl shadow-soft-lg border border-gray-100 p-8 flex flex-col justify-between h-[400px] overflow-hidden group"
+    >
+      <div className="flex items-center justify-between mb-8 relative z-20">
+        <div className="flex gap-1.5">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#FFB800]" />
+          <div className="w-2.5 h-2.5 rounded-full bg-[#00D084]" />
+          <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
+        </div>
+        <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
+          <div className="w-1.5 h-1.5 rounded-full bg-[#00D084]" />
+          LIVE ENGINE
+        </div>
+      </div>
+
+      <div className="relative flex-grow flex items-center justify-center">
+        {slides.map((slide, index) => (
+          <div 
+            key={index} 
+            className={`absolute inset-0 transition-all duration-700 ease-in-out flex items-center justify-center ${activeSlide === index ? 'opacity-100 z-10 translate-x-0' : 'opacity-0 z-0 translate-x-4'}`}
+          >
+            {slide.content}
+          </div>
+        ))}
+      </div>
+      
+      <div className="mt-8 flex items-end justify-between relative z-20">
+        <div>
+          <div className={`inline-block px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2 transition-colors duration-500 ${slides[activeSlide].badgeBg} ${slides[activeSlide].badgeColor}`}>
+            {slides[activeSlide].title}
+          </div>
+          <div className="text-xs font-medium text-gray-500">{slides[activeSlide].subtitle}</div>
+        </div>
+        
+        <div className="flex gap-1.5 items-center mb-1">
+          {slides.map((slide, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveSlide(index)}
+              className={`transition-all duration-300 rounded-full h-1.5 ${
+                activeSlide === index 
+                  ? `w-5 ${slide.dotColor}` 
+                  : 'w-1.5 bg-gray-200 hover:bg-gray-300'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 export const HeroSection = () => {
   
@@ -51,56 +288,7 @@ export const HeroSection = () => {
           </div>
 
           <div className="relative w-full h-[400px] lg:h-[500px] flex items-center justify-center">
-            <motion.div 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-full max-w-[500px] bg-white rounded-3xl shadow-soft-lg border border-gray-100 p-8 flex flex-col justify-between h-[400px]"
-            >
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#FFB800]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#00D084]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
-                </div>
-                <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#00D084]" />
-                  LIVE ENGINE
-                </div>
-              </div>
-
-              <div className="relative flex-grow flex items-center justify-center">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <svg width="100%" height="100%" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 80 100 L 250 50" stroke="#E5E7EB" strokeWidth="2" />
-                    <path d="M 80 100 L 250 83" stroke="#E5E7EB" strokeWidth="2" />
-                    <path d="M 80 100 L 250 116" stroke="#E5E7EB" strokeWidth="2" />
-                    <path d="M 80 100 L 250 150" stroke="#E5E7EB" strokeWidth="2" />
-                  </svg>
-                </div>
-                <div className="relative z-10 w-16 h-16 rounded-full bg-white border-2 border-[#00D084] flex items-center justify-center shadow-lg -translate-x-24">
-                  <span className="text-[10px] font-bold text-[#00D084] text-center leading-tight">YOU<br/>+ AI</span>
-                </div>
-                <div className="absolute right-8 flex flex-col gap-4">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-32 h-8 rounded-full border border-gray-200 bg-white flex items-center px-3 gap-2 shadow-sm">
-                      <div className={`w-3 h-3 rounded-full ${i === 4 ? 'bg-gray-300' : 'bg-[#00D084]'}`} />
-                      <div className="flex-1 flex flex-col gap-1">
-                        <div className="h-1 bg-gray-200 rounded-full w-full" />
-                        <div className="h-1 bg-gray-100 rounded-full w-2/3" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="mt-8">
-                <div className="inline-block bg-[#00D084]/10 text-[#00D084] px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest mb-2">
-                  Personalized Outreach
-                </div>
-                <div className="text-xs font-medium text-gray-500">Conversations that get replies</div>
-              </div>
-            </motion.div>
+            <LiveEngineCarousel />
           </div>
         </div>
       </div>

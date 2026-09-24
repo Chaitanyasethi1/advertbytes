@@ -1,5 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
-import Lenis from '@studio-freight/lenis';
+import { useState, useMemo } from 'react';
 
 // Core Components
 import { Navbar } from './components/Navbar';
@@ -34,26 +33,6 @@ import { TIER1_CASE_STUDIES, TIER2_CASE_STUDIES } from './data/portfolioData';
 import type { CategoryFilter, CaseStudyTier1, CaseStudyTier2 } from './data/portfolioData';
 
 export default function App() {
-  // Setup Lenis Smooth Scrolling
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    return () => lenis.destroy();
-  }, []);
 
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>('All');
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudyTier1 | CaseStudyTier2 | null>(null);
