@@ -63,28 +63,7 @@ export default function App() {
         {/* Section 2: Difference */}
         <DifferenceSection />
 
-        {/* Section 3: Pain Points */}
-        <PainPointsSection />
-
-        {/* Section 4: Service Tabs */}
-        <ServiceTabsSection />
-
-        {/* Section 5: Process */}
-        <ProcessSection />
-
-        {/* Section 6: Growth Engine */}
-        <GrowthEngineSection />
-
-        {/* Section 7: Execution & Tools */}
-        <ToolsSection />
-
-        {/* Section 8: Services Grid */}
-        <ServicesGridSection />
-
-        {/* Section 9: Results Strip */}
-        <ResultsStripSection />
-
-        {/* Section 10: PORTFOLIO */}
+        {/* Section 3: PORTFOLIO (Work That Speaks) */}
         <section id="portfolio" className="bg-[#FBFBFB] py-24 sm:py-32">
           <SectionHeader onExploreClick={handleScrollToGrid} />
           
@@ -106,6 +85,27 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        {/* Section 4: Pain Points */}
+        <PainPointsSection />
+
+        {/* Section 5: Service Tabs */}
+        <ServiceTabsSection />
+
+        {/* Section 6: Process */}
+        <ProcessSection />
+
+        {/* Section 7: Growth Engine */}
+        <GrowthEngineSection />
+
+        {/* Section 8: Execution & Tools */}
+        <ToolsSection />
+
+        {/* Section 9: Services Grid */}
+        <ServicesGridSection />
+
+        {/* Section 10: Results Strip */}
+        <ResultsStripSection />
 
         {/* Section 11: Clients */}
         <ClientLogoStripSection />
