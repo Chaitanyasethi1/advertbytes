@@ -12,6 +12,7 @@ import Skiper39 from './components/ui/skiper39';
 // Homepage Sections
 import { 
   HeroSection, 
+  StatsStrip,
   DifferenceSection, 
   PainPointsSection, 
   ServiceTabsSection, 
@@ -61,7 +62,13 @@ export default function App() {
         {/* Section 1: Hero */}
         <HeroSection />
 
-        {/* Section 2: Difference */}
+        {/* Section 2: Verified Agency Performance Metrics */}
+        <StatsStrip />
+
+        {/* Section 3: Real Client Brand Marquee */}
+        <ClientLogoStripSection />
+
+        {/* Section 4: Difference */}
         <DifferenceSection />
 
         {/* Section 3: PORTFOLIO (Work That Speaks) */}
@@ -108,8 +115,6 @@ export default function App() {
         {/* Section 10: Results Strip */}
         <ResultsStripSection />
 
-        {/* Section 11: Clients */}
-        <ClientLogoStripSection />
 
         {/* Section 12: Comparison */}
         <ComparisonSection />
