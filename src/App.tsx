@@ -116,11 +116,11 @@ export default function App() {
         <ResultsStripSection />
 
 
-        {/* Section 12: Comparison */}
-        <ComparisonSection />
-
-        {/* Section 13: Testimonials */}
+        {/* Section 11: Testimonials */}
         <TestimonialsSection />
+
+        {/* Section 12: FAQ Comparison */}
+        <ComparisonSection />
 
         {/* Section 14: Final CTA */}
         <FinalCTA />
