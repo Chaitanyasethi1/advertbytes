@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ArrowRight, ChevronDown, TrendingUp, Sparkles, Star } from 'lucide-react';
+import { CrowdCanvas } from './ui/skiper39';
 
 export const ServicesGridSection = () => {
   const services = [
@@ -440,17 +441,19 @@ export const FinalCTA = () => {
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#FAF9F6] pt-24 pb-12 border-t border-gray-200 text-[#0A0A0C]">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-10 mb-20">
+    <footer className="bg-[#0A0A0C] pt-24 pb-8 border-t border-white/10 text-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-10 mb-16">
         
         <div className="lg:col-span-2">
           <a href="/" className="flex items-center gap-3.5 mb-6 group cursor-pointer">
-            <img src="/logo.png" alt="AdvertBytes Logo" className="h-14 w-auto object-contain transition-transform group-hover:scale-105" />
-            <span className="font-black tracking-tight text-2xl text-[#0A0A0C] font-sans">
+            <div className="bg-white rounded-xl p-1.5 flex items-center justify-center shadow-md">
+              <img src="/logo.png" alt="AdvertBytes Logo" className="h-10 w-auto object-contain transition-transform group-hover:scale-105" />
+            </div>
+            <span className="font-black tracking-tight text-2xl text-white font-sans">
               AdvertBytes
             </span>
           </a>
-          <p className="text-gray-600 text-sm leading-relaxed max-w-sm mb-6">
+          <p className="text-gray-400 text-sm leading-relaxed max-w-sm mb-6">
             AdvertBytes is a performance marketing and revenue growth partner. We build predictable customer acquisition engines across Meta Ads, Google Ads, creative strategy, and high-ticket B2B funnels.
           </p>
           <div className="flex items-center gap-3">
@@ -458,14 +461,14 @@ export const Footer = () => {
                href="https://linkedin.com" 
                target="_blank" 
                rel="noreferrer" 
-               className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-[#0052FF] hover:border-[#0052FF] transition-all shadow-sm"
+               className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-[#00D084] hover:border-[#00D084] transition-all shadow-sm"
                aria-label="LinkedIn"
              >
                <span className="text-xs font-black">in</span>
              </a>
              <a 
                href="tel:7827778719" 
-               className="text-xs font-bold text-gray-700 bg-white border border-gray-200 px-3 py-2 rounded-full hover:border-[#00D084] transition-colors shadow-sm"
+               className="text-xs font-bold text-gray-300 bg-white/5 border border-white/10 px-4 py-2 rounded-full hover:border-[#00D084] hover:text-white transition-colors shadow-sm"
              >
                Direct: +91 78277 78719
              </a>
@@ -473,8 +476,8 @@ export const Footer = () => {
         </div>
         
         <div>
-          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-6">Services</h4>
-          <ul className="space-y-3.5 text-sm font-semibold text-gray-700">
+          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-6">Services</h4>
+          <ul className="space-y-3.5 text-sm font-semibold text-gray-300">
             <li><a href="#services" className="hover:text-[#00D084] transition-colors">Meta Ads Scaling</a></li>
             <li><a href="#services" className="hover:text-[#00D084] transition-colors">Google & YouTube Ads</a></li>
             <li><a href="#services" className="hover:text-[#00D084] transition-colors">High-Ticket B2B Lead Gen</a></li>
@@ -485,8 +488,8 @@ export const Footer = () => {
         </div>
         
         <div>
-          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-6">Navigation</h4>
-          <ul className="space-y-3.5 text-sm font-semibold text-gray-700">
+          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-6">Navigation</h4>
+          <ul className="space-y-3.5 text-sm font-semibold text-gray-300">
             <li><a href="#" className="hover:text-[#00D084] transition-colors">Home</a></li>
             <li><a href="#about" className="hover:text-[#00D084] transition-colors">About Us</a></li>
             <li><a href="#portfolio" className="hover:text-[#00D084] transition-colors">Case Studies (18+)</a></li>
@@ -497,27 +500,52 @@ export const Footer = () => {
         </div>
         
         <div>
-          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-6">Direct Contact</h4>
-          <ul className="space-y-4 text-sm text-gray-600 leading-relaxed">
+          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-6">Direct Contact</h4>
+          <ul className="space-y-4 text-sm text-gray-300 leading-relaxed">
             <li className="flex items-center gap-3">
               <span className="text-[#FFB800] shrink-0 text-base">✉</span> 
-              <a href="mailto:gauravaaa15@gmail.com" className="font-semibold text-gray-700 hover:text-[#00D084] transition-colors">gauravaaa15@gmail.com</a>
+              <a href="mailto:gauravaaa15@gmail.com" className="font-semibold text-gray-300 hover:text-[#00D084] transition-colors">gauravaaa15@gmail.com</a>
             </li>
             <li className="flex items-center gap-3">
               <span className="text-[#00D084] shrink-0 text-base">📞</span> 
-              <a href="tel:7827778719" className="font-semibold text-gray-700 hover:text-[#00D084] transition-colors">+91 78277 78719</a>
+              <a href="tel:7827778719" className="font-semibold text-gray-300 hover:text-[#00D084] transition-colors">+91 78277 78719</a>
             </li>
             <li className="flex items-center gap-3">
               <span className="text-[#0052FF] shrink-0 text-base">📍</span> 
-              <span className="font-semibold text-gray-700">Delhi, India</span>
+              <span className="font-semibold text-gray-300">Delhi, India</span>
             </li>
           </ul>
         </div>
       </div>
+
+      {/* Seamless Audience Engine (Crowd Canvas) */}
+      <div className="w-full relative border-t border-white/10 pt-12 pb-4 mt-8">
+        <div className="max-w-7xl mx-auto px-6 mb-4 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#00D084] text-[10px] font-extrabold uppercase tracking-[0.25em] mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#00D084] animate-pulse" />
+            AUDIENCE ACQUISITION ENGINE
+          </div>
+          <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+            150,000+ Active Customers & Commercial Buyers Moved to Action
+          </h3>
+        </div>
+
+        {/* Full-Width Canvas Container with Top & Bottom Edge Blends */}
+        <div className="relative h-[240px] sm:h-[320px] w-full overflow-hidden bg-[#0A0A0C]">
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#0A0A0C] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0A0A0C] to-transparent z-10 pointer-events-none" />
+          <CrowdCanvas
+            src="https://cdn.21st.dev/assets/localized/abdb8990a7bef8c2f5af3e45f0a3c969c4b0603fba8be92e81347de4ea4e1ed7.png"
+            rows={15}
+            cols={7}
+          />
+        </div>
+      </div>
       
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-medium border-t border-gray-200/60 pt-8">
+      {/* Bottom Copyright Bar */}
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-medium border-t border-white/10 pt-8 pb-4">
         <p>© 2026 AdvertBytes. All rights reserved.</p>
-        <p className="mt-2 md:mt-0">Performance Marketing • Meta & Google Ads • Revenue Scaling</p>
+        <p className="mt-2 md:mt-0 text-gray-400">Performance Marketing • Meta & Google Ads • Revenue Scaling</p>
       </div>
     </footer>
   );
