@@ -7,6 +7,7 @@ import { Tier1FeaturedCard } from './components/Tier1FeaturedCard';
 import { CategoryFilterBar } from './components/CategoryFilterBar';
 import { Tier2CompactCard } from './components/Tier2CompactCard';
 import { CaseStudyDetailModal } from './components/CaseStudyDetailModal';
+import Skiper39 from './components/ui/skiper39';
 
 // Homepage Sections
 import { 
@@ -122,6 +123,9 @@ export default function App() {
 
       {/* Section 15: Footer */}
       <Footer />
+
+      {/* Section 16: Crowd Canvas Animation */}
+      <Skiper39 />
 
       {/* Case Study Modal */}
       {selectedCaseStudy && (
