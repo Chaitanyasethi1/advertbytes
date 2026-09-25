@@ -31,10 +31,10 @@ export const ThreeBackground: React.FC = () => {
     // Geometry 1: Low-poly Icosahedron / Geodesic Wireframe
     const icosaGeometry = new THREE.IcosahedronGeometry(7, 2);
     const wireframeMat = new THREE.MeshBasicMaterial({
-      color: 0x0052ff,
+      color: 0x000000,
       wireframe: true,
       transparent: true,
-      opacity: 0.07, // 7-8% opacity as per spec
+      opacity: 0.05,
     });
     const icosaMesh = new THREE.Mesh(icosaGeometry, wireframeMat);
     group.add(icosaMesh);
@@ -42,10 +42,10 @@ export const ThreeBackground: React.FC = () => {
     // Geometry 2: Floating Ring / Torus Wireframe (accent orbit)
     const torusGeometry = new THREE.TorusGeometry(10.5, 0.6, 8, 48);
     const torusMat = new THREE.MeshBasicMaterial({
-      color: 0x0052ff,
+      color: 0x000000,
       wireframe: true,
       transparent: true,
-      opacity: 0.05,
+      opacity: 0.04,
     });
     const torusMesh = new THREE.Mesh(torusGeometry, torusMat);
     torusMesh.rotation.x = Math.PI / 3;

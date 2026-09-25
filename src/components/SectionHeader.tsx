@@ -12,14 +12,14 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({ onExploreClick }) 
         {/* Left Column: Eyebrow + Headline + Body */}
         <div className="max-w-3xl">
           {/* Eyebrow */}
-          <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-gray-200 bg-white px-3.5 py-1.5 text-xs font-semibold uppercase tracking-widest text-gray-500 shadow-sm">
+          <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-gray-200 bg-white px-3.5 py-1.5 text-xs font-semibold uppercase tracking-widest text-gray-700 shadow-sm">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#0052FF] opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0052FF]"></span>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-black opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-black"></span>
             </span>
             <span>Index</span>
             <span className="text-gray-300">/</span>
-            <span className="font-mono text-[11px] text-gray-400">18 Case Studies</span>
+            <span className="font-mono text-[11px] text-gray-500">18 Case Studies</span>
           </div>
 
           {/* Editorial H2 Headline */}
@@ -41,7 +41,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({ onExploreClick }) 
           <button
             onClick={onExploreClick}
             type="button"
-            className="group relative inline-flex items-center gap-3 rounded-full bg-[#0052FF] px-7 py-4 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:bg-[#0052FF]/90 cursor-pointer"
+            className="group relative inline-flex items-center gap-3 rounded-full bg-[#0A0A0C] px-7 py-4 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:bg-black cursor-pointer"
           >
             <span className="uppercase tracking-widest text-[10px]">Explore Index</span>
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

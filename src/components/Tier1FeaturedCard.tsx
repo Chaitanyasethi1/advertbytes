@@ -16,12 +16,12 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
   onOpenDetails,
 }) => {
   return (
-    <div className="group relative flex flex-col bg-white border border-gray-200 rounded-3xl overflow-hidden transition-all duration-500 hover:border-[#0052FF]/30 hover:shadow-2xl hover:shadow-gray-200/50">
+    <div className="group relative flex flex-col bg-white border border-gray-200 rounded-3xl overflow-hidden transition-all duration-500 hover:border-black/30 hover:shadow-2xl hover:shadow-gray-200/50">
       
       {/* High-End Image Container */}
       <div className="relative h-[300px] w-full overflow-hidden bg-gray-100">
         <div 
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100 grayscale-[20%] group-hover:grayscale-0"
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100 grayscale-[25%] group-hover:grayscale-0"
           style={{ backgroundImage: `url(${caseStudy.imageUrl})` }}
         />
         {/* Sleek gradient fade to white */}
@@ -54,12 +54,12 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
           
           <div className="flex gap-2">
             {caseStudy.instagram && (
-              <a href={`https://${caseStudy.instagram}`} target="_blank" rel="noreferrer" className="p-2.5 rounded-full bg-gray-50 border border-gray-200 text-gray-600 hover:bg-[#0052FF] hover:text-white hover:border-[#0052FF] transition-all">
+              <a href={`https://${caseStudy.instagram}`} target="_blank" rel="noreferrer" className="p-2.5 rounded-full bg-gray-50 border border-gray-200 text-gray-600 hover:bg-black hover:text-white hover:border-black transition-all">
                 <InstagramIcon className="h-4 w-4" />
               </a>
             )}
             {caseStudy.website && (
-              <a href={`https://${caseStudy.website}`} target="_blank" rel="noreferrer" className="p-2.5 rounded-full bg-gray-50 border border-gray-200 text-gray-600 hover:bg-[#0052FF] hover:text-white hover:border-[#0052FF] transition-all">
+              <a href={`https://${caseStudy.website}`} target="_blank" rel="noreferrer" className="p-2.5 rounded-full bg-gray-50 border border-gray-200 text-gray-600 hover:bg-black hover:text-white hover:border-black transition-all">
                 <ExternalLink className="h-4 w-4" />
               </a>
             )}
@@ -74,7 +74,7 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
         {/* Crisp Metrics Grid */}
         <div className="grid grid-cols-2 gap-y-8 gap-x-4 mb-8">
           {caseStudy.stats.map((stat, statIdx) => (
-            <div key={statIdx} className="flex flex-col border-l-2 border-[#0052FF]/20 pl-4">
+            <div key={statIdx} className="flex flex-col border-l-2 border-black/20 pl-4">
               <span className="text-3xl font-bold tracking-tighter text-[#0A0A0C]">
                 <CountUpStat value={stat.value} numericTarget={stat.numericTarget} prefix={stat.prefix} suffix={stat.suffix} decimals={stat.decimals} />
               </span>
@@ -95,7 +95,7 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
             ))}
           </div>
 
-          <button onClick={() => onOpenDetails(caseStudy)} className="inline-flex items-center gap-2 text-xs font-bold text-[#0A0A0C] group/btn hover:text-[#0052FF] transition-colors uppercase tracking-widest">
+          <button onClick={() => onOpenDetails(caseStudy)} className="inline-flex items-center gap-2 text-xs font-bold text-[#0A0A0C] group/btn hover:text-black hover:underline transition-all uppercase tracking-widest">
             View Case <ArrowUpRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
           </button>
         </div>

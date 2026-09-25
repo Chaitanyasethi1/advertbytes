@@ -7,12 +7,12 @@ export const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const servicesList = [
-    { title: 'LinkedIn Lead Gen', href: '#services', icon: 'in', color: '#0052FF' },
-    { title: 'Demand Gen', href: '#services', icon: '🚀', color: '#00D084' },
-    { title: 'Personal Branding', href: '#services', icon: '👤', color: '#FFB800' },
-    { title: 'Content & Creative', href: '#services', icon: '🎬', color: '#8B5CF6' },
-    { title: 'Paid Ads', href: '#services', icon: '📢', color: '#EF4444' },
-    { title: 'Strategy & Funnels', href: '#services', icon: '⚙️', color: '#06B6D4' }
+    { title: 'Meta Ads Scaling', href: '#services', icon: '📱' },
+    { title: 'Google & YouTube Ads', href: '#services', icon: '🎯' },
+    { title: 'High-Ticket B2B Lead Gen', href: '#services', icon: '💼' },
+    { title: 'Performance Creative Studio', href: '#services', icon: '🎬' },
+    { title: 'Conversion Rate Optimization', href: '#services', icon: '⚡' },
+    { title: 'Retention & Email Automation', href: '#services', icon: '🔄' }
   ];
 
   const handleNavClick = (label: string, href: string) => {
@@ -29,7 +29,7 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-gray-200/60 px-6 py-3.5 transition-all">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/80 px-6 py-3.5 transition-all">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
         {/* Logo */}
@@ -41,13 +41,13 @@ export const Navbar: React.FC = () => {
         </a>
         
         {/* Centered Navigation Pills */}
-        <div className="hidden lg:flex items-center gap-1 bg-white border border-gray-200/80 shadow-sm rounded-full p-1.5 relative">
+        <div className="hidden lg:flex items-center gap-1 bg-white border border-gray-200/90 shadow-sm rounded-full p-1.5 relative">
           
           {/* Home */}
           <button
             onClick={() => handleNavClick('Home', '#top')}
             className={`px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
-              activeItem === 'Home' ? 'text-[#FFB800] bg-transparent' : 'text-gray-600 hover:text-black hover:bg-gray-50'
+              activeItem === 'Home' ? 'text-black bg-gray-100' : 'text-gray-600 hover:text-black hover:bg-gray-50'
             }`}
           >
             Home
@@ -62,11 +62,11 @@ export const Navbar: React.FC = () => {
             <button
               onClick={() => handleNavClick('Services', '#services')}
               className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
-                activeItem === 'Services' ? 'text-[#FFB800] bg-transparent' : 'text-gray-600 hover:text-black hover:bg-gray-50'
+                activeItem === 'Services' ? 'text-black bg-gray-100' : 'text-gray-600 hover:text-black hover:bg-gray-50'
               }`}
             >
               Services
-              <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${isServicesOpen ? 'rotate-180 text-[#FFB800]' : 'opacity-60'}`} />
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${isServicesOpen ? 'rotate-180 text-black' : 'opacity-60'}`} />
             </button>
 
             {/* Dropdown Menu */}
@@ -79,10 +79,10 @@ export const Navbar: React.FC = () => {
                     onClick={() => handleNavClick('Services', service.href)}
                     className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-gray-50 transition-colors group/item"
                   >
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 shadow-sm" style={{ backgroundColor: `${service.color}15`, color: service.color }}>
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 shadow-sm bg-gray-100 text-gray-900 border border-gray-200">
                       {service.icon}
                     </div>
-                    <span className="text-xs font-bold text-gray-800 group-hover/item:text-[#00D084] transition-colors">
+                    <span className="text-xs font-bold text-gray-800 group-hover/item:text-black transition-colors">
                       {service.title}
                     </span>
                   </a>
@@ -95,7 +95,7 @@ export const Navbar: React.FC = () => {
           <button
             onClick={() => handleNavClick('Portfolio', '#portfolio')}
             className={`px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
-              activeItem === 'Portfolio' ? 'text-[#FFB800] bg-transparent' : 'text-gray-600 hover:text-black hover:bg-gray-50'
+              activeItem === 'Portfolio' ? 'text-black bg-gray-100' : 'text-gray-600 hover:text-black hover:bg-gray-50'
             }`}
           >
             Portfolio
@@ -105,7 +105,7 @@ export const Navbar: React.FC = () => {
           <button
             onClick={() => handleNavClick('About', '#about')}
             className={`px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
-              activeItem === 'About' ? 'text-[#FFB800] bg-transparent' : 'text-gray-600 hover:text-black hover:bg-gray-50'
+              activeItem === 'About' ? 'text-black bg-gray-100' : 'text-gray-600 hover:text-black hover:bg-gray-50'
             }`}
           >
             About
@@ -115,7 +115,7 @@ export const Navbar: React.FC = () => {
           <button
             onClick={() => handleNavClick('Contact', '#contact')}
             className={`px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
-              activeItem === 'Contact' ? 'text-[#FFB800] bg-transparent' : 'text-gray-600 hover:text-black hover:bg-gray-50'
+              activeItem === 'Contact' ? 'text-black bg-gray-100' : 'text-gray-600 hover:text-black hover:bg-gray-50'
             }`}
           >
             Contact
@@ -130,13 +130,13 @@ export const Navbar: React.FC = () => {
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
-            className="p-2.5 rounded-full border border-gray-200 text-gray-500 hover:text-[#0077b5] hover:border-[#0077b5] transition-colors"
+            className="p-2.5 rounded-full border border-gray-200 text-gray-700 hover:text-black hover:border-black transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
           <a
             href="tel:7827778719"
-            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FFB800] to-[#00D084] px-6 py-2.5 text-[13px] font-bold text-[#0A0A0C] hover:opacity-90 transition-opacity shadow-sm"
+            className="flex items-center gap-2 rounded-full bg-[#0A0A0C] px-6 py-2.5 text-[13px] font-bold text-white hover:bg-black transition-all shadow-md hover:shadow-lg"
           >
             <span>Book a Strategy Call</span>
             <ArrowRight className="h-4 w-4" />
@@ -189,7 +189,7 @@ export const Navbar: React.FC = () => {
           </button>
           <a
             href="tel:7827778719"
-            className="mt-2 text-center rounded-full bg-gradient-to-r from-[#FFB800] to-[#00D084] px-6 py-3 text-sm font-bold text-[#0A0A0C] shadow-sm"
+            className="mt-2 text-center rounded-full bg-[#0A0A0C] px-6 py-3 text-sm font-bold text-white shadow-md hover:bg-black"
           >
             Book a Strategy Call
           </a>

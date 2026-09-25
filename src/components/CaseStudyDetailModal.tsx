@@ -53,7 +53,7 @@ export const CaseStudyDetailModal: React.FC<CaseStudyDetailModalProps> = ({
 
         {/* Top Badges */}
         <div className="flex flex-wrap items-center gap-2 mb-4">
-          <span className="rounded-full bg-[#0052FF]/10 px-3 py-1 font-mono text-xs font-bold text-[#0052FF]">
+          <span className="rounded-full bg-black/5 px-3 py-1 font-mono text-xs font-bold text-[#0A0A0C] border border-gray-200">
             {selectedItem.categoryTag}
           </span>
           <span className="font-mono text-xs text-[#8E8E9F]">•</span>
@@ -77,7 +77,7 @@ export const CaseStudyDetailModal: React.FC<CaseStudyDetailModalProps> = ({
               href={`https://${selectedItem.instagram}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-1.5 text-xs font-semibold text-[#374151] hover:border-[#0052FF] hover:text-[#0052FF] transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-1.5 text-xs font-semibold text-[#374151] hover:border-black hover:text-black transition-colors"
             >
               <InstagramIcon className="h-3.5 w-3.5" />
               <span>{selectedItem.instagram}</span>
@@ -88,7 +88,7 @@ export const CaseStudyDetailModal: React.FC<CaseStudyDetailModalProps> = ({
               href={`https://${selectedItem.website}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-1.5 text-xs font-semibold text-[#374151] hover:border-[#0052FF] hover:text-[#0052FF] transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-1.5 text-xs font-semibold text-[#374151] hover:border-black hover:text-black transition-colors"
             >
               <ExternalLink className="h-3.5 w-3.5" />
               <span>{selectedItem.website}</span>
@@ -99,12 +99,12 @@ export const CaseStudyDetailModal: React.FC<CaseStudyDetailModalProps> = ({
         {/* Hero Numbers Strip */}
         <div className="my-8 rounded-xl border border-[#E5E7EB] bg-[#FAFBFD] p-6">
           <div className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#6B7280]">
-            <BarChart2 className="h-4 w-4 text-[#0052FF]" />
+            <BarChart2 className="h-4 w-4 text-black" />
             <span>Key Performance Highlights</span>
           </div>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {selectedItem.stats.map((stat, idx) => (
-              <div key={idx} className="border-l-2 border-[#0052FF] pl-3">
+              <div key={idx} className="border-l-2 border-black/30 pl-3">
                 <div className="text-2xl font-black text-[#0A0A0C]">{stat.value}</div>
                 <div className="mt-0.5 text-xs font-medium uppercase tracking-wider text-[#6B7280]">
                   {stat.label}
@@ -119,7 +119,7 @@ export const CaseStudyDetailModal: React.FC<CaseStudyDetailModalProps> = ({
           <div className="space-y-6 text-sm sm:text-base leading-relaxed text-[#374151]">
             <div>
               <h5 className="font-bold text-[#0A0A0C] mb-1.5 flex items-center gap-2">
-                <TrendingUp className="h-4 w-4 text-[#0052FF]" />
+                <TrendingUp className="h-4 w-4 text-black" />
                 The Campaign Objective & Challenge
               </h5>
               <p className="text-[#555666]">{tier1Item.challenge}</p>
@@ -127,7 +127,7 @@ export const CaseStudyDetailModal: React.FC<CaseStudyDetailModalProps> = ({
 
             <div>
               <h5 className="font-bold text-[#0A0A0C] mb-1.5 flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-[#0052FF]" />
+                <CheckCircle2 className="h-4 w-4 text-black" />
                 Our Strategic Approach
               </h5>
               <p className="text-[#555666]">{tier1Item.approach}</p>

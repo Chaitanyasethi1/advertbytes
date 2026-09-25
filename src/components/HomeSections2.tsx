@@ -9,53 +9,44 @@ export const ServicesGridSection = () => {
       desc: 'Scale high-converting Advantage+ shopping campaigns, dynamic retargeting, and algorithmic customer acquisition that turns cold audiences into paying customers.', 
       icon: '📱', 
       tag: 'Scale Engine',
-      color: '#0052FF', 
       isFlagship: true 
     },
     { 
       title: 'Google & YouTube Ads', 
       desc: 'Dominate high-intent search queries and capture buyers at the exact moment of decision with Google Search, Performance Max (PMax), and YouTube discovery funnels.', 
       icon: '🎯', 
-      tag: 'Intent Capture',
-      color: '#00D084' 
+      tag: 'Intent Capture' 
     },
     { 
       title: 'High-Ticket Lead Generation', 
       desc: 'Eliminate tyre-kickers with qualified B2B lead funnels, automated instant forms, and WhatsApp/CRM integrations for high-value commercial sales.', 
       icon: '💼', 
-      tag: 'B2B Pipeline',
-      color: '#FFB800' 
+      tag: 'B2B Pipeline' 
     },
     { 
       title: 'Performance Creative & UGC Studio', 
       desc: 'Our in-house studio scripts, edits, and delivers scroll-stopping UGC videos, 3D motion hooks, and direct-response carousel ads that drop CAC.', 
       icon: '🎬', 
-      tag: 'In-House Studio',
-      color: '#8B5CF6' 
+      tag: 'In-House Studio' 
     },
     { 
       title: 'Conversion Rate Optimization (CRO)', 
       desc: 'Fix leaky funnels and multiply your revenue per session. We build and test high-converting Shopify product pages, advertorials, and streamlined checkout flows.', 
       icon: '⚡', 
-      tag: 'AOV & LTV Lift',
-      color: '#EF4444' 
+      tag: 'AOV & LTV Lift' 
     },
     { 
       title: 'Retention & Email Automation', 
       desc: 'Maximize customer lifetime value (LTV) with intelligent Klaviyo flows, abandoned cart recovery, VIP loyalty sequences, and personalized SMS alerts.', 
       icon: '🔄', 
-      tag: 'Repeat Revenue',
-      color: '#06B6D4' 
+      tag: 'Repeat Revenue' 
     }
   ];
 
   return (
-    <section className="bg-[#FFFDF9] py-32 relative overflow-hidden bg-grid-pattern">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] opacity-50 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, rgba(255,184,0,0.05) 0%, transparent 100%)' }} />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-50 pointer-events-none" style={{ background: 'radial-gradient(50% 50% at 50% 50%, rgba(0,208,132,0.05) 0%, transparent 100%)' }} />
-      
+    <section className="bg-white py-32 relative overflow-hidden bg-grid-pattern">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
-        <div className="bg-[#00D084] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-8">
+        <div className="bg-[#0A0A0C] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-8 shadow-sm">
           COMPREHENSIVE GROWTH SUITE
         </div>
         
@@ -69,25 +60,22 @@ export const ServicesGridSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mb-14">
           {services.map((service, i) => (
-            <div key={i} className="bg-white rounded-[2rem] p-8 shadow-soft border border-gray-100 hover:shadow-soft-lg transition-all duration-300 relative overflow-hidden group hover:-translate-y-1 flex flex-col justify-between">
-              
-              <div className="absolute -top-10 -right-10 w-32 h-32 opacity-20 transition-opacity group-hover:opacity-40 pointer-events-none" style={{ background: `radial-gradient(50% 50% at 50% 50%, ${service.color} 0%, transparent 100%)` }} />
-
+            <div key={i} className="bg-white rounded-[2rem] p-8 shadow-soft border border-gray-200 hover:border-black/40 hover:shadow-soft-lg transition-all duration-300 relative overflow-hidden group hover:-translate-y-1 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl shadow-sm" style={{ backgroundColor: `${service.color}15`, color: service.color }}>
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl shadow-sm bg-gray-100 text-gray-900 border border-gray-200">
                     {service.icon}
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md" style={{ backgroundColor: `${service.color}10`, color: service.color }}>
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md bg-gray-100 text-gray-800 border border-gray-200">
                     {service.tag}
                   </span>
                 </div>
 
                 <h3 className="text-xl font-bold text-[#0A0A0C] mb-3 leading-snug">{service.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">{service.desc}</p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">{service.desc}</p>
               </div>
 
-              <a href="#portfolio" className="text-xs font-bold flex items-center gap-2 hover:gap-3 transition-all pt-4 border-t border-gray-100" style={{ color: service.color }}>
+              <a href="#portfolio" className="text-xs font-bold flex items-center gap-2 hover:gap-3 transition-all pt-4 border-t border-gray-100 text-black hover:underline">
                 <span>See Case Studies</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
@@ -97,7 +85,7 @@ export const ServicesGridSection = () => {
 
         <a 
           href="tel:7827778719" 
-          className="bg-gradient-to-r from-[#FFB800] to-[#00D084] text-[#0A0A0C] text-sm font-bold uppercase tracking-wider px-8 py-4 rounded-full shadow-md hover:shadow-lg transition-all flex items-center gap-2 group"
+          className="bg-[#0A0A0C] text-white text-sm font-bold uppercase tracking-wider px-8 py-4 rounded-full shadow-md hover:bg-black hover:shadow-lg transition-all flex items-center gap-2 group"
         >
           <span>Get a Custom Growth Proposal</span> 
           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -120,9 +108,9 @@ export const ClientLogoStripSection = () => {
   ];
 
   return (
-    <section className="bg-white py-16 border-y border-gray-200/70 overflow-hidden">
+    <section className="bg-white py-16 border-y border-gray-200/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-8 text-center">
-        <div className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-gray-400">
+        <div className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-gray-500">
           PROUDLY ACCELERATING SCALE FOR INDUSTRY LEADERS
         </div>
       </div>
@@ -133,13 +121,13 @@ export const ClientLogoStripSection = () => {
           {[...clients, ...clients].map((client, i) => (
             <div 
               key={i} 
-              className="inline-flex items-center gap-3.5 px-6 py-3 rounded-full bg-gray-50 border border-gray-200/80 shadow-sm shrink-0 hover:border-[#00D084] transition-colors"
+              className="inline-flex items-center gap-3.5 px-6 py-3 rounded-full bg-gray-50 border border-gray-200/90 shadow-sm shrink-0 hover:border-black transition-colors"
             >
-              <div className="w-2 h-2 rounded-full bg-[#00D084]" />
+              <div className="w-2 h-2 rounded-full bg-black" />
               <span className="font-extrabold text-sm text-[#0A0A0C]">{client.name}</span>
               <span className="text-gray-300">|</span>
               <span className="text-xs text-gray-500 font-medium">{client.category}</span>
-              <span className="px-2 py-0.5 rounded-md bg-emerald-100 text-[#059669] text-[10px] font-bold">
+              <span className="px-2 py-0.5 rounded-md bg-gray-200 text-gray-900 text-[10px] font-bold font-mono">
                 {client.metric}
               </span>
             </div>
@@ -152,23 +140,22 @@ export const ClientLogoStripSection = () => {
 
 export const ResultsStripSection = () => {
   return (
-    <section className="bg-gradient-to-b from-[#FFFDF9] to-white py-24 sm:py-32 overflow-hidden border-b border-gray-100">
+    <section className="bg-[#F8F9FA] py-24 sm:py-32 overflow-hidden border-b border-gray-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="bg-[#0A0A0C] rounded-[2.5rem] p-8 sm:p-14 lg:p-16 text-white relative overflow-hidden shadow-2xl">
-          {/* Subtle Glows */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00D084]/20 rounded-full blur-[100px] pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#0052FF]/20 rounded-full blur-[100px] pointer-events-none" />
+        <div className="bg-[#0A0A0C] rounded-[2.5rem] p-8 sm:p-14 lg:p-16 text-white relative overflow-hidden shadow-2xl border border-gray-800">
+          {/* Subtle Monochrome Glow */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#00D084] text-xs font-bold uppercase tracking-wider mb-6">
-                <Sparkles className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-bold uppercase tracking-wider mb-6 border border-white/15">
+                <Sparkles className="w-3.5 h-3.5 text-white" />
                 Proven Track Record
               </div>
               
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight mb-6">
                 Multi-Channel Execution.<br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFB800] via-[#00D084] to-[#0052FF]">
+                <span className="text-white">
                   Verified Revenue Lift.
                 </span>
               </h2>
@@ -179,15 +166,15 @@ export const ResultsStripSection = () => {
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10">
                 <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#00D084]">₹13L+</div>
+                  <div className="text-2xl sm:text-3xl font-black text-white">₹13L+</div>
                   <div className="text-xs text-gray-400 font-medium mt-1">Single Month Peak Sales</div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#FFB800]">11.78x</div>
+                  <div className="text-2xl sm:text-3xl font-black text-white">11.78x</div>
                   <div className="text-xs text-gray-400 font-medium mt-1">Blended Client ROAS</div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#0052FF]">800+</div>
+                  <div className="text-2xl sm:text-3xl font-black text-white">800+</div>
                   <div className="text-xs text-gray-400 font-medium mt-1">Qualified B2B Leads</div>
                 </div>
               </div>
@@ -202,8 +189,8 @@ export const ResultsStripSection = () => {
                   className="w-full h-auto object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-white text-[#0A0A0C] px-5 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 border border-gray-100">
-                <TrendingUp className="w-4 h-4 text-[#00D084]" />
+              <div className="absolute -bottom-4 -right-4 bg-white text-[#0A0A0C] px-5 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 border border-gray-200">
+                <TrendingUp className="w-4 h-4 text-black" />
                 <span className="text-xs font-black">Live Campaign Attribution</span>
               </div>
             </div>
@@ -245,18 +232,18 @@ export const ComparisonSection = () => {
   ];
 
   return (
-    <section id="faq" className="bg-[#FAF9F6] py-28 sm:py-32 bg-grid-pattern relative border-t border-gray-100">
+    <section id="faq" className="bg-white py-28 sm:py-32 bg-grid-pattern relative border-t border-gray-200/60">
       <div className="max-w-4xl mx-auto px-6">
         
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="bg-[#FFB800] text-black text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-6 inline-block shadow-sm">
+          <div className="bg-[#0A0A0C] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-6 inline-block shadow-sm">
             FREQUENTLY ASKED QUESTIONS
           </div>
           <h2 className="text-4xl sm:text-5xl font-black text-[#0A0A0C] tracking-tight leading-tight mb-4">
-            Everything you need to know about <span className="text-[#00D084]">scaling with AdvertBytes.</span>
+            Everything you need to know about <span className="underline decoration-black/30 underline-offset-8">scaling with AdvertBytes.</span>
           </h2>
-          <p className="text-base text-gray-500 font-medium max-w-xl mx-auto leading-relaxed">
+          <p className="text-base text-gray-600 font-medium max-w-xl mx-auto leading-relaxed">
             Transparent answers regarding our campaigns, creative workflows, timelines, and partnership structure.
           </p>
         </div>
@@ -269,23 +256,23 @@ export const ComparisonSection = () => {
               <div
                 key={index}
                 className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden shadow-sm ${
-                  isOpen ? 'border-[#00D084] shadow-md' : 'border-gray-200/80 hover:border-gray-300'
+                  isOpen ? 'border-black shadow-md' : 'border-gray-200/90 hover:border-gray-400'
                 }`}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-base text-[#0A0A0C] hover:text-[#00D084] transition-colors"
+                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-base text-[#0A0A0C] hover:text-black transition-colors"
                 >
                   <span className="leading-snug">{faq.question}</span>
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                    isOpen ? 'bg-[#00D084] text-white rotate-180' : 'bg-gray-100 text-gray-500'
+                    isOpen ? 'bg-[#0A0A0C] text-white rotate-180' : 'bg-gray-100 text-gray-500'
                   }`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-sm text-gray-600 leading-relaxed border-t border-gray-100/60 font-sans">
+                  <div className="px-6 pb-6 pt-1 text-sm text-gray-600 leading-relaxed border-t border-gray-100 font-sans">
                     {faq.answer}
                   </div>
                 )}
@@ -306,39 +293,35 @@ export const TestimonialsSection = () => {
       name: "Priya R.", 
       role: "CMO, Greenways (Ethnic Wear)", 
       image: "/images/founder-priya.jpg",
-      metric: "9.31x ROAS • ₹13L+ Sales",
-      color: "#00D084" 
+      metric: "9.31x ROAS • ₹13L+ Sales"
     },
     { 
       quote: "Scaling our footwear catalog online felt impossible with rising ad costs. AdvertBytes restructured our full campaign architecture on Meta and Google Shopping, delivering 350+ orders in 4 months with a 3.41x blended return.", 
       name: "Amit S.", 
       role: "Founder & CEO, Sole House", 
       image: "/images/founder-amit.jpg",
-      metric: "3.41x ROAS • 352 Orders",
-      color: "#FFB800" 
+      metric: "3.41x ROAS • 352 Orders"
     },
     { 
       quote: "AdvertBytes proved that even traditional festive products can achieve aggressive digital growth. In festive scaling alone, their Meta ads generated an 11.78x ROAS with over 27% repeat customers.", 
       name: "Sonal T.", 
       role: "Brand Director, Gulab Wala", 
       image: "/images/founder-sonal.jpg",
-      metric: "11.78x ROAS • 27% Repeat Rate",
-      color: "#0052FF" 
+      metric: "11.78x ROAS • 27% Repeat Rate"
     },
     { 
       quote: "For high-ticket architectural surfaces, general agencies only deliver tyre-kickers. AdvertBytes engineered a targeted commercial lead funnel delivering 800+ qualified architects and builders at just ₹108 CPL.", 
       name: "Rohit P.", 
       role: "Managing Director, Surface by Sefar", 
       image: "/images/founder-rohit.jpg",
-      metric: "800+ Leads • ₹108 Avg CPL",
-      color: "#8B5CF6" 
+      metric: "800+ Leads • ₹108 Avg CPL"
     }
   ];
 
   return (
-    <section className="bg-[#F4F9F8] py-32 relative overflow-hidden bg-grid-pattern">
+    <section className="bg-[#F8F9FA] py-32 relative overflow-hidden bg-grid-pattern border-t border-gray-200/60">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
-        <div className="bg-gradient-to-r from-[#FFB800] to-[#00D084] text-black text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-8">
+        <div className="bg-[#0A0A0C] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-8 shadow-sm">
           VERIFIED FOUNDER OUTCOMES
         </div>
         
@@ -352,16 +335,16 @@ export const TestimonialsSection = () => {
 
         <div className="grid md:grid-cols-2 gap-8 w-full">
           {testimonials.map((t, i) => (
-            <div key={i} className="bg-white rounded-[2.2rem] p-8 sm:p-10 shadow-soft border border-gray-100 relative flex flex-col justify-between group hover:shadow-soft-lg transition-all duration-300">
+            <div key={i} className="bg-white rounded-[2.2rem] p-8 sm:p-10 shadow-soft border border-gray-200/90 relative flex flex-col justify-between group hover:shadow-soft-lg transition-all duration-300">
               <div>
                 {/* Top Quote & Rating */}
                 <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-1 text-[#FFB800]">
+                  <div className="flex items-center gap-1 text-[#0A0A0C]">
                     {[...Array(5)].map((_, idx) => (
-                      <Star key={idx} className="w-4 h-4 fill-[#FFB800]" />
+                      <Star key={idx} className="w-4 h-4 fill-[#0A0A0C]" />
                     ))}
                   </div>
-                  <span className="text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-gray-50 border border-gray-200 text-gray-700">
+                  <span className="text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-gray-800">
                     {t.metric}
                   </span>
                 </div>
@@ -375,8 +358,7 @@ export const TestimonialsSection = () => {
                 <img 
                   src={t.image} 
                   alt={t.name} 
-                  className="w-14 h-14 rounded-full object-cover border-2 shadow-sm"
-                  style={{ borderColor: t.color }}
+                  className="w-14 h-14 rounded-full object-cover border-2 border-gray-200 shadow-sm"
                 />
                 <div>
                   <div className="text-base font-extrabold text-[#0A0A0C]">{t.name}</div>
@@ -393,15 +375,13 @@ export const TestimonialsSection = () => {
 
 export const FinalCTA = () => {
   return (
-    <section id="contact" className="relative py-32 overflow-hidden flex flex-col items-center justify-center text-center">
-      {/* Massive Vibrant Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#FFB800] via-[#34C759] to-[#0052FF]" />
-      
-      {/* Overlay Pattern */}
-      <div className="absolute inset-0 bg-black/10 mix-blend-overlay pointer-events-none" />
+    <section id="contact" className="relative py-32 overflow-hidden flex flex-col items-center justify-center text-center bg-[#0A0A0C] border-t border-neutral-900">
+      {/* Subtle grid and dark radial vignette */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/20 backdrop-blur-md text-white text-xs font-bold uppercase tracking-widest mb-8">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-white text-xs font-bold uppercase tracking-widest mb-8">
           <span className="w-2 h-2 rounded-full bg-white animate-ping" />
           ACCEPTING NEW Q3/Q4 PARTNERS
         </div>
@@ -410,14 +390,14 @@ export const FinalCTA = () => {
           Ready to turn ad spend into predictable revenue?
         </h2>
 
-        <p className="text-white/90 text-base sm:text-xl font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-gray-300 text-base sm:text-xl font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
           Book a 1-on-1 growth strategy call. We'll audit your current ad accounts, identify wasted budget, and present a custom roadmap to scale your ROAS.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a 
             href="tel:7827778719" 
-            className="w-full sm:w-auto bg-[#0A0A0C] text-white px-8 py-4 rounded-full font-bold text-sm shadow-2xl flex items-center justify-center gap-2 hover:bg-black/90 transition-all cursor-pointer group"
+            className="w-full sm:w-auto bg-white text-[#0A0A0C] px-8 py-4 rounded-full font-bold text-sm shadow-2xl flex items-center justify-center gap-2 hover:bg-gray-100 transition-all cursor-pointer group"
           >
             <span>Book a Strategy Call</span> 
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -425,13 +405,13 @@ export const FinalCTA = () => {
           
           <a 
             href="tel:7827778719" 
-            className="w-full sm:w-auto bg-white text-[#0A0A0C] px-8 py-4 rounded-full font-bold text-sm hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 shadow-lg"
+            className="w-full sm:w-auto bg-transparent border border-white/30 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-colors flex items-center justify-center gap-2 shadow-lg"
           >
             <span>Call Gaurav (+91 78277 78719)</span>
           </a>
         </div>
         
-        <p className="text-white/80 text-xs mt-8 font-semibold tracking-wide">
+        <p className="text-gray-400 text-xs mt-8 font-semibold tracking-wide">
           Direct senior strategist audit • No junior account managers • Zero obligation
         </p>
       </div>
@@ -441,19 +421,17 @@ export const FinalCTA = () => {
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#0A0A0C] pt-24 pb-8 border-t border-white/10 text-white relative overflow-hidden">
+    <footer className="bg-white pt-24 pb-8 border-t border-gray-200 text-[#0A0A0C] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-10 mb-16">
         
         <div className="lg:col-span-2">
           <a href="/" className="flex items-center gap-3.5 mb-6 group cursor-pointer">
-            <div className="bg-white rounded-xl p-1.5 flex items-center justify-center shadow-md">
-              <img src="/logo.png" alt="AdvertBytes Logo" className="h-10 w-auto object-contain transition-transform group-hover:scale-105" />
-            </div>
-            <span className="font-black tracking-tight text-2xl text-white font-sans">
+            <img src="/logo.png" alt="AdvertBytes Logo" className="h-12 w-auto object-contain transition-transform group-hover:scale-105" />
+            <span className="font-black tracking-tight text-2xl text-[#0A0A0C] font-sans">
               AdvertBytes
             </span>
           </a>
-          <p className="text-gray-400 text-sm leading-relaxed max-w-sm mb-6">
+          <p className="text-gray-600 text-sm leading-relaxed max-w-sm mb-6">
             AdvertBytes is a performance marketing and revenue growth partner. We build predictable customer acquisition engines across Meta Ads, Google Ads, creative strategy, and high-ticket B2B funnels.
           </p>
           <div className="flex items-center gap-3">
@@ -461,14 +439,14 @@ export const Footer = () => {
                href="https://linkedin.com" 
                target="_blank" 
                rel="noreferrer" 
-               className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-[#00D084] hover:border-[#00D084] transition-all shadow-sm"
+               className="w-9 h-9 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-600 hover:text-black hover:border-black transition-all shadow-sm"
                aria-label="LinkedIn"
              >
                <span className="text-xs font-black">in</span>
              </a>
              <a 
                href="tel:7827778719" 
-               className="text-xs font-bold text-gray-300 bg-white/5 border border-white/10 px-4 py-2 rounded-full hover:border-[#00D084] hover:text-white transition-colors shadow-sm"
+               className="text-xs font-bold text-gray-800 bg-gray-50 border border-gray-200 px-4 py-2 rounded-full hover:border-black hover:bg-black hover:text-white transition-colors shadow-sm"
              >
                Direct: +91 78277 78719
              </a>
@@ -476,64 +454,64 @@ export const Footer = () => {
         </div>
         
         <div>
-          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-6">Services</h4>
-          <ul className="space-y-3.5 text-sm font-semibold text-gray-300">
-            <li><a href="#services" className="hover:text-[#00D084] transition-colors">Meta Ads Scaling</a></li>
-            <li><a href="#services" className="hover:text-[#00D084] transition-colors">Google & YouTube Ads</a></li>
-            <li><a href="#services" className="hover:text-[#00D084] transition-colors">High-Ticket B2B Lead Gen</a></li>
-            <li><a href="#services" className="hover:text-[#00D084] transition-colors">Performance Creative Studio</a></li>
-            <li><a href="#services" className="hover:text-[#00D084] transition-colors">Conversion Rate Optimization</a></li>
-            <li><a href="#services" className="hover:text-[#00D084] transition-colors">Retention & Email Automation</a></li>
+          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-6">Services</h4>
+          <ul className="space-y-3.5 text-sm font-semibold text-gray-600">
+            <li><a href="#services" className="hover:text-black transition-colors">Meta Ads Scaling</a></li>
+            <li><a href="#services" className="hover:text-black transition-colors">Google & YouTube Ads</a></li>
+            <li><a href="#services" className="hover:text-black transition-colors">High-Ticket B2B Lead Gen</a></li>
+            <li><a href="#services" className="hover:text-black transition-colors">Performance Creative Studio</a></li>
+            <li><a href="#services" className="hover:text-black transition-colors">Conversion Rate Optimization</a></li>
+            <li><a href="#services" className="hover:text-black transition-colors">Retention & Email Automation</a></li>
           </ul>
         </div>
         
         <div>
-          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-6">Navigation</h4>
-          <ul className="space-y-3.5 text-sm font-semibold text-gray-300">
-            <li><a href="#" className="hover:text-[#00D084] transition-colors">Home</a></li>
-            <li><a href="#about" className="hover:text-[#00D084] transition-colors">About Us</a></li>
-            <li><a href="#portfolio" className="hover:text-[#00D084] transition-colors">Case Studies (18+)</a></li>
-            <li><a href="#services" className="hover:text-[#00D084] transition-colors">Services</a></li>
-            <li><a href="#faq" className="hover:text-[#00D084] transition-colors">FAQ</a></li>
-            <li><a href="#contact" className="hover:text-[#00D084] transition-colors">Contact</a></li>
+          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-6">Navigation</h4>
+          <ul className="space-y-3.5 text-sm font-semibold text-gray-600">
+            <li><a href="#" className="hover:text-black transition-colors">Home</a></li>
+            <li><a href="#about" className="hover:text-black transition-colors">About Us</a></li>
+            <li><a href="#portfolio" className="hover:text-black transition-colors">Case Studies (18+)</a></li>
+            <li><a href="#services" className="hover:text-black transition-colors">Services</a></li>
+            <li><a href="#faq" className="hover:text-black transition-colors">FAQ</a></li>
+            <li><a href="#contact" className="hover:text-black transition-colors">Contact</a></li>
           </ul>
         </div>
         
         <div>
-          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-6">Direct Contact</h4>
-          <ul className="space-y-4 text-sm text-gray-300 leading-relaxed">
+          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-6">Direct Contact</h4>
+          <ul className="space-y-4 text-sm text-gray-600 leading-relaxed">
             <li className="flex items-center gap-3">
-              <span className="text-[#FFB800] shrink-0 text-base">✉</span> 
-              <a href="mailto:gauravaaa15@gmail.com" className="font-semibold text-gray-300 hover:text-[#00D084] transition-colors">gauravaaa15@gmail.com</a>
+              <span className="text-gray-900 shrink-0 text-base">✉</span> 
+              <a href="mailto:gauravaaa15@gmail.com" className="font-semibold text-gray-900 hover:text-black transition-colors">gauravaaa15@gmail.com</a>
             </li>
             <li className="flex items-center gap-3">
-              <span className="text-[#00D084] shrink-0 text-base">📞</span> 
-              <a href="tel:7827778719" className="font-semibold text-gray-300 hover:text-[#00D084] transition-colors">+91 78277 78719</a>
+              <span className="text-gray-900 shrink-0 text-base">📞</span> 
+              <a href="tel:7827778719" className="font-semibold text-gray-900 hover:text-black transition-colors">+91 78277 78719</a>
             </li>
             <li className="flex items-center gap-3">
-              <span className="text-[#0052FF] shrink-0 text-base">📍</span> 
-              <span className="font-semibold text-gray-300">Delhi, India</span>
+              <span className="text-gray-900 shrink-0 text-base">📍</span> 
+              <span className="font-semibold text-gray-900">Delhi, India</span>
             </li>
           </ul>
         </div>
       </div>
 
-      {/* Seamless Audience Engine (Crowd Canvas) */}
-      <div className="w-full relative border-t border-white/10 pt-12 pb-4 mt-8">
+      {/* Seamless Audience Engine (Crowd Canvas) on PURE WHITE */}
+      <div className="w-full relative border-t border-gray-200/80 pt-12 pb-4 mt-8 bg-white">
         <div className="max-w-7xl mx-auto px-6 mb-4 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#00D084] text-[10px] font-extrabold uppercase tracking-[0.25em] mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#00D084] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gray-100 border border-gray-200 text-gray-900 text-[10px] font-extrabold uppercase tracking-[0.25em] mb-3">
+            <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
             AUDIENCE ACQUISITION ENGINE
           </div>
-          <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+          <h3 className="text-xl sm:text-2xl font-black text-[#0A0A0C] tracking-tight">
             150,000+ Active Customers & Commercial Buyers Moved to Action
           </h3>
         </div>
 
-        {/* Full-Width Canvas Container with Top & Bottom Edge Blends */}
-        <div className="relative h-[240px] sm:h-[320px] w-full overflow-hidden bg-[#0A0A0C]">
-          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#0A0A0C] to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0A0A0C] to-transparent z-10 pointer-events-none" />
+        {/* Full-Width Canvas Container with Top & Bottom Edge Blends on White */}
+        <div className="relative h-[240px] sm:h-[320px] w-full overflow-hidden bg-white">
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none" />
           <CrowdCanvas
             src="https://cdn.21st.dev/assets/localized/abdb8990a7bef8c2f5af3e45f0a3c969c4b0603fba8be92e81347de4ea4e1ed7.png"
             rows={15}
@@ -543,9 +521,9 @@ export const Footer = () => {
       </div>
       
       {/* Bottom Copyright Bar */}
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-medium border-t border-white/10 pt-8 pb-4">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-medium border-t border-gray-200/80 pt-8 pb-4">
         <p>© 2026 AdvertBytes. All rights reserved.</p>
-        <p className="mt-2 md:mt-0 text-gray-400">Performance Marketing • Meta & Google Ads • Revenue Scaling</p>
+        <p className="mt-2 md:mt-0 text-gray-500 font-semibold">Performance Marketing • Meta & Google Ads • Revenue Scaling</p>
       </div>
     </footer>
   );

@@ -15,7 +15,7 @@ export const Tier2CompactCard: React.FC<Tier2CompactCardProps> = ({
   return (
     <div 
       onClick={() => onOpenDetails(caseStudy)}
-      className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#0052FF]/30 hover:shadow-xl cursor-pointer"
+      className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-black/30 hover:shadow-xl cursor-pointer"
     >
       <div className="relative h-48 w-full overflow-hidden bg-gray-100">
         <div 
@@ -38,7 +38,7 @@ export const Tier2CompactCard: React.FC<Tier2CompactCardProps> = ({
 
         <div className="grid grid-cols-2 gap-4 mb-6">
           {caseStudy.stats.map((stat, idx) => (
-            <div key={idx} className="flex flex-col border-l-2 border-[#0052FF]/20 pl-3">
+            <div key={idx} className="flex flex-col border-l-2 border-black/20 pl-3">
               <span className="text-xl font-bold tracking-tighter text-[#0A0A0C]">
                 <CountUpStat value={stat.value} numericTarget={stat.numericTarget} prefix={stat.prefix} suffix={stat.suffix} decimals={stat.decimals} />
               </span>
@@ -53,7 +53,7 @@ export const Tier2CompactCard: React.FC<Tier2CompactCardProps> = ({
           <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider truncate mr-4">
             {caseStudy.services?.join(' / ') || 'Digital Marketing'}
           </span>
-          <ArrowUpRight className="h-4 w-4 text-gray-400 group-hover:text-[#0052FF] transition-colors flex-shrink-0" />
+          <ArrowUpRight className="h-4 w-4 text-gray-400 group-hover:text-black transition-colors flex-shrink-0" />
         </div>
       </div>
     </div>
