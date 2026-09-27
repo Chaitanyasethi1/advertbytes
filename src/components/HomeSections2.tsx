@@ -537,10 +537,8 @@ export const Footer = () => {
           </h3>
         </div>
 
-        {/* Full-Width Canvas Container with Top & Bottom Edge Blends on White */}
+        {/* Full-Width Canvas Container without Edge Blends */}
         <div className="relative h-[240px] sm:h-[320px] w-full overflow-hidden bg-white">
-          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none" />
           <CrowdCanvas
             src="https://cdn.21st.dev/assets/localized/abdb8990a7bef8c2f5af3e45f0a3c969c4b0603fba8be92e81347de4ea4e1ed7.png"
             rows={15}
