@@ -296,10 +296,24 @@ export const DifferenceSection = () => {
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {cards.map((card, i) => (
-            <div key={i} className="bg-white rounded-[2rem] p-10 shadow-soft border border-gray-100 hover:shadow-soft-lg transition-all duration-300 group hover:-translate-y-1">
-              <div className="text-[#0A0A0C] text-5xl font-black mb-6 tracking-tighter opacity-90">{card.num}</div>
-              <h3 className="text-2xl font-bold text-[#0A0A0C] mb-4">{card.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{card.desc}</p>
+            <div key={i} className="group h-[340px] w-full [perspective:1000px]">
+              <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                {/* Front Side */}
+                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white rounded-[2rem] p-10 shadow-soft border border-gray-100 flex flex-col justify-center transition-shadow duration-300 group-hover:shadow-soft-lg">
+                  <div className="text-[#0A0A0C] text-5xl font-black mb-6 tracking-tighter opacity-90">{card.num}</div>
+                  <h3 className="text-2xl font-bold text-[#0A0A0C] leading-snug">{card.title}</h3>
+                  <div className="mt-8 text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
+                    Hover to reveal <span className="text-lg">→</span>
+                  </div>
+                </div>
+                
+                {/* Back Side */}
+                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#0A0A0C] text-white rounded-[2rem] p-8 shadow-soft-lg border border-gray-800 flex flex-col justify-center items-center text-center">
+                  <div className="text-[#FFB800] text-3xl font-black mb-3 opacity-90">{card.num}</div>
+                  <h3 className="text-xl font-bold text-white mb-4">{card.title}</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">{card.desc}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
