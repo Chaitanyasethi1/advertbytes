@@ -1,9 +1,39 @@
-import React, { useState } from 'react';
-import { Send } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Send, Moon, Sun } from 'lucide-react';
 
 export const FooterSummary: React.FC = () => {
   const [email, setEmail] = useState('');
   const [consent, setConsent] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Check time: 6 AM to 6 PM is light mode, otherwise dark mode
+    const checkTimeAndTheme = () => {
+      const hour = new Date().getHours();
+      const shouldBeDark = hour < 6 || hour >= 18;
+      
+      const storedPref = localStorage.getItem('theme');
+      if (storedPref) {
+        setIsDark(storedPref === 'dark');
+      } else {
+        setIsDark(shouldBeDark);
+      }
+    };
+    
+    checkTimeAndTheme();
+    const interval = setInterval(checkTimeAndTheme, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark-theme');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDark]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -99,6 +129,17 @@ export const FooterSummary: React.FC = () => {
               <a href="#" aria-label="LinkedIn" className="p-2.5 rounded-full border border-gray-800 text-gray-400 hover:text-white hover:border-[#FFB800] hover:bg-white/5 transition-all">
                 <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               </a>
+            </div>
+            
+            <div className="pt-4 no-invert">
+              <h3 className="text-sm font-bold text-gray-400 tracking-tight mb-3">Appearance</h3>
+              <button 
+                onClick={() => setIsDark(!isDark)}
+                className="flex items-center gap-2 px-4 py-2 bg-gray-900 border border-gray-800 rounded-full text-gray-300 hover:text-white hover:border-gray-600 transition-colors text-xs font-semibold"
+              >
+                {isDark ? <Sun className="h-4 w-4 text-[#FFB800]" /> : <Moon className="h-4 w-4 text-blue-400" />}
+                {isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              </button>
             </div>
           </div>
 

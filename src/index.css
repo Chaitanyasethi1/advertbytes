@@ -62,3 +62,7 @@
   animation-play-state: paused;
 }
 
+html.dark-theme { filter: invert(1) hue-rotate(180deg); background-color: #000; } html.dark-theme img, html.dark-theme video, html.dark-theme .no-invert { filter: invert(1) hue-rotate(180deg); }
+
+html.dark-theme { filter: invert(1) hue-rotate(180deg); background-color: #000; }
+html.dark-theme img, html.dark-theme video, html.dark-theme .no-invert { filter: invert(1) hue-rotate(180deg); }

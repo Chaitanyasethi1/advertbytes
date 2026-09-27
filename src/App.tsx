@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 // Core Components
 import { Navbar } from './components/Navbar';
 import { FooterSummary } from './components/FooterSummary'; // Will use FooterSummary as default footer across all pages or keep HomeSections2 footer. Wait, App uses Footer from HomeSections2. Let's stick with that if possible, but FooterSummary has the newsletter form. I'll import Footer from HomeSections2.
-import { Footer } from './components/HomeSections2';
+
 import { CookieConsent } from './components/CookieConsent';
 
 // Pages

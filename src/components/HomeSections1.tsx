@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, Frown, CheckCircle2, TrendingUp, Sparkles, TrendingDown, EyeOff, Ghost, UserX } from 'lucide-react';
+import { ArrowRight, CheckCircle2, TrendingUp, Sparkles, TrendingDown, EyeOff, Ghost, UserX } from 'lucide-react';
 import { CountUpStat } from './CountUpStat';
 import { cn } from '../utils/cn';
 
