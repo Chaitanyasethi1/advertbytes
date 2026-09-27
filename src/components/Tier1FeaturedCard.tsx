@@ -74,8 +74,8 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
         {/* Crisp Metrics Grid */}
         <div className="grid grid-cols-2 gap-y-6 gap-x-3 mb-6">
           {caseStudy.stats.map((stat, statIdx) => (
-            <div key={statIdx} className="flex flex-col border-l-2 border-black/20 pl-3">
-              <span className="text-2xl sm:text-3xl font-bold tracking-tighter text-[#0A0A0C]">
+            <div key={statIdx} className="flex flex-col border-l-2 border-black/20 dark:border-white/20 pl-3">
+              <span className="text-2xl sm:text-3xl font-bold tracking-tighter text-[#0A0A0C] dark:text-white">
                 <CountUpStat value={stat.value} numericTarget={stat.numericTarget} prefix={stat.prefix} suffix={stat.suffix} decimals={stat.decimals} />
               </span>
               <span className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-gray-500">

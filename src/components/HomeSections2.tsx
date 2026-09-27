@@ -69,10 +69,10 @@ export const ServicesGridSection = () => {
                   <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white dark:bg-[#141519] rounded-[2rem] p-8 shadow-soft border border-gray-200 dark:border-gray-800 flex flex-col justify-between transition-shadow duration-300 group-hover:shadow-soft-lg">
                     <div>
                       <div className="flex items-center justify-between mb-6">
-                        <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl shadow-sm bg-gray-100 border border-gray-200 dark:border-gray-800">
+                        <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl shadow-sm bg-gray-100 dark:bg-[#0A0A0C] border border-gray-200 dark:border-gray-800">
                           <IconComponent className="w-6 h-6 text-[#0A0A0C] dark:text-white" />
                         </div>
-                        <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md bg-gray-100 text-gray-800 border border-gray-200 dark:border-gray-800">
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md bg-gray-100 dark:bg-[#0A0A0C] text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-800">
                           {service.tag}
                         </span>
                       </div>

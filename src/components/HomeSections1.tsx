@@ -176,7 +176,7 @@ export const HeroSection = () => {
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-8">
               <a 
                 href="tel:7827778719" 
-                className="w-full sm:w-auto group relative flex items-center justify-center gap-2 rounded-full bg-[#0A0A0C] dark:bg-white px-8 py-4 text-sm font-bold text-white dark:text-[#0A0A0C] dark:text-white hover:bg-black dark:hover:bg-gray-100 transition-all duration-300 shadow-md hover:shadow-xl"
+                className="w-full sm:w-auto group relative flex items-center justify-center gap-2 rounded-full bg-[#0A0A0C] dark:bg-white px-8 py-4 text-sm font-bold text-white dark:text-[#0A0A0C] hover:bg-black dark:hover:bg-gray-100 transition-all duration-300 shadow-md hover:shadow-xl"
               >
                 <span>Book a Strategy Call</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
