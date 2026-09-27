@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, ChevronDown, TrendingUp, Sparkles, Star } from 'lucide-react';
+import { ArrowRight, ChevronDown, TrendingUp, Sparkles, Star, Smartphone, Search, Briefcase, Clapperboard, Zap, RefreshCcw } from 'lucide-react';
 import { CrowdCanvas } from './ui/skiper39';
 
 export const ServicesGridSection = () => {
@@ -7,38 +7,38 @@ export const ServicesGridSection = () => {
     { 
       title: 'Meta Ads (Facebook & Instagram)', 
       desc: 'Scale high-converting Advantage+ shopping campaigns, dynamic retargeting, and algorithmic customer acquisition that turns cold audiences into paying customers.', 
-      icon: '📱', 
+      Icon: Smartphone, 
       tag: 'Scale Engine',
       isFlagship: true 
     },
     { 
       title: 'Google & YouTube Ads', 
       desc: 'Dominate high-intent search queries and capture buyers at the exact moment of decision with Google Search, Performance Max (PMax), and YouTube discovery funnels.', 
-      icon: '🎯', 
+      Icon: Search, 
       tag: 'Intent Capture' 
     },
     { 
       title: 'High-Ticket Lead Generation', 
       desc: 'Eliminate tyre-kickers with qualified B2B lead funnels, automated instant forms, and WhatsApp/CRM integrations for high-value commercial sales.', 
-      icon: '💼', 
+      Icon: Briefcase, 
       tag: 'B2B Pipeline' 
     },
     { 
       title: 'Performance Creative & UGC Studio', 
       desc: 'Our in-house studio scripts, edits, and delivers scroll-stopping UGC videos, 3D motion hooks, and direct-response carousel ads that drop CAC.', 
-      icon: '🎬', 
+      Icon: Clapperboard, 
       tag: 'In-House Studio' 
     },
     { 
       title: 'Conversion Rate Optimization (CRO)', 
       desc: 'Fix leaky funnels and multiply your revenue per session. We build and test high-converting Shopify product pages, advertorials, and streamlined checkout flows.', 
-      icon: '⚡', 
+      Icon: Zap, 
       tag: 'AOV & LTV Lift' 
     },
     { 
       title: 'Retention & Email Automation', 
       desc: 'Maximize customer lifetime value (LTV) with intelligent Klaviyo flows, abandoned cart recovery, VIP loyalty sequences, and personalized SMS alerts.', 
-      icon: '🔄', 
+      Icon: RefreshCcw, 
       tag: 'Repeat Revenue' 
     }
   ];
@@ -59,28 +59,50 @@ export const ServicesGridSection = () => {
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mb-14">
-          {services.map((service, i) => (
-            <div key={i} className="bg-white rounded-[2rem] p-8 shadow-soft border border-gray-200 hover:border-black/40 hover:shadow-soft-lg transition-all duration-300 relative overflow-hidden group hover:-translate-y-1 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl shadow-sm bg-gray-100 text-gray-900 border border-gray-200">
-                    {service.icon}
+          {services.map((service, i) => {
+            const IconComponent = service.Icon;
+            return (
+              <div key={i} className="group h-[320px] w-full [perspective:1000px]">
+                <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                  
+                  {/* Front Side */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white rounded-[2rem] p-8 shadow-soft border border-gray-200 flex flex-col justify-between transition-shadow duration-300 group-hover:shadow-soft-lg">
+                    <div>
+                      <div className="flex items-center justify-between mb-6">
+                        <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl shadow-sm bg-gray-100 border border-gray-200">
+                          <IconComponent className="w-6 h-6 text-[#0A0A0C]" />
+                        </div>
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md bg-gray-100 text-gray-800 border border-gray-200">
+                          {service.tag}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-bold text-[#0A0A0C] mb-3 leading-snug">{service.title}</h3>
+                    </div>
+                    
+                    <div className="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
+                      Hover to reveal details <span className="text-lg">→</span>
+                    </div>
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md bg-gray-100 text-gray-800 border border-gray-200">
-                    {service.tag}
-                  </span>
+
+                  {/* Back Side */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#0A0A0C] text-white rounded-[2rem] p-8 shadow-soft-lg border border-gray-800 flex flex-col justify-between text-center">
+                    <div className="flex-grow flex flex-col justify-center items-center">
+                      <div className="w-12 h-12 mb-4 rounded-2xl bg-white/10 flex items-center justify-center">
+                        <IconComponent className="w-6 h-6 text-[#FFB800]" />
+                      </div>
+                      <h3 className="text-lg font-bold text-white mb-3">{service.title}</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">{service.desc}</p>
+                    </div>
+                    <a href="#portfolio" className="text-xs font-bold flex items-center justify-center gap-2 hover:gap-3 transition-all pt-4 border-t border-gray-800 text-[#FFB800] hover:text-white">
+                      <span>See Case Studies</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+
                 </div>
-
-                <h3 className="text-xl font-bold text-[#0A0A0C] mb-3 leading-snug">{service.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">{service.desc}</p>
               </div>
-
-              <a href="#portfolio" className="text-xs font-bold flex items-center gap-2 hover:gap-3 transition-all pt-4 border-t border-gray-100 text-black hover:underline">
-                <span>See Case Studies</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <a 

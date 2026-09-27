@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, Frown, CheckCircle2, TrendingUp, Sparkles } from 'lucide-react';
+import { ArrowRight, Frown, CheckCircle2, TrendingUp, Sparkles, TrendingDown, EyeOff, Ghost, UserX } from 'lucide-react';
 import { CountUpStat } from './CountUpStat';
 import { cn } from '../utils/cn';
 
@@ -326,45 +326,65 @@ export const PainPointsSection = () => {
   const points = [
     { 
       title: 'Skyrocketing CAC & Unpredictable ROAS', 
-      desc: 'Pouring thousands into Meta and Google with diminishing returns, erratic day-to-day sales, and zero visibility into true blended profitability.' 
+      desc: 'Pouring thousands into Meta and Google with diminishing returns, erratic day-to-day sales, and zero visibility into true blended profitability.',
+      Icon: TrendingDown
     },
     { 
       title: 'Creative Fatigue & Ignored Ads', 
-      desc: 'Running the same tired product photos that prospective buyers scroll right past, leaving your ad frequency high and your click-through rates depressed.' 
+      desc: 'Running the same tired product photos that prospective buyers scroll right past, leaving your ad frequency high and your click-through rates depressed.',
+      Icon: EyeOff
     },
     { 
       title: 'Agencies That Disappear Post-Onboarding', 
-      desc: 'Trapped in rigid retainers with junior account managers sending automated monthly PDFs full of vanity impressions instead of actual closed revenue.' 
+      desc: 'Trapped in rigid retainers with junior account managers sending automated monthly PDFs full of vanity impressions instead of actual closed revenue.',
+      Icon: Ghost
     },
     { 
       title: 'Unqualified Leads Wasting Your Sales Team', 
-      desc: 'Sales reps spending dozens of hours chasing bogus form fills, invalid phone numbers, and low-intent price shoppers who never close.' 
+      desc: 'Sales reps spending dozens of hours chasing bogus form fills, invalid phone numbers, and low-intent price shoppers who never close.',
+      Icon: UserX
     }
   ];
 
   return (
     <section className="bg-[#F8F9FA] py-32 relative overflow-hidden bg-grid-pattern border-y border-gray-200/60">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16">
           <div className="text-gray-900 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">SOUND FAMILIAR?</div>
-          <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-black text-[#0A0A0C] tracking-tight leading-[1.1] max-w-3xl mx-auto">
+          <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-black text-[#0A0A0C] tracking-tight leading-[1.1] max-w-full mx-auto px-4">
             You don't have a marketing budget problem.<br />
             You have a <span className="underline decoration-black/30 underline-offset-8">conversion & execution problem.</span>
           </h2>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
-          {points.map((point, i) => (
-            <div key={i} className="bg-white rounded-[2rem] p-8 flex items-start gap-6 shadow-soft border border-gray-200/80">
-              <div className="w-12 h-12 rounded-full bg-black/5 flex items-center justify-center flex-shrink-0">
-                <Frown className="h-5 w-5 text-black" />
+          {points.map((point, i) => {
+            const IconComponent = point.Icon;
+            return (
+              <div key={i} className="group h-[260px] w-full [perspective:1000px]">
+                <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                  {/* Front Side */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white rounded-[2rem] p-8 flex flex-col justify-center shadow-soft border border-gray-200/80 transition-shadow duration-300 group-hover:shadow-soft-lg">
+                    <div className="w-12 h-12 mb-4 rounded-full bg-black/5 flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="h-5 w-5 text-black" />
+                    </div>
+                    <h3 className="text-xl lg:text-2xl font-bold text-[#0A0A0C] leading-snug">{point.title}</h3>
+                    <div className="mt-6 text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
+                      Hover to reveal <span className="text-lg">→</span>
+                    </div>
+                  </div>
+                  
+                  {/* Back Side */}
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#0A0A0C] text-white rounded-[2rem] p-8 shadow-soft-lg border border-gray-800 flex flex-col justify-center items-center text-center">
+                    <div className="w-12 h-12 mb-4 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="h-5 w-5 text-[#FFB800]" />
+                    </div>
+                    <p className="text-gray-300 text-sm leading-relaxed">{point.desc}</p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h3 className="text-lg font-bold text-[#0A0A0C] mb-2">{point.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
