@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export const Navbar: React.FC = () => {
   const [activeItem, setActiveItem] = useState('Home');
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const servicesList = [
     { title: 'Meta Ads Scaling', href: '#services', icon: '📱' },
@@ -21,10 +25,16 @@ export const Navbar: React.FC = () => {
     setIsMobileMenuOpen(false);
 
     if (href.startsWith('#')) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      if (location.pathname !== '/') {
+        navigate(`/${href}`);
+      } else {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       }
+    } else {
+      navigate(href);
     }
   };
 

@@ -3,12 +3,16 @@ import { Send } from 'lucide-react';
 
 export const FooterSummary: React.FC = () => {
   const [email, setEmail] = useState('');
+  const [consent, setConsent] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (email && consent) {
       alert('Thank you for subscribing!');
       setEmail('');
+      setConsent(false);
+    } else if (!consent) {
+      alert('Please check the consent box to subscribe.');
     }
   };
 
@@ -25,22 +29,35 @@ export const FooterSummary: React.FC = () => {
             <p className="text-sm text-[#9CA3AF] leading-relaxed">
               Join our newsletter for the latest updates and exclusive offers.
             </p>
-            <form onSubmit={handleSubmit} className="relative flex items-center max-w-sm">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                required
-                className="w-full bg-[#141519] border border-gray-800 rounded-full px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#FFB800] transition-colors pr-12"
-              />
-              <button
-                type="submit"
-                aria-label="Subscribe"
-                className="absolute right-1.5 p-2 rounded-full bg-white text-black hover:bg-gradient-to-r hover:from-[#FFB800] hover:to-[#00D084] transition-all duration-300 shadow-md"
-              >
-                <Send className="h-4 w-4" />
-              </button>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-3 max-w-sm">
+              <div className="relative flex items-center">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  required
+                  aria-label="Email Address"
+                  className="w-full bg-[#141519] border border-gray-600 rounded-full px-4 py-3 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-[#FFB800] focus:ring-2 focus:ring-[#FFB800] transition-colors pr-12"
+                />
+                <button
+                  type="submit"
+                  aria-label="Subscribe to newsletter"
+                  className="absolute right-1.5 p-2 rounded-full bg-white text-black hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0A0A0C] focus:ring-white transition-all shadow-md"
+                >
+                  <Send className="h-4 w-4" />
+                </button>
+              </div>
+              <label className="flex items-start gap-2 text-xs text-gray-400 cursor-pointer">
+                <input 
+                  type="checkbox" 
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  required
+                  className="mt-0.5 rounded bg-[#141519] border-gray-600 text-[#FFB800] focus:ring-[#FFB800]"
+                />
+                <span>I consent to receiving marketing emails. We will only use this data to send you our newsletter.</span>
+              </label>
             </form>
           </div>
 
@@ -88,12 +105,12 @@ export const FooterSummary: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#9CA3AF]">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <p>© {new Date().getFullYear()} AdvertBytes. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Cookie Settings</a>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            <a href="/privacy" className="hover:text-white focus:outline-none focus:underline transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-white focus:outline-none focus:underline transition-colors">Terms of Service</a>
+            <a href="/refund" className="hover:text-white focus:outline-none focus:underline transition-colors">Refund Policy</a>
           </div>
         </div>
 
