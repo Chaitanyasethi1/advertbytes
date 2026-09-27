@@ -16,7 +16,7 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
   onOpenDetails,
 }) => {
   return (
-    <div className="group relative flex flex-col bg-white border border-gray-200 rounded-3xl overflow-hidden transition-all duration-500 hover:border-black/30 hover:shadow-2xl hover:shadow-gray-200/50">
+    <div className="group relative flex flex-col bg-white dark:bg-[#0A0A0C] border border-gray-200 dark:border-gray-800 rounded-3xl overflow-hidden transition-all duration-500 hover:border-black/30 hover:shadow-2xl hover:shadow-gray-200/50">
       
       {/* High-End Image Container */}
       <div className="relative h-[200px] sm:h-[220px] w-full overflow-hidden bg-gray-100">
@@ -32,14 +32,14 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
           <span className="font-mono text-[10px] font-bold text-white bg-[#0A0A0C] px-2 py-1 rounded uppercase tracking-widest shadow-sm">
             0{index + 1}
           </span>
-          <span className="rounded bg-white/90 backdrop-blur-md px-3 py-1 text-[10px] font-semibold text-[#0A0A0C] uppercase tracking-widest border border-gray-200 shadow-sm">
+          <span className="rounded bg-white/90 backdrop-blur-md px-3 py-1 text-[10px] font-semibold text-[#0A0A0C] uppercase tracking-widest border border-gray-200 dark:border-gray-800 shadow-sm">
             {caseStudy.categoryTag}
           </span>
         </div>
       </div>
 
       {/* Content Area */}
-      <div className="p-6 flex flex-col flex-grow justify-between relative -mt-6 bg-white rounded-t-3xl">
+      <div className="p-6 flex flex-col flex-grow justify-between relative -mt-6 bg-white dark:bg-[#0A0A0C] rounded-t-3xl">
         
         {/* Title Block */}
         <div className="mb-4 flex items-end justify-between gap-4">
@@ -54,12 +54,12 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
           
           <div className="flex gap-2">
             {caseStudy.instagram && (
-              <a href={`https://${caseStudy.instagram}`} target="_blank" rel="noreferrer" className="p-2.5 rounded-full bg-gray-50 border border-gray-200 text-gray-600 hover:bg-black hover:text-white hover:border-black transition-all">
+              <a href={`https://${caseStudy.instagram}`} target="_blank" rel="noreferrer" className="p-2.5 rounded-full bg-gray-50 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300 hover:bg-black hover:text-white hover:border-black transition-all">
                 <InstagramIcon className="h-4 w-4" />
               </a>
             )}
             {caseStudy.website && (
-              <a href={`https://${caseStudy.website}`} target="_blank" rel="noreferrer" className="p-2.5 rounded-full bg-gray-50 border border-gray-200 text-gray-600 hover:bg-black hover:text-white hover:border-black transition-all">
+              <a href={`https://${caseStudy.website}`} target="_blank" rel="noreferrer" className="p-2.5 rounded-full bg-gray-50 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300 hover:bg-black hover:text-white hover:border-black transition-all">
                 <ExternalLink className="h-4 w-4" />
               </a>
             )}
@@ -67,7 +67,7 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
         </div>
 
         {/* Narrative */}
-        <p className="text-sm leading-relaxed text-gray-600 line-clamp-2 mb-5">
+        <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300 line-clamp-2 mb-5">
           {caseStudy.story}
         </p>
 
@@ -86,7 +86,7 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
         </div>
 
         {/* Action & Tags */}
-        <div className="mt-auto border-t border-gray-100 pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="mt-auto border-t border-gray-100 dark:border-gray-800 pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex flex-wrap gap-2">
             {caseStudy.services.slice(0, 3).map((service, sIdx) => (
               <span key={sIdx} className="text-[10px] font-mono text-gray-500 uppercase tracking-wider">

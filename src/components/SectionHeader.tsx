@@ -8,11 +8,11 @@ interface SectionHeaderProps {
 export const SectionHeader: React.FC<SectionHeaderProps> = ({ onExploreClick }) => {
   return (
     <div className="relative mx-auto max-w-7xl px-4 pt-12 pb-16 sm:px-6 lg:px-8">
-      <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end border-b border-gray-200 pb-12">
+      <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end border-b border-gray-200 dark:border-gray-800 pb-12">
         {/* Left Column: Eyebrow + Headline + Body */}
         <div className="max-w-3xl">
           {/* Eyebrow */}
-          <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-gray-200 bg-white px-3.5 py-1.5 text-xs font-semibold uppercase tracking-widest text-gray-700 shadow-sm">
+          <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0A0A0C] px-3.5 py-1.5 text-xs font-semibold uppercase tracking-widest text-gray-700 dark:text-gray-200 shadow-sm">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-black opacity-75"></span>
               <span className="relative inline-flex h-2 w-2 rounded-full bg-black"></span>
@@ -30,7 +30,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({ onExploreClick }) 
             </span>
           </h2>
 
-          <p className="text-lg leading-relaxed text-gray-600 sm:text-xl font-medium max-w-2xl">
+          <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 sm:text-xl font-medium max-w-2xl">
             18 brands. Real campaigns. Real results. From ecommerce and fashion to wellness, education,
             and home décor — explore how we've turned ad spend into measurable growth.
           </p>

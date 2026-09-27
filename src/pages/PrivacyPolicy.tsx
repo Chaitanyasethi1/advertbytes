@@ -1,7 +1,7 @@
 
 export function PrivacyPolicy() {
   return (
-    <div className="bg-white min-h-screen pt-32 pb-16 px-6 lg:px-8">
+    <div className="bg-white dark:bg-[#0A0A0C] min-h-screen pt-32 pb-16 px-6 lg:px-8">
       <div className="max-w-3xl mx-auto text-gray-800">
         <h1 className="text-4xl font-black text-[#0A0A0C] mb-8">Privacy Policy</h1>
         <p className="mb-4">Last updated: {new Date().toLocaleDateString()}</p>

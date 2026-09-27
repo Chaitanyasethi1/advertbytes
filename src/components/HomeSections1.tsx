@@ -47,7 +47,7 @@ const LiveGrowthShowcase = () => {
   const current = views[activeTab];
 
   return (
-    <div className="relative w-full max-w-[560px] bg-white rounded-[2.2rem] p-4 sm:p-6 flex flex-col shadow-[0_25px_70px_-15px_rgba(0,0,0,0.08)] border border-gray-100 transition-all">
+    <div className="relative w-full max-w-[560px] bg-white dark:bg-[#0A0A0C] rounded-[2.2rem] p-4 sm:p-6 flex flex-col shadow-[0_25px_70px_-15px_rgba(0,0,0,0.08)] border border-gray-100 dark:border-gray-800 transition-all">
       {/* Top Window Bar */}
       <div className="flex items-center justify-between pb-4 border-b border-gray-100/80 mb-4">
         <div className="flex items-center gap-2">
@@ -56,7 +56,7 @@ const LiveGrowthShowcase = () => {
             <span className="w-3 h-3 rounded-full bg-gray-400" />
             <span className="w-3 h-3 rounded-full bg-gray-600" />
           </div>
-          <span className="ml-2 text-[11px] font-bold text-gray-700 uppercase tracking-wider flex items-center gap-1.5">
+          <span className="ml-2 text-[11px] font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-black animate-ping" />
             Live Client Engine
           </span>
@@ -107,7 +107,7 @@ const LiveGrowthShowcase = () => {
 
         {/* Floating Top Badge */}
         <div className="absolute top-3 left-3 z-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[10px] font-black text-gray-900 shadow-md">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[10px] font-black text-gray-900 dark:text-gray-100 shadow-md">
             <Sparkles className="w-3 h-3 text-black" />
             {current.tag}
           </div>
@@ -125,16 +125,16 @@ const LiveGrowthShowcase = () => {
 
           <div className="bg-white/95 backdrop-blur-md px-3 py-2 rounded-xl text-right shadow-lg shrink-0">
             <div className="text-[9px] text-gray-500 font-bold uppercase tracking-wider">Benchmark</div>
-            <div className="text-xs sm:text-sm font-black text-gray-900">{current.metric}</div>
+            <div className="text-xs sm:text-sm font-black text-gray-900 dark:text-gray-100">{current.metric}</div>
           </div>
         </div>
       </div>
 
       {/* Bottom Status Ticker */}
-      <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+      <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between text-xs">
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-black" />
-          <span className="text-gray-600 font-medium">{current.subtitle}</span>
+          <span className="text-gray-600 dark:text-gray-300 font-medium">{current.subtitle}</span>
         </div>
         <a href="#portfolio" className="font-bold text-black hover:underline flex items-center gap-1 text-[11px] transition-colors">
           View 18+ Case Studies <ArrowRight className="w-3 h-3" />
@@ -152,7 +152,7 @@ export const HeroSection = () => {
           
           <div className="flex flex-col items-start pt-0">
             {/* Live Indicator Pill */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/90 backdrop-blur-sm px-4 py-1.5 mb-6 shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-800 bg-white/90 backdrop-blur-sm px-4 py-1.5 mb-6 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
               <span className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#0A0A0C]">
                 PERFORMANCE MARKETING & REVENUE PARTNER
@@ -168,7 +168,7 @@ export const HeroSection = () => {
             </h1>
 
             {/* Subtitle with Real Metrics */}
-            <p className="text-base sm:text-lg text-gray-600 mb-8 max-w-xl font-medium leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl font-medium leading-relaxed">
               We don't sell vanity impressions or empty retainers. AdvertBytes builds full-funnel revenue engines — combining precision <strong className="text-[#0A0A0C]">Meta & Google Ads</strong>, scroll-stopping creative, and high-ticket B2B pipelines backed by <strong className="text-[#0A0A0C]">₹12Cr+ in managed ad spend</strong> and up to <strong className="text-[#0A0A0C]">11.78x ROAS</strong>.
             </p>
 
@@ -184,7 +184,7 @@ export const HeroSection = () => {
               
               <a 
                 href="#portfolio" 
-                className="w-full sm:w-auto group flex items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-8 py-4 text-sm font-bold text-[#0A0A0C] hover:bg-gray-50 transition-colors shadow-sm"
+                className="w-full sm:w-auto group flex items-center justify-center gap-2 rounded-full border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0A0A0C] px-8 py-4 text-sm font-bold text-[#0A0A0C] hover:bg-gray-50 transition-colors shadow-sm"
               >
                 <span>Explore 18 Case Studies</span>
                 <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-[#0A0A0C] transition-colors" />
@@ -219,7 +219,7 @@ export const HeroSection = () => {
                 <div className="flex items-center gap-1 text-black text-xs font-black">
                   ★ ★ ★ ★ ★ <span className="text-gray-500 font-medium text-[10px] ml-1">4.9/5 Rating</span>
                 </div>
-                <span className="text-[12px] font-medium text-gray-600">
+                <span className="text-[12px] font-medium text-gray-600 dark:text-gray-300">
                   Trusted by <strong className="font-bold text-[#0A0A0C]">50+ high-growth brands</strong> to own their customer acquisition
                 </span>
               </div>
@@ -246,7 +246,7 @@ export const StatsStrip = () => {
 
   return (
     <div className="relative z-20 -mt-14 w-full px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto bg-white rounded-[2rem] shadow-soft-lg border border-gray-100 p-8 sm:p-10">
+      <div className="max-w-6xl mx-auto bg-white dark:bg-[#0A0A0C] rounded-[2rem] shadow-soft-lg border border-gray-100 dark:border-gray-800 p-8 sm:p-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-gray-100">
           {stats.map((stat, i) => (
             <div key={i} className={`flex flex-col items-center justify-center text-center ${i > 0 && i < 2 ? 'pt-8 lg:pt-0' : i >= 2 ? 'pt-8 lg:pt-0' : ''}`}>
@@ -284,7 +284,7 @@ export const DifferenceSection = () => {
   ];
 
   return (
-    <section id="about" className="bg-white py-32 overflow-hidden relative bg-grid-pattern">
+    <section id="about" className="bg-white dark:bg-[#0A0A0C] py-32 overflow-hidden relative bg-grid-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-20">
           <div className="text-[#0A0A0C] text-[10px] font-bold uppercase tracking-[0.2em] mb-4">THE ADVERTBYTES ADVANTAGE</div>
@@ -299,7 +299,7 @@ export const DifferenceSection = () => {
             <div key={i} className="group h-[340px] w-full [perspective:1000px]">
               <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                 {/* Front Side */}
-                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white rounded-[2rem] p-10 shadow-soft border border-gray-100 flex flex-col justify-center transition-shadow duration-300 group-hover:shadow-soft-lg">
+                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white dark:bg-[#0A0A0C] rounded-[2rem] p-10 shadow-soft border border-gray-100 dark:border-gray-800 flex flex-col justify-center transition-shadow duration-300 group-hover:shadow-soft-lg">
                   <div className="text-[#0A0A0C] text-5xl font-black mb-6 tracking-tighter opacity-90">{card.num}</div>
                   <h3 className="text-2xl font-bold text-[#0A0A0C] leading-snug">{card.title}</h3>
                   <div className="mt-8 text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
@@ -350,7 +350,7 @@ export const PainPointsSection = () => {
     <section className="bg-[#F8F9FA] py-32 relative overflow-hidden bg-grid-pattern border-y border-gray-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16">
-          <div className="text-gray-900 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">SOUND FAMILIAR?</div>
+          <div className="text-gray-900 dark:text-gray-100 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">SOUND FAMILIAR?</div>
           <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-black text-[#0A0A0C] tracking-tight leading-[1.1] max-w-full mx-auto px-4">
             You don't have a marketing budget problem.<br />
             You have a <span className="underline decoration-black/30 underline-offset-8">conversion & execution problem.</span>
@@ -364,7 +364,7 @@ export const PainPointsSection = () => {
               <div key={i} className="group h-[260px] w-full [perspective:1000px]">
                 <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                   {/* Front Side */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white rounded-[2rem] p-8 flex flex-col justify-center shadow-soft border border-gray-200/80 transition-shadow duration-300 group-hover:shadow-soft-lg">
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white dark:bg-[#0A0A0C] rounded-[2rem] p-8 flex flex-col justify-center shadow-soft border border-gray-200/80 transition-shadow duration-300 group-hover:shadow-soft-lg">
                     <div className="w-12 h-12 mb-4 rounded-full bg-black/5 flex items-center justify-center flex-shrink-0">
                       <IconComponent className="h-5 w-5 text-black" />
                     </div>
@@ -438,26 +438,26 @@ export const ServiceTabsSection = () => {
   const active = content[activeTab as keyof typeof content];
 
   return (
-    <section id="services" className="bg-white py-32 relative overflow-hidden bg-grid-pattern">
+    <section id="services" className="bg-white dark:bg-[#0A0A0C] py-32 relative overflow-hidden bg-grid-pattern">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
         
         <div className="bg-[#0A0A0C] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-8 shadow-sm">
           OUR CORE SPECIALIZATIONS
         </div>
         
-        <p className="text-xl sm:text-2xl text-gray-900 font-bold text-center max-w-2xl mb-12">
+        <p className="text-xl sm:text-2xl text-gray-900 dark:text-gray-100 font-bold text-center max-w-2xl mb-12">
           Tailored growth systems engineered specifically for your commercial model.
         </p>
 
         {/* Tab Controls */}
-        <div className="bg-gray-100 p-1.5 rounded-full flex gap-1 mb-12 shadow-inner border border-gray-200 backdrop-blur-md relative max-w-lg w-full justify-between">
+        <div className="bg-gray-100 p-1.5 rounded-full flex gap-1 mb-12 shadow-inner border border-gray-200 dark:border-gray-800 backdrop-blur-md relative max-w-lg w-full justify-between">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={cn(
                 "relative z-10 flex-1 px-4 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-full transition-colors duration-300 text-center",
-                activeTab === tab.id ? "text-white" : "text-gray-600 hover:text-black"
+                activeTab === tab.id ? "text-white" : "text-gray-600 dark:text-gray-300 hover:text-black"
               )}
             >
               {tab.label}
@@ -473,20 +473,20 @@ export const ServiceTabsSection = () => {
         </div>
 
         {/* Dynamic Card Content */}
-        <div className="w-full bg-white rounded-[2rem] border border-gray-200 shadow-soft-lg p-8 sm:p-14 flex flex-col lg:flex-row gap-12 lg:gap-16 relative overflow-hidden">
+        <div className="w-full bg-white dark:bg-[#0A0A0C] rounded-[2rem] border border-gray-200 dark:border-gray-800 shadow-soft-lg p-8 sm:p-14 flex flex-col lg:flex-row gap-12 lg:gap-16 relative overflow-hidden">
           <div className="flex-1 relative z-10">
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-md bg-gray-100 text-gray-900 border border-gray-200">
+              <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-md bg-gray-100 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-800">
                 {active.badge}
               </span>
             </div>
             
             <h4 className="text-2xl sm:text-3xl font-black text-[#0A0A0C] mb-4 leading-tight">{active.title}</h4>
-            <p className="text-gray-600 text-sm leading-relaxed mb-8">{active.desc}</p>
+            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-8">{active.desc}</p>
             
             <div className="flex flex-wrap gap-2">
               {active.tags.map((tag, i) => (
-                <div key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 bg-gray-50 text-xs font-semibold text-gray-800">
+                <div key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 dark:border-gray-800 bg-gray-50 text-xs font-semibold text-gray-800">
                   <CheckCircle2 className="h-3.5 w-3.5 text-black" />
                   {tag}
                 </div>
@@ -496,9 +496,9 @@ export const ServiceTabsSection = () => {
 
           <div className="flex-1 flex flex-col gap-4 relative z-10 justify-center">
             {active.stats.map((stat, i) => (
-              <div key={i} className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 flex items-center gap-6 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-soft transition-shadow">
+              <div key={i} className="bg-white dark:bg-[#0A0A0C] rounded-2xl border border-gray-200 dark:border-gray-800 p-5 sm:p-6 flex items-center gap-6 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-soft transition-shadow">
                 <div className="text-3xl sm:text-4xl font-black tracking-tighter text-[#0A0A0C]">{stat.v}</div>
-                <div className="text-xs font-semibold text-gray-600 leading-tight flex-1">{stat.l}</div>
+                <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 leading-tight flex-1">{stat.l}</div>
               </div>
             ))}
           </div>
@@ -545,7 +545,7 @@ export const ProcessSection = () => {
     <section className="bg-[#F8F9FA] py-32 relative overflow-hidden bg-grid-pattern border-t border-gray-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-24">
-          <div className="text-gray-900 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">OUR PROVEN OPERATING SYSTEM</div>
+          <div className="text-gray-900 dark:text-gray-100 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">OUR PROVEN OPERATING SYSTEM</div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A0A0C] tracking-tight leading-tight max-w-3xl mx-auto">
             How we take you from unpredictable ad spend to a <span className="underline decoration-black/30 underline-offset-8">predictable growth machine.</span>
           </h2>
@@ -564,13 +564,13 @@ export const ProcessSection = () => {
                 </div>
                 
                 <div 
-                  className="px-3 py-1 rounded-full border border-gray-200 text-[10px] font-bold uppercase tracking-widest mb-4 bg-white text-gray-900 shadow-sm"
+                  className="px-3 py-1 rounded-full border border-gray-200 dark:border-gray-800 text-[10px] font-bold uppercase tracking-widest mb-4 bg-white dark:bg-[#0A0A0C] text-gray-900 dark:text-gray-100 shadow-sm"
                 >
                   {step.eyebrow}
                 </div>
 
                 <h3 className="text-2xl font-black text-[#0A0A0C] mb-3">{step.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">{step.desc}</p>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">{step.desc}</p>
 
                 <div className="flex items-center gap-2 mt-auto">
                   <div className="w-4 h-4 rounded-full flex items-center justify-center bg-black/10">

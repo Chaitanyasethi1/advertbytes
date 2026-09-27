@@ -102,7 +102,7 @@ export const Card3DTilt: React.FC<Card3DTiltProps> = ({
           ? 'transform 100ms ease-out, box-shadow 100ms ease-out'
           : 'transform 450ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1)',
       }}
-      className={`group relative overflow-hidden rounded-2xl bg-white border border-[#E5E7EB] transition-all ${
+      className={`group relative overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0C] border border-[#E5E7EB] transition-all ${
         isHovered ? 'border-[#0052FF]/30 card-hovered' : ''
       } ${className}`}
     >

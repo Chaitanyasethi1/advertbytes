@@ -44,7 +44,7 @@ export const ServicesGridSection = () => {
   ];
 
   return (
-    <section className="bg-white py-32 relative overflow-hidden bg-grid-pattern">
+    <section className="bg-white dark:bg-[#0A0A0C] py-32 relative overflow-hidden bg-grid-pattern">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
         <div className="bg-[#0A0A0C] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-8 shadow-sm">
           COMPREHENSIVE GROWTH SUITE
@@ -54,7 +54,7 @@ export const ServicesGridSection = () => {
           Every lever required to scale your revenue — managed under one roof.
         </h2>
         
-        <p className="text-base sm:text-lg text-gray-600 font-medium text-center max-w-2xl mb-16 leading-relaxed">
+        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-medium text-center max-w-2xl mb-16 leading-relaxed">
           No disconnected freelancers. No finger-pointing. We integrate media buying, creative production, and conversion rate optimization into a unified growth engine.
         </p>
 
@@ -66,13 +66,13 @@ export const ServicesGridSection = () => {
                 <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                   
                   {/* Front Side */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white rounded-[2rem] p-8 shadow-soft border border-gray-200 flex flex-col justify-between transition-shadow duration-300 group-hover:shadow-soft-lg">
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white dark:bg-[#0A0A0C] rounded-[2rem] p-8 shadow-soft border border-gray-200 dark:border-gray-800 flex flex-col justify-between transition-shadow duration-300 group-hover:shadow-soft-lg">
                     <div>
                       <div className="flex items-center justify-between mb-6">
-                        <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl shadow-sm bg-gray-100 border border-gray-200">
+                        <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl shadow-sm bg-gray-100 border border-gray-200 dark:border-gray-800">
                           <IconComponent className="w-6 h-6 text-[#0A0A0C]" />
                         </div>
-                        <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md bg-gray-100 text-gray-800 border border-gray-200">
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md bg-gray-100 text-gray-800 border border-gray-200 dark:border-gray-800">
                           {service.tag}
                         </span>
                       </div>
@@ -130,7 +130,7 @@ export const ClientLogoStripSection = () => {
   ];
 
   return (
-    <section className="bg-white py-16 border-y border-gray-200/80 overflow-hidden">
+    <section className="bg-white dark:bg-[#0A0A0C] py-16 border-y border-gray-200/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-8 text-center">
         <div className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-gray-500">
           PROUDLY ACCELERATING SCALE FOR INDUSTRY LEADERS
@@ -149,7 +149,7 @@ export const ClientLogoStripSection = () => {
               <span className="font-extrabold text-sm text-[#0A0A0C]">{client.name}</span>
               <span className="text-gray-300">|</span>
               <span className="text-xs text-gray-500 font-medium">{client.category}</span>
-              <span className="px-2 py-0.5 rounded-md bg-gray-200 text-gray-900 text-[10px] font-bold font-mono">
+              <span className="px-2 py-0.5 rounded-md bg-gray-200 text-gray-900 dark:text-gray-100 text-[10px] font-bold font-mono">
                 {client.metric}
               </span>
             </div>
@@ -211,7 +211,7 @@ export const ResultsStripSection = () => {
                   className="w-full h-auto object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-white text-[#0A0A0C] px-5 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 border border-gray-200">
+              <div className="absolute -bottom-4 -right-4 bg-white dark:bg-[#0A0A0C] text-[#0A0A0C] px-5 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 border border-gray-200 dark:border-gray-800">
                 <TrendingUp className="w-4 h-4 text-black" />
                 <span className="text-xs font-black">Live Campaign Attribution</span>
               </div>
@@ -254,7 +254,7 @@ export const ComparisonSection = () => {
   ];
 
   return (
-    <section id="faq" className="bg-white py-28 sm:py-32 bg-grid-pattern relative border-t border-gray-200/60">
+    <section id="faq" className="bg-white dark:bg-[#0A0A0C] py-28 sm:py-32 bg-grid-pattern relative border-t border-gray-200/60">
       <div className="max-w-4xl mx-auto px-6">
         
         {/* Header */}
@@ -265,7 +265,7 @@ export const ComparisonSection = () => {
           <h2 className="text-4xl sm:text-5xl font-black text-[#0A0A0C] tracking-tight leading-tight mb-4">
             Everything you need to know about <span className="underline decoration-black/30 underline-offset-8">scaling with AdvertBytes.</span>
           </h2>
-          <p className="text-base text-gray-600 font-medium max-w-xl mx-auto leading-relaxed">
+          <p className="text-base text-gray-600 dark:text-gray-300 font-medium max-w-xl mx-auto leading-relaxed">
             Transparent answers regarding our campaigns, creative workflows, timelines, and partnership structure.
           </p>
         </div>
@@ -277,7 +277,7 @@ export const ComparisonSection = () => {
             return (
               <div
                 key={index}
-                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden shadow-sm ${
+                className={`bg-white dark:bg-[#0A0A0C] rounded-2xl border transition-all duration-300 overflow-hidden shadow-sm ${
                   isOpen ? 'border-black shadow-md' : 'border-gray-200/90 hover:border-gray-400'
                 }`}
               >
@@ -294,7 +294,7 @@ export const ComparisonSection = () => {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-sm text-gray-600 leading-relaxed border-t border-gray-100 font-sans">
+                  <div className="px-6 pb-6 pt-1 text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-800 font-sans">
                     {faq.answer}
                   </div>
                 )}
@@ -351,7 +351,7 @@ export const TestimonialsSection = () => {
           Trusted by founders who demand real revenue.
         </h2>
         
-        <p className="text-base sm:text-lg text-gray-600 font-medium text-center max-w-2xl mb-16 leading-relaxed">
+        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-medium text-center max-w-2xl mb-16 leading-relaxed">
           We measure our success through the exact same balance sheet metrics you do: confirmed purchases, qualified inquiries, and compounding ROAS.
         </p>
 
@@ -362,7 +362,7 @@ export const TestimonialsSection = () => {
           
           <div className="flex gap-6 sm:gap-8 animate-marquee py-6">
             {[...testimonials, ...testimonials].map((t, i) => (
-              <div key={i} className="bg-white rounded-[2.2rem] p-8 sm:p-10 shadow-soft border border-gray-200/90 relative flex flex-col justify-between group hover:shadow-soft-lg transition-all duration-300 w-[350px] sm:w-[450px] shrink-0 whitespace-normal">
+              <div key={i} className="bg-white dark:bg-[#0A0A0C] rounded-[2.2rem] p-8 sm:p-10 shadow-soft border border-gray-200/90 relative flex flex-col justify-between group hover:shadow-soft-lg transition-all duration-300 w-[350px] sm:w-[450px] shrink-0 whitespace-normal">
                 <div>
                   {/* Top Quote & Rating */}
                   <div className="flex items-center justify-between mb-6">
@@ -371,21 +371,21 @@ export const TestimonialsSection = () => {
                         <Star key={idx} className="w-4 h-4 fill-[#0A0A0C]" />
                       ))}
                     </div>
-                    <span className="text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-gray-800 shrink-0">
+                    <span className="text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-gray-100 border border-gray-200 dark:border-gray-800 text-gray-800 shrink-0">
                       {t.metric}
                     </span>
                   </div>
 
-                  <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-8 italic">
+                  <p className="text-gray-700 dark:text-gray-200 text-sm sm:text-base leading-relaxed mb-8 italic">
                     "{t.quote}"
                   </p>
                 </div>
                 
-                <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
+                <div className="flex items-center gap-4 pt-6 border-t border-gray-100 dark:border-gray-800">
                   <img 
                     src={t.image} 
                     alt={t.name} 
-                    className="w-14 h-14 rounded-full object-cover border-2 border-gray-200 shadow-sm"
+                    className="w-14 h-14 rounded-full object-cover border-2 border-gray-200 dark:border-gray-800 shadow-sm"
                   />
                   <div>
                     <div className="text-base font-extrabold text-[#0A0A0C]">{t.name}</div>
@@ -410,7 +410,7 @@ export const FinalCTA = () => {
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-white text-xs font-bold uppercase tracking-widest mb-8">
-          <span className="w-2 h-2 rounded-full bg-white animate-ping" />
+          <span className="w-2 h-2 rounded-full bg-white dark:bg-[#0A0A0C] animate-ping" />
           ACCEPTING NEW Q3/Q4 PARTNERS
         </div>
 
@@ -425,7 +425,7 @@ export const FinalCTA = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a 
             href="tel:8527120220" 
-            className="w-full sm:w-auto bg-white text-[#0A0A0C] px-8 py-4 rounded-full font-bold text-sm shadow-2xl flex items-center justify-center gap-2 hover:bg-gray-100 transition-all cursor-pointer group"
+            className="w-full sm:w-auto bg-white dark:bg-[#0A0A0C] text-[#0A0A0C] px-8 py-4 rounded-full font-bold text-sm shadow-2xl flex items-center justify-center gap-2 hover:bg-gray-100 transition-all cursor-pointer group"
           >
             <span>Book a Strategy Call</span> 
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -449,7 +449,7 @@ export const FinalCTA = () => {
 
 export const Footer = () => {
   return (
-    <footer className="bg-white pt-24 pb-8 border-t border-gray-200 text-[#0A0A0C] relative overflow-hidden">
+    <footer className="bg-white dark:bg-[#0A0A0C] pt-24 pb-8 border-t border-gray-200 dark:border-gray-800 text-[#0A0A0C] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-10 mb-16">
         
         <div className="lg:col-span-2">
@@ -459,7 +459,7 @@ export const Footer = () => {
               AdvertBytes
             </span>
           </a>
-          <p className="text-gray-600 text-sm leading-relaxed max-w-sm mb-6">
+          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed max-w-sm mb-6">
             AdvertBytes is a performance marketing and revenue growth partner. We build predictable customer acquisition engines across Meta Ads, Google Ads, creative strategy, and high-ticket B2B funnels.
           </p>
           <div className="flex items-center gap-3">
@@ -467,14 +467,14 @@ export const Footer = () => {
                href="https://linkedin.com" 
                target="_blank" 
                rel="noreferrer" 
-               className="w-9 h-9 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-600 hover:text-black hover:border-black transition-all shadow-sm"
+               className="w-9 h-9 rounded-full bg-gray-50 border border-gray-200 dark:border-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-black hover:border-black transition-all shadow-sm"
                aria-label="LinkedIn"
              >
                <span className="text-xs font-black">in</span>
              </a>
              <a 
                href="tel:8527120220" 
-               className="text-xs font-bold text-gray-800 bg-gray-50 border border-gray-200 px-4 py-2 rounded-full hover:border-black hover:bg-black hover:text-white transition-colors shadow-sm"
+               className="text-xs font-bold text-gray-800 bg-gray-50 border border-gray-200 dark:border-gray-800 px-4 py-2 rounded-full hover:border-black hover:bg-black hover:text-white transition-colors shadow-sm"
              >
                Direct: +91 85271 20220
              </a>
@@ -482,8 +482,8 @@ export const Footer = () => {
         </div>
         
         <div>
-          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-6">Services</h4>
-          <ul className="space-y-3.5 text-sm font-semibold text-gray-600">
+          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100 mb-6">Services</h4>
+          <ul className="space-y-3.5 text-sm font-semibold text-gray-600 dark:text-gray-300">
             <li><a href="#services" className="hover:text-black transition-colors">Meta Ads Scaling</a></li>
             <li><a href="#services" className="hover:text-black transition-colors">Google & YouTube Ads</a></li>
             <li><a href="#services" className="hover:text-black transition-colors">High-Ticket B2B Lead Gen</a></li>
@@ -494,8 +494,8 @@ export const Footer = () => {
         </div>
         
         <div>
-          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-6">Navigation</h4>
-          <ul className="space-y-3.5 text-sm font-semibold text-gray-600">
+          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100 mb-6">Navigation</h4>
+          <ul className="space-y-3.5 text-sm font-semibold text-gray-600 dark:text-gray-300">
             <li><a href="#" className="hover:text-black transition-colors">Home</a></li>
             <li><a href="#about" className="hover:text-black transition-colors">About Us</a></li>
             <li><a href="#portfolio" className="hover:text-black transition-colors">Case Studies (18+)</a></li>
@@ -507,28 +507,28 @@ export const Footer = () => {
         </div>
         
         <div>
-          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-6">Direct Contact</h4>
-          <ul className="space-y-4 text-sm text-gray-600 leading-relaxed">
+          <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100 mb-6">Direct Contact</h4>
+          <ul className="space-y-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
             <li className="flex items-center gap-3">
-              <span className="text-gray-900 shrink-0 text-base">✉</span> 
-              <a href="mailto:Advertbytes@gmail.com" className="font-semibold text-gray-900 hover:text-black transition-colors">Advertbytes@gmail.com</a>
+              <span className="text-gray-900 dark:text-gray-100 shrink-0 text-base">✉</span> 
+              <a href="mailto:Advertbytes@gmail.com" className="font-semibold text-gray-900 dark:text-gray-100 hover:text-black transition-colors">Advertbytes@gmail.com</a>
             </li>
             <li className="flex items-center gap-3">
-              <span className="text-gray-900 shrink-0 text-base">📞</span> 
-              <a href="tel:8527120220" className="font-semibold text-gray-900 hover:text-black transition-colors">+91 85271 20220</a>
+              <span className="text-gray-900 dark:text-gray-100 shrink-0 text-base">📞</span> 
+              <a href="tel:8527120220" className="font-semibold text-gray-900 dark:text-gray-100 hover:text-black transition-colors">+91 85271 20220</a>
             </li>
             <li className="flex items-center gap-3">
-              <span className="text-gray-900 shrink-0 text-base">📍</span> 
-              <span className="font-semibold text-gray-900">Delhi, India</span>
+              <span className="text-gray-900 dark:text-gray-100 shrink-0 text-base">📍</span> 
+              <span className="font-semibold text-gray-900 dark:text-gray-100">Delhi, India</span>
             </li>
           </ul>
         </div>
       </div>
 
       {/* Seamless Audience Engine (Crowd Canvas) on PURE WHITE */}
-      <div className="w-full relative border-t border-gray-200/80 pt-12 pb-4 mt-8 bg-white">
+      <div className="w-full relative border-t border-gray-200/80 pt-12 pb-4 mt-8 bg-white dark:bg-[#0A0A0C]">
         <div className="max-w-7xl mx-auto px-6 mb-4 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gray-100 border border-gray-200 text-gray-900 text-[10px] font-extrabold uppercase tracking-[0.25em] mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gray-100 border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-gray-100 text-[10px] font-extrabold uppercase tracking-[0.25em] mb-3">
             <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
             AUDIENCE ACQUISITION ENGINE
           </div>
@@ -538,7 +538,7 @@ export const Footer = () => {
         </div>
 
         {/* Full-Width Canvas Container without Edge Blends */}
-        <div className="relative h-[240px] sm:h-[320px] w-full overflow-hidden bg-white">
+        <div className="relative h-[240px] sm:h-[320px] w-full overflow-hidden bg-white dark:bg-[#0A0A0C]">
           <CrowdCanvas
             src="https://cdn.21st.dev/assets/localized/abdb8990a7bef8c2f5af3e45f0a3c969c4b0603fba8be92e81347de4ea4e1ed7.png"
             rows={15}

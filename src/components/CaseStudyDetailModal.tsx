@@ -42,7 +42,7 @@ export const CaseStudyDetailModal: React.FC<CaseStudyDetailModalProps> = ({
       />
 
       {/* Modal Card */}
-      <div className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white p-6 sm:p-10 shadow-2xl border border-[#E5E7EB] animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white dark:bg-[#0A0A0C] p-6 sm:p-10 shadow-2xl border border-[#E5E7EB] animate-in fade-in zoom-in-95 duration-200">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -53,7 +53,7 @@ export const CaseStudyDetailModal: React.FC<CaseStudyDetailModalProps> = ({
 
         {/* Top Badges */}
         <div className="flex flex-wrap items-center gap-2 mb-4">
-          <span className="rounded-full bg-black/5 px-3 py-1 font-mono text-xs font-bold text-[#0A0A0C] border border-gray-200">
+          <span className="rounded-full bg-black/5 px-3 py-1 font-mono text-xs font-bold text-[#0A0A0C] border border-gray-200 dark:border-gray-800">
             {selectedItem.categoryTag}
           </span>
           <span className="font-mono text-xs text-[#8E8E9F]">•</span>
@@ -157,7 +157,7 @@ export const CaseStudyDetailModal: React.FC<CaseStudyDetailModalProps> = ({
               {selectedItem.services.map((srv, idx) => (
                 <span
                   key={idx}
-                  className="rounded-lg border border-[#E5E7EB] bg-white px-3 py-1.5 text-xs font-medium text-[#1F2937]"
+                  className="rounded-lg border border-[#E5E7EB] bg-white dark:bg-[#0A0A0C] px-3 py-1.5 text-xs font-medium text-[#1F2937]"
                 >
                   {srv}
                 </span>

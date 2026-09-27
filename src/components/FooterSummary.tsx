@@ -27,10 +27,10 @@ export const FooterSummary: React.FC = () => {
 
   useEffect(() => {
     if (isDark) {
-      document.documentElement.classList.add('dark-theme');
+      document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     } else {
-      document.documentElement.classList.remove('dark-theme');
+      document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
@@ -73,7 +73,7 @@ export const FooterSummary: React.FC = () => {
                 <button
                   type="submit"
                   aria-label="Subscribe to newsletter"
-                  className="absolute right-1.5 p-2 rounded-full bg-white text-black hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0A0A0C] focus:ring-white transition-all shadow-md"
+                  className="absolute right-1.5 p-2 rounded-full bg-white dark:bg-[#0A0A0C] text-black hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0A0A0C] focus:ring-white transition-all shadow-md"
                 >
                   <Send className="h-4 w-4" />
                 </button>

@@ -22,7 +22,7 @@ export const ClientBrandStrip: React.FC = () => {
           {CLIENT_LOGOS.map((client, idx) => (
             <div
               key={idx}
-              className="group relative flex flex-col items-center justify-center rounded-xl border border-[#E5E7EB] bg-white p-5 transition-all duration-200 hover:border-[#0052FF]/40 hover:shadow-lg"
+              className="group relative flex flex-col items-center justify-center rounded-xl border border-[#E5E7EB] bg-white dark:bg-[#0A0A0C] p-5 transition-all duration-200 hover:border-[#0052FF]/40 hover:shadow-lg"
             >
               {/* Brand Insignia / Monogram with 40% grayscale resting state -> full color on hover */}
               <div className="flex h-12 w-full items-center justify-center filter grayscale opacity-40 transition-all duration-200 group-hover:filter-none group-hover:opacity-100 group-hover:scale-105">
