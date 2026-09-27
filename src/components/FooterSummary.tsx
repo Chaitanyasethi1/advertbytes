@@ -61,8 +61,8 @@ export const FooterSummary: React.FC = () => {
             <h3 className="text-lg font-bold text-white tracking-tight">Contact Us</h3>
             <div className="space-y-2.5 text-sm text-[#9CA3AF] leading-relaxed">
               <p>Delhi, India</p>
-              <p>Phone: <a href="tel:7827778719" className="hover:text-white transition-colors">+91 78277 78719</a></p>
-              <p>Email: <a href="mailto:gauravaaa15@gmail.com" className="hover:text-white transition-colors">gauravaaa15@gmail.com</a></p>
+              <p>Phone: <a href="tel:8527120220" className="hover:text-white transition-colors">+91 85271 20220</a></p>
+              <p>Email: <a href="mailto:Advertbytes@gmail.com" className="hover:text-white transition-colors">Advertbytes@gmail.com</a></p>
             </div>
           </div>
 

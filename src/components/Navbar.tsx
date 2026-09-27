@@ -101,14 +101,14 @@ export const Navbar: React.FC = () => {
             Portfolio
           </button>
 
-          {/* About */}
+          {/* Blog */}
           <button
-            onClick={() => handleNavClick('About', '#about')}
+            onClick={() => handleNavClick('Blog', '#blog')}
             className={`px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
-              activeItem === 'About' ? 'text-black bg-gray-100' : 'text-gray-600 hover:text-black hover:bg-gray-50'
+              activeItem === 'Blog' ? 'text-black bg-gray-100' : 'text-gray-600 hover:text-black hover:bg-gray-50'
             }`}
           >
-            About
+            Blog
           </button>
 
           {/* Contact */}
@@ -135,7 +135,7 @@ export const Navbar: React.FC = () => {
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
           <a
-            href="tel:7827778719"
+            href="tel:8527120220"
             className="flex items-center gap-2 rounded-full bg-[#0A0A0C] px-6 py-2.5 text-[13px] font-bold text-white hover:bg-black transition-all shadow-md hover:shadow-lg"
           >
             <span>Book a Strategy Call</span>
@@ -182,13 +182,19 @@ export const Navbar: React.FC = () => {
             About
           </button>
           <button
+            onClick={() => handleNavClick('Blog', '#blog')}
+            className="text-left px-4 py-2 rounded-xl font-bold text-sm text-gray-800 hover:bg-gray-50"
+          >
+            Blog
+          </button>
+          <button
             onClick={() => handleNavClick('Contact', '#contact')}
             className="text-left px-4 py-2 rounded-xl font-bold text-sm text-gray-800 hover:bg-gray-50"
           >
             Contact
           </button>
           <a
-            href="tel:7827778719"
+            href="tel:8527120220"
             className="mt-2 text-center rounded-full bg-[#0A0A0C] px-6 py-3 text-sm font-bold text-white shadow-md hover:bg-black"
           >
             Book a Strategy Call

@@ -84,7 +84,7 @@ export const ServicesGridSection = () => {
         </div>
 
         <a 
-          href="tel:7827778719" 
+          href="tel:8527120220" 
           className="bg-[#0A0A0C] text-white text-sm font-bold uppercase tracking-wider px-8 py-4 rounded-full shadow-md hover:bg-black hover:shadow-lg transition-all flex items-center gap-2 group"
         >
           <span>Get a Custom Growth Proposal</span> 
@@ -396,7 +396,7 @@ export const FinalCTA = () => {
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a 
-            href="tel:7827778719" 
+            href="tel:8527120220" 
             className="w-full sm:w-auto bg-white text-[#0A0A0C] px-8 py-4 rounded-full font-bold text-sm shadow-2xl flex items-center justify-center gap-2 hover:bg-gray-100 transition-all cursor-pointer group"
           >
             <span>Book a Strategy Call</span> 
@@ -404,10 +404,10 @@ export const FinalCTA = () => {
           </a>
           
           <a 
-            href="tel:7827778719" 
+            href="tel:8527120220" 
             className="w-full sm:w-auto bg-transparent border border-white/30 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-colors flex items-center justify-center gap-2 shadow-lg"
           >
-            <span>Call Gaurav (+91 78277 78719)</span>
+            <span>Call (+91 85271 20220)</span>
           </a>
         </div>
         
@@ -445,10 +445,10 @@ export const Footer = () => {
                <span className="text-xs font-black">in</span>
              </a>
              <a 
-               href="tel:7827778719" 
+               href="tel:8527120220" 
                className="text-xs font-bold text-gray-800 bg-gray-50 border border-gray-200 px-4 py-2 rounded-full hover:border-black hover:bg-black hover:text-white transition-colors shadow-sm"
              >
-               Direct: +91 78277 78719
+               Direct: +91 85271 20220
              </a>
           </div>
         </div>
@@ -473,6 +473,7 @@ export const Footer = () => {
             <li><a href="#portfolio" className="hover:text-black transition-colors">Case Studies (18+)</a></li>
             <li><a href="#services" className="hover:text-black transition-colors">Services</a></li>
             <li><a href="#faq" className="hover:text-black transition-colors">FAQ</a></li>
+            <li><a href="#blog" className="hover:text-black transition-colors">Blog</a></li>
             <li><a href="#contact" className="hover:text-black transition-colors">Contact</a></li>
           </ul>
         </div>
@@ -482,11 +483,11 @@ export const Footer = () => {
           <ul className="space-y-4 text-sm text-gray-600 leading-relaxed">
             <li className="flex items-center gap-3">
               <span className="text-gray-900 shrink-0 text-base">✉</span> 
-              <a href="mailto:gauravaaa15@gmail.com" className="font-semibold text-gray-900 hover:text-black transition-colors">gauravaaa15@gmail.com</a>
+              <a href="mailto:Advertbytes@gmail.com" className="font-semibold text-gray-900 hover:text-black transition-colors">Advertbytes@gmail.com</a>
             </li>
             <li className="flex items-center gap-3">
               <span className="text-gray-900 shrink-0 text-base">📞</span> 
-              <a href="tel:7827778719" className="font-semibold text-gray-900 hover:text-black transition-colors">+91 78277 78719</a>
+              <a href="tel:8527120220" className="font-semibold text-gray-900 hover:text-black transition-colors">+91 85271 20220</a>
             </li>
             <li className="flex items-center gap-3">
               <span className="text-gray-900 shrink-0 text-base">📍</span> 
