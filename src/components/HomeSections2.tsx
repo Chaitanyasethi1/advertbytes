@@ -355,40 +355,46 @@ export const TestimonialsSection = () => {
           We measure our success through the exact same balance sheet metrics you do: confirmed purchases, qualified inquiries, and compounding ROAS.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8 w-full">
-          {testimonials.map((t, i) => (
-            <div key={i} className="bg-white rounded-[2.2rem] p-8 sm:p-10 shadow-soft border border-gray-200/90 relative flex flex-col justify-between group hover:shadow-soft-lg transition-all duration-300">
-              <div>
-                {/* Top Quote & Rating */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-1 text-[#0A0A0C]">
-                    {[...Array(5)].map((_, idx) => (
-                      <Star key={idx} className="w-4 h-4 fill-[#0A0A0C]" />
-                    ))}
-                  </div>
-                  <span className="text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-gray-800">
-                    {t.metric}
-                  </span>
-                </div>
-
-                <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-8 italic">
-                  "{t.quote}"
-                </p>
-              </div>
-              
-              <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
-                <img 
-                  src={t.image} 
-                  alt={t.name} 
-                  className="w-14 h-14 rounded-full object-cover border-2 border-gray-200 shadow-sm"
-                />
+        <div className="relative w-full overflow-hidden -mx-4 px-4 sm:-mx-6 sm:px-6">
+          {/* Edge Gradients for smooth fade out */}
+          <div className="absolute top-0 left-0 bottom-0 w-24 bg-gradient-to-r from-[#F8F9FA] to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 right-0 bottom-0 w-24 bg-gradient-to-l from-[#F8F9FA] to-transparent z-10 pointer-events-none" />
+          
+          <div className="flex gap-6 sm:gap-8 animate-marquee py-6">
+            {[...testimonials, ...testimonials].map((t, i) => (
+              <div key={i} className="bg-white rounded-[2.2rem] p-8 sm:p-10 shadow-soft border border-gray-200/90 relative flex flex-col justify-between group hover:shadow-soft-lg transition-all duration-300 w-[350px] sm:w-[450px] shrink-0 whitespace-normal">
                 <div>
-                  <div className="text-base font-extrabold text-[#0A0A0C]">{t.name}</div>
-                  <div className="text-xs text-gray-500 font-medium">{t.role}</div>
+                  {/* Top Quote & Rating */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-1 text-[#0A0A0C]">
+                      {[...Array(5)].map((_, idx) => (
+                        <Star key={idx} className="w-4 h-4 fill-[#0A0A0C]" />
+                      ))}
+                    </div>
+                    <span className="text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-gray-800 shrink-0">
+                      {t.metric}
+                    </span>
+                  </div>
+
+                  <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-8 italic">
+                    "{t.quote}"
+                  </p>
+                </div>
+                
+                <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
+                  <img 
+                    src={t.image} 
+                    alt={t.name} 
+                    className="w-14 h-14 rounded-full object-cover border-2 border-gray-200 shadow-sm"
+                  />
+                  <div>
+                    <div className="text-base font-extrabold text-[#0A0A0C]">{t.name}</div>
+                    <div className="text-xs text-gray-500 font-medium">{t.role}</div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
