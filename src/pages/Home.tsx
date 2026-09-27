@@ -55,11 +55,11 @@ export function Home() {
       <ClientLogoStripSection />
       <DifferenceSection />
 
-      <section id="portfolio" className="bg-[#FBFBFB] py-24 sm:py-32">
+      <section id="portfolio" className="bg-[#FBFBFB] py-16 sm:py-20">
         <SectionHeader onExploreClick={handleScrollToGrid} />
         
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12">
-          <div className="grid gap-8 lg:grid-cols-3 mb-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8">
+          <div className="grid gap-6 lg:grid-cols-3 mb-16">
             {TIER1_CASE_STUDIES.map((study, idx) => (
               <Tier1FeaturedCard key={study.id} caseStudy={study} index={idx} onOpenDetails={setSelectedCaseStudy} />
             ))}

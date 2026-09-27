@@ -19,7 +19,7 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
     <div className="group relative flex flex-col bg-white border border-gray-200 rounded-3xl overflow-hidden transition-all duration-500 hover:border-black/30 hover:shadow-2xl hover:shadow-gray-200/50">
       
       {/* High-End Image Container */}
-      <div className="relative h-[300px] w-full overflow-hidden bg-gray-100">
+      <div className="relative h-[200px] sm:h-[220px] w-full overflow-hidden bg-gray-100">
         <div 
           className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100 grayscale-[25%] group-hover:grayscale-0"
           style={{ backgroundImage: `url(${caseStudy.imageUrl})` }}
@@ -39,12 +39,12 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
       </div>
 
       {/* Content Area */}
-      <div className="p-8 sm:p-10 flex flex-col flex-grow justify-between relative -mt-10 bg-white">
+      <div className="p-6 flex flex-col flex-grow justify-between relative -mt-6 bg-white rounded-t-3xl">
         
         {/* Title Block */}
-        <div className="mb-6 flex items-end justify-between gap-4">
+        <div className="mb-4 flex items-end justify-between gap-4">
           <div>
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-[#0A0A0C] tracking-tight mb-1">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0A0A0C] tracking-tight mb-1">
               {caseStudy.client}
             </h3>
             <p className="text-sm font-medium text-gray-500 tracking-wide uppercase">
@@ -67,15 +67,15 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
         </div>
 
         {/* Narrative */}
-        <p className="text-sm leading-relaxed text-gray-600 line-clamp-2 mb-8">
+        <p className="text-sm leading-relaxed text-gray-600 line-clamp-2 mb-5">
           {caseStudy.story}
         </p>
 
         {/* Crisp Metrics Grid */}
-        <div className="grid grid-cols-2 gap-y-8 gap-x-4 mb-8">
+        <div className="grid grid-cols-2 gap-y-6 gap-x-3 mb-6">
           {caseStudy.stats.map((stat, statIdx) => (
-            <div key={statIdx} className="flex flex-col border-l-2 border-black/20 pl-4">
-              <span className="text-3xl font-bold tracking-tighter text-[#0A0A0C]">
+            <div key={statIdx} className="flex flex-col border-l-2 border-black/20 pl-3">
+              <span className="text-2xl sm:text-3xl font-bold tracking-tighter text-[#0A0A0C]">
                 <CountUpStat value={stat.value} numericTarget={stat.numericTarget} prefix={stat.prefix} suffix={stat.suffix} decimals={stat.decimals} />
               </span>
               <span className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-gray-500">
