@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
+import { ArrowRight, ChevronDown, Menu, X, Smartphone, Search, Briefcase, Clapperboard, Zap, RefreshCcw } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export const Navbar: React.FC = () => {
@@ -11,12 +11,12 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
 
   const servicesList = [
-    { title: 'Meta Ads Scaling', href: '#services', icon: '📱' },
-    { title: 'Google & YouTube Ads', href: '#services', icon: '🎯' },
-    { title: 'High-Ticket B2B Lead Gen', href: '#services', icon: '💼' },
-    { title: 'Performance Creative Studio', href: '#services', icon: '🎬' },
-    { title: 'Conversion Rate Optimization', href: '#services', icon: '⚡' },
-    { title: 'Retention & Email Automation', href: '#services', icon: '🔄' }
+    { title: 'Meta Ads Scaling', href: '#services', Icon: Smartphone },
+    { title: 'Google & YouTube Ads', href: '#services', Icon: Search },
+    { title: 'High-Ticket B2B Lead Gen', href: '#services', Icon: Briefcase },
+    { title: 'Performance Creative Studio', href: '#services', Icon: Clapperboard },
+    { title: 'Conversion Rate Optimization', href: '#services', Icon: Zap },
+    { title: 'Retention & Email Automation', href: '#services', Icon: RefreshCcw }
   ];
 
   const handleNavClick = (label: string, href: string) => {
@@ -82,21 +82,24 @@ export const Navbar: React.FC = () => {
             {/* Dropdown Menu */}
             {isServicesOpen && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-2xl border border-gray-200/80 shadow-xl p-2.5 grid grid-cols-1 gap-1 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
-                {servicesList.map((service, idx) => (
-                  <a
-                    key={idx}
-                    href={service.href}
-                    onClick={() => handleNavClick('Services', service.href)}
-                    className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-gray-50 transition-colors group/item"
-                  >
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 shadow-sm bg-gray-100 text-gray-900 border border-gray-200">
-                      {service.icon}
-                    </div>
-                    <span className="text-xs font-bold text-gray-800 group-hover/item:text-black transition-colors">
-                      {service.title}
-                    </span>
-                  </a>
-                ))}
+                {servicesList.map((service, idx) => {
+                  const IconComponent = service.Icon;
+                  return (
+                    <a
+                      key={idx}
+                      href={service.href}
+                      onClick={() => handleNavClick('Services', service.href)}
+                      className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-gray-50 transition-all duration-300 group/item hover:pl-4 hover:shadow-sm"
+                    >
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-sm bg-gray-100 text-gray-700 border border-gray-200 transition-colors duration-300 group-hover/item:bg-[#0A0A0C] group-hover/item:text-[#FFB800] group-hover/item:border-gray-800">
+                        <IconComponent className="w-4 h-4" />
+                      </div>
+                      <span className="text-[13px] font-bold text-gray-600 group-hover/item:text-[#0A0A0C] transition-colors">
+                        {service.title}
+                      </span>
+                    </a>
+                  );
+                })}
               </div>
             )}
           </div>
