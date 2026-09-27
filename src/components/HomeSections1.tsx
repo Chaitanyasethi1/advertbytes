@@ -146,7 +146,7 @@ const LiveGrowthShowcase = () => {
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[85vh] pt-28 sm:pt-34 pb-16 overflow-hidden flex items-start bg-[#F8F9FA] bg-grid-pattern">
+    <section className="relative min-h-[85vh] pt-28 sm:pt-34 pb-16 overflow-hidden flex items-start bg-[#F8F9FA] dark:bg-[#0A0A0C] bg-grid-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           
@@ -160,23 +160,23 @@ export const HeroSection = () => {
             </div>
             
             {/* Primary Headline */}
-            <h1 className="text-[3.4rem] leading-[1.05] sm:text-[4.4rem] lg:text-[4.7rem] font-black text-[#0A0A0C] tracking-tighter mb-6 max-w-2xl">
+            <h1 className="text-[3.4rem] leading-[1.05] sm:text-[4.4rem] lg:text-[4.7rem] font-black text-[#0A0A0C] dark:text-white tracking-tighter mb-6 max-w-2xl">
               Stop Burning Ad Spend.<br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-black via-neutral-800 to-neutral-600">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-black via-neutral-800 to-neutral-600 dark:from-white dark:via-neutral-200 dark:to-neutral-400">
                 Scale With Predictable ROAS.
               </span>
             </h1>
 
             {/* Subtitle with Real Metrics */}
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl font-medium leading-relaxed">
-              We don't sell vanity impressions or empty retainers. AdvertBytes builds full-funnel revenue engines — combining precision <strong className="text-[#0A0A0C]">Meta & Google Ads</strong>, scroll-stopping creative, and high-ticket B2B pipelines backed by <strong className="text-[#0A0A0C]">₹12Cr+ in managed ad spend</strong> and up to <strong className="text-[#0A0A0C]">11.78x ROAS</strong>.
+              We don't sell vanity impressions or empty retainers. AdvertBytes builds full-funnel revenue engines — combining precision <strong className="text-[#0A0A0C] dark:text-white">Meta & Google Ads</strong>, scroll-stopping creative, and high-ticket B2B pipelines backed by <strong className="text-[#0A0A0C] dark:text-white">₹12Cr+ in managed ad spend</strong> and up to <strong className="text-[#0A0A0C] dark:text-white">11.78x ROAS</strong>.
             </p>
 
             {/* CTA Button Group */}
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-8">
               <a 
                 href="tel:7827778719" 
-                className="w-full sm:w-auto group relative flex items-center justify-center gap-2 rounded-full bg-[#0A0A0C] px-8 py-4 text-sm font-bold text-white hover:bg-black transition-all duration-300 shadow-md hover:shadow-xl"
+                className="w-full sm:w-auto group relative flex items-center justify-center gap-2 rounded-full bg-[#0A0A0C] dark:bg-white px-8 py-4 text-sm font-bold text-white dark:text-[#0A0A0C] hover:bg-black dark:hover:bg-gray-100 transition-all duration-300 shadow-md hover:shadow-xl"
               >
                 <span>Book a Strategy Call</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -184,10 +184,10 @@ export const HeroSection = () => {
               
               <a 
                 href="#portfolio" 
-                className="w-full sm:w-auto group flex items-center justify-center gap-2 rounded-full border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0A0A0C] px-8 py-4 text-sm font-bold text-[#0A0A0C] hover:bg-gray-50 transition-colors shadow-sm"
+                className="w-full sm:w-auto group flex items-center justify-center gap-2 rounded-full border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#1A1A1A] px-8 py-4 text-sm font-bold text-[#0A0A0C] dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm"
               >
                 <span>Explore 18 Case Studies</span>
-                <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-[#0A0A0C] transition-colors" />
+                <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-[#0A0A0C] dark:group-hover:text-white transition-colors" />
               </a>
             </div>
 
