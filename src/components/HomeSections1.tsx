@@ -160,15 +160,15 @@ export const HeroSection = () => {
             </div>
             
             {/* Primary Headline */}
-            <h1 className="text-[3.4rem] leading-[1.05] sm:text-[4.4rem] lg:text-[4.7rem] font-black text-[#0A0A0C] dark:text-white tracking-tighter mb-6 max-w-2xl">
-              Stop Burning Ad Spend.<br />
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.8rem] leading-[1.1] font-black text-[#0A0A0C] dark:text-white tracking-tighter mb-4 max-w-xl">
+              Stop Burning Ad Spend. <br className="hidden sm:block" />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-black via-neutral-800 to-neutral-600 dark:from-white dark:via-neutral-200 dark:to-neutral-400">
                 Scale With Predictable ROAS.
               </span>
             </h1>
 
             {/* Subtitle with Real Metrics */}
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl font-medium leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-6 max-w-xl font-medium leading-relaxed">
               We don't sell vanity impressions or empty retainers. AdvertBytes builds full-funnel revenue engines — combining precision <strong className="text-[#0A0A0C] dark:text-white">Meta & Google Ads</strong>, scroll-stopping creative, and high-ticket B2B pipelines backed by <strong className="text-[#0A0A0C] dark:text-white">₹12Cr+ in managed ad spend</strong> and up to <strong className="text-[#0A0A0C] dark:text-white">11.78x ROAS</strong>.
             </p>
 
