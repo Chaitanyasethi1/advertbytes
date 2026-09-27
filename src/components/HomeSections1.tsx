@@ -288,7 +288,7 @@ export const DifferenceSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-20">
           <div className="text-[#0A0A0C] text-[10px] font-bold uppercase tracking-[0.2em] mb-4">THE ADVERTBYTES ADVANTAGE</div>
-          <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-black text-[#0A0A0C] tracking-tight leading-[1.1] max-w-4xl mx-auto">
+          <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-black text-[#0A0A0C] tracking-tight leading-[1.1] max-w-full mx-auto px-4">
             Traditional agencies bill retainers.<br />
             We engineer <span className="underline decoration-black/30 underline-offset-8">measurable growth.</span>
           </h2>
