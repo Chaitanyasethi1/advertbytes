@@ -347,7 +347,7 @@ export const PainPointsSection = () => {
   ];
 
   return (
-    <section className="bg-[#F8F9FA] py-32 relative overflow-hidden bg-grid-pattern border-y border-gray-200/60">
+    <section className="bg-[#F8F9FA] dark:bg-[#0A0A0C] py-32 relative overflow-hidden bg-grid-pattern border-y border-gray-200/60 dark:border-gray-800/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16">
           <div className="text-gray-900 dark:text-gray-100 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">SOUND FAMILIAR?</div>
@@ -542,7 +542,7 @@ export const ProcessSection = () => {
   ];
 
   return (
-    <section className="bg-[#F8F9FA] py-32 relative overflow-hidden bg-grid-pattern border-t border-gray-200/60">
+    <section className="bg-[#F8F9FA] dark:bg-[#0A0A0C] py-32 relative overflow-hidden bg-grid-pattern border-t border-gray-200/60 dark:border-gray-800/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-24">
           <div className="text-gray-900 dark:text-gray-100 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">OUR PROVEN OPERATING SYSTEM</div>
@@ -574,9 +574,9 @@ export const ProcessSection = () => {
 
                 <div className="flex items-center gap-2 mt-auto">
                   <div className="w-4 h-4 rounded-full flex items-center justify-center bg-black/10">
-                    <CheckCircle2 className="w-3 h-3 text-black" />
+                    <CheckCircle2 className="w-3 h-3 text-black dark:text-white" />
                   </div>
-                  <span className="text-xs font-bold text-black">{step.feat}</span>
+                  <span className="text-xs font-bold text-black dark:text-white">{step.feat}</span>
                 </div>
               </div>
             ))}

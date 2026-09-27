@@ -162,7 +162,7 @@ export const ClientLogoStripSection = () => {
 
 export const ResultsStripSection = () => {
   return (
-    <section className="bg-[#F8F9FA] py-24 sm:py-32 overflow-hidden border-b border-gray-200/60">
+    <section className="bg-[#F8F9FA] dark:bg-[#0A0A0C] py-24 sm:py-32 overflow-hidden border-b border-gray-200/60 dark:border-gray-800/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="bg-[#0A0A0C] rounded-[2.5rem] p-8 sm:p-14 lg:p-16 text-white relative overflow-hidden shadow-2xl border border-gray-800">
           {/* Subtle Monochrome Glow */}
@@ -341,7 +341,7 @@ export const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="bg-[#F8F9FA] py-32 relative overflow-hidden bg-grid-pattern border-t border-gray-200/60">
+    <section className="bg-[#F8F9FA] dark:bg-[#0A0A0C] py-32 relative overflow-hidden bg-grid-pattern border-t border-gray-200/60 dark:border-gray-800/60">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
         <div className="bg-[#0A0A0C] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-8 shadow-sm">
           VERIFIED FOUNDER OUTCOMES
