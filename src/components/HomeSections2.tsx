@@ -50,7 +50,7 @@ export const ServicesGridSection = () => {
           COMPREHENSIVE GROWTH SUITE
         </div>
         
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A0A0C] text-center tracking-tight max-w-3xl mb-6">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A0A0C] dark:text-white text-center tracking-tight max-w-3xl mb-6">
           Every lever required to scale your revenue — managed under one roof.
         </h2>
         
@@ -66,17 +66,17 @@ export const ServicesGridSection = () => {
                 <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                   
                   {/* Front Side */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white dark:bg-[#0A0A0C] rounded-[2rem] p-8 shadow-soft border border-gray-200 dark:border-gray-800 flex flex-col justify-between transition-shadow duration-300 group-hover:shadow-soft-lg">
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white dark:bg-[#141519] rounded-[2rem] p-8 shadow-soft border border-gray-200 dark:border-gray-800 flex flex-col justify-between transition-shadow duration-300 group-hover:shadow-soft-lg">
                     <div>
                       <div className="flex items-center justify-between mb-6">
                         <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl shadow-sm bg-gray-100 border border-gray-200 dark:border-gray-800">
-                          <IconComponent className="w-6 h-6 text-[#0A0A0C]" />
+                          <IconComponent className="w-6 h-6 text-[#0A0A0C] dark:text-white" />
                         </div>
                         <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md bg-gray-100 text-gray-800 border border-gray-200 dark:border-gray-800">
                           {service.tag}
                         </span>
                       </div>
-                      <h3 className="text-xl font-bold text-[#0A0A0C] mb-3 leading-snug">{service.title}</h3>
+                      <h3 className="text-xl font-bold text-[#0A0A0C] dark:text-white mb-3 leading-snug">{service.title}</h3>
                     </div>
                     
                     <div className="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
@@ -146,7 +146,7 @@ export const ClientLogoStripSection = () => {
               className="inline-flex items-center gap-3.5 px-6 py-3 rounded-full bg-gray-50 border border-gray-200/90 shadow-sm shrink-0 hover:border-black transition-colors"
             >
               <div className="w-2 h-2 rounded-full bg-black" />
-              <span className="font-extrabold text-sm text-[#0A0A0C]">{client.name}</span>
+              <span className="font-extrabold text-sm text-[#0A0A0C] dark:text-white">{client.name}</span>
               <span className="text-gray-300">|</span>
               <span className="text-xs text-gray-500 font-medium">{client.category}</span>
               <span className="px-2 py-0.5 rounded-md bg-gray-200 text-gray-900 dark:text-gray-100 text-[10px] font-bold font-mono">
@@ -211,7 +211,7 @@ export const ResultsStripSection = () => {
                   className="w-full h-auto object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-white dark:bg-[#0A0A0C] text-[#0A0A0C] px-5 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 border border-gray-200 dark:border-gray-800">
+              <div className="absolute -bottom-4 -right-4 bg-white dark:bg-[#141519] text-[#0A0A0C] dark:text-white px-5 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 border border-gray-200 dark:border-gray-800">
                 <TrendingUp className="w-4 h-4 text-black" />
                 <span className="text-xs font-black">Live Campaign Attribution</span>
               </div>
@@ -262,7 +262,7 @@ export const ComparisonSection = () => {
           <div className="bg-[#0A0A0C] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-6 inline-block shadow-sm">
             FREQUENTLY ASKED QUESTIONS
           </div>
-          <h2 className="text-4xl sm:text-5xl font-black text-[#0A0A0C] tracking-tight leading-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl font-black text-[#0A0A0C] dark:text-white tracking-tight leading-tight mb-4">
             Everything you need to know about <span className="underline decoration-black/30 underline-offset-8">scaling with AdvertBytes.</span>
           </h2>
           <p className="text-base text-gray-600 dark:text-gray-300 font-medium max-w-xl mx-auto leading-relaxed">
@@ -283,7 +283,7 @@ export const ComparisonSection = () => {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-base text-[#0A0A0C] hover:text-black transition-colors"
+                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-base text-[#0A0A0C] dark:text-white hover:text-black transition-colors"
                 >
                   <span className="leading-snug">{faq.question}</span>
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
@@ -347,7 +347,7 @@ export const TestimonialsSection = () => {
           VERIFIED FOUNDER OUTCOMES
         </div>
         
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A0A0C] text-center tracking-tight mb-4">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A0A0C] dark:text-white text-center tracking-tight mb-4">
           Trusted by founders who demand real revenue.
         </h2>
         
@@ -362,11 +362,11 @@ export const TestimonialsSection = () => {
           
           <div className="flex gap-6 sm:gap-8 animate-marquee py-6">
             {[...testimonials, ...testimonials].map((t, i) => (
-              <div key={i} className="bg-white dark:bg-[#0A0A0C] rounded-[2.2rem] p-8 sm:p-10 shadow-soft border border-gray-200/90 relative flex flex-col justify-between group hover:shadow-soft-lg transition-all duration-300 w-[350px] sm:w-[450px] shrink-0 whitespace-normal">
+              <div key={i} className="bg-white dark:bg-[#141519] rounded-[2.2rem] p-8 sm:p-10 shadow-soft border border-gray-200/90 relative flex flex-col justify-between group hover:shadow-soft-lg transition-all duration-300 w-[350px] sm:w-[450px] shrink-0 whitespace-normal">
                 <div>
                   {/* Top Quote & Rating */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center gap-1 text-[#0A0A0C]">
+                    <div className="flex items-center gap-1 text-[#0A0A0C] dark:text-white">
                       {[...Array(5)].map((_, idx) => (
                         <Star key={idx} className="w-4 h-4 fill-[#0A0A0C]" />
                       ))}
@@ -388,7 +388,7 @@ export const TestimonialsSection = () => {
                     className="w-14 h-14 rounded-full object-cover border-2 border-gray-200 dark:border-gray-800 shadow-sm"
                   />
                   <div>
-                    <div className="text-base font-extrabold text-[#0A0A0C]">{t.name}</div>
+                    <div className="text-base font-extrabold text-[#0A0A0C] dark:text-white">{t.name}</div>
                     <div className="text-xs text-gray-500 font-medium">{t.role}</div>
                   </div>
                 </div>
@@ -425,7 +425,7 @@ export const FinalCTA = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a 
             href="tel:8527120220" 
-            className="w-full sm:w-auto bg-white dark:bg-[#0A0A0C] text-[#0A0A0C] px-8 py-4 rounded-full font-bold text-sm shadow-2xl flex items-center justify-center gap-2 hover:bg-gray-100 transition-all cursor-pointer group"
+            className="w-full sm:w-auto bg-white dark:bg-[#141519] text-[#0A0A0C] dark:text-white px-8 py-4 rounded-full font-bold text-sm shadow-2xl flex items-center justify-center gap-2 hover:bg-gray-100 transition-all cursor-pointer group"
           >
             <span>Book a Strategy Call</span> 
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -449,13 +449,13 @@ export const FinalCTA = () => {
 
 export const Footer = () => {
   return (
-    <footer className="bg-white dark:bg-[#0A0A0C] pt-24 pb-8 border-t border-gray-200 dark:border-gray-800 text-[#0A0A0C] relative overflow-hidden">
+    <footer className="bg-white dark:bg-[#0A0A0C] pt-24 pb-8 border-t border-gray-200 dark:border-gray-800 text-[#0A0A0C] dark:text-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-10 mb-16">
         
         <div className="lg:col-span-2">
           <a href="/" className="flex items-center gap-3.5 mb-6 group cursor-pointer">
             <img src="/logo.png" alt="AdvertBytes Logo" className="h-12 w-auto object-contain transition-transform group-hover:scale-105" />
-            <span className="font-black tracking-tight text-2xl text-[#0A0A0C] font-sans">
+            <span className="font-black tracking-tight text-2xl text-[#0A0A0C] dark:text-white font-sans">
               AdvertBytes
             </span>
           </a>
@@ -532,7 +532,7 @@ export const Footer = () => {
             <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
             AUDIENCE ACQUISITION ENGINE
           </div>
-          <h3 className="text-xl sm:text-2xl font-black text-[#0A0A0C] tracking-tight">
+          <h3 className="text-xl sm:text-2xl font-black text-[#0A0A0C] dark:text-white tracking-tight">
             150,000+ Active Customers & Commercial Buyers Moved to Action
           </h3>
         </div>

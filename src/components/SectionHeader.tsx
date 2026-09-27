@@ -14,16 +14,16 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({ onExploreClick }) 
           {/* Eyebrow */}
           <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0A0A0C] px-3.5 py-1.5 text-xs font-semibold uppercase tracking-widest text-gray-700 dark:text-gray-200 shadow-sm">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-black opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-black"></span>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-black dark:bg-white opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-black dark:bg-white"></span>
             </span>
             <span>Index</span>
-            <span className="text-gray-300">/</span>
+            <span className="text-gray-300 dark:text-gray-600">/</span>
             <span className="font-mono text-[11px] text-gray-500">18 Case Studies</span>
           </div>
 
           {/* Editorial H2 Headline */}
-          <h2 className="text-4xl font-extrabold tracking-tight text-[#0A0A0C] sm:text-5xl lg:text-6xl mb-6">
+          <h2 className="text-4xl font-extrabold tracking-tight text-[#0A0A0C] dark:text-white sm:text-5xl lg:text-6xl mb-6">
             Work That Speaks in{' '}
             <span className="italic font-light text-gray-400">
               Numbers.

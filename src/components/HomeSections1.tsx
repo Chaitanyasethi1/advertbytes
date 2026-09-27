@@ -47,7 +47,7 @@ const LiveGrowthShowcase = () => {
   const current = views[activeTab];
 
   return (
-    <div className="relative w-full max-w-[560px] bg-white dark:bg-[#0A0A0C] rounded-[2.2rem] p-4 sm:p-6 flex flex-col shadow-[0_25px_70px_-15px_rgba(0,0,0,0.08)] border border-gray-100 dark:border-gray-800 transition-all">
+    <div className="relative w-full max-w-[560px] bg-white dark:bg-[#141519] rounded-[2.2rem] p-4 sm:p-6 flex flex-col shadow-[0_25px_70px_-15px_rgba(0,0,0,0.08)] border border-gray-100 dark:border-gray-800 transition-all">
       {/* Top Window Bar */}
       <div className="flex items-center justify-between pb-4 border-b border-gray-100/80 mb-4">
         <div className="flex items-center gap-2">
@@ -154,7 +154,7 @@ export const HeroSection = () => {
             {/* Live Indicator Pill */}
             <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-800 bg-white/90 backdrop-blur-sm px-4 py-1.5 mb-6 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
-              <span className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#0A0A0C]">
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#0A0A0C] dark:text-white">
                 PERFORMANCE MARKETING & REVENUE PARTNER
               </span>
             </div>
@@ -176,7 +176,7 @@ export const HeroSection = () => {
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-8">
               <a 
                 href="tel:7827778719" 
-                className="w-full sm:w-auto group relative flex items-center justify-center gap-2 rounded-full bg-[#0A0A0C] dark:bg-white px-8 py-4 text-sm font-bold text-white dark:text-[#0A0A0C] hover:bg-black dark:hover:bg-gray-100 transition-all duration-300 shadow-md hover:shadow-xl"
+                className="w-full sm:w-auto group relative flex items-center justify-center gap-2 rounded-full bg-[#0A0A0C] dark:bg-white px-8 py-4 text-sm font-bold text-white dark:text-[#0A0A0C] dark:text-white hover:bg-black dark:hover:bg-gray-100 transition-all duration-300 shadow-md hover:shadow-xl"
               >
                 <span>Book a Strategy Call</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -220,7 +220,7 @@ export const HeroSection = () => {
                   ★ ★ ★ ★ ★ <span className="text-gray-500 font-medium text-[10px] ml-1">4.9/5 Rating</span>
                 </div>
                 <span className="text-[12px] font-medium text-gray-600 dark:text-gray-300">
-                  Trusted by <strong className="font-bold text-[#0A0A0C]">50+ high-growth brands</strong> to own their customer acquisition
+                  Trusted by <strong className="font-bold text-[#0A0A0C] dark:text-white">50+ high-growth brands</strong> to own their customer acquisition
                 </span>
               </div>
             </div>
@@ -246,11 +246,11 @@ export const StatsStrip = () => {
 
   return (
     <div className="relative z-20 -mt-14 w-full px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto bg-white dark:bg-[#0A0A0C] rounded-[2rem] shadow-soft-lg border border-gray-100 dark:border-gray-800 p-8 sm:p-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-gray-100">
+      <div className="max-w-6xl mx-auto bg-white dark:bg-[#141519] rounded-[2rem] shadow-soft-lg border border-gray-100 dark:border-gray-800 p-8 sm:p-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-gray-100 dark:divide-gray-800">
           {stats.map((stat, i) => (
             <div key={i} className={`flex flex-col items-center justify-center text-center ${i > 0 && i < 2 ? 'pt-8 lg:pt-0' : i >= 2 ? 'pt-8 lg:pt-0' : ''}`}>
-              <div className="text-4xl sm:text-5xl font-black mb-2 tracking-tighter text-[#0A0A0C]">
+              <div className="text-4xl sm:text-5xl font-black mb-2 tracking-tighter text-[#0A0A0C] dark:text-white">
                 <CountUpStat value={stat.value.toString()} numericTarget={stat.value} prefix={stat.prefix} suffix={stat.suffix} decimals={stat.decimals} />
               </div>
               <div className="text-xs font-semibold text-gray-500 max-w-[170px] leading-relaxed">
@@ -287,8 +287,8 @@ export const DifferenceSection = () => {
     <section id="about" className="bg-white dark:bg-[#0A0A0C] py-32 overflow-hidden relative bg-grid-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-20">
-          <div className="text-[#0A0A0C] text-[10px] font-bold uppercase tracking-[0.2em] mb-4">THE ADVERTBYTES ADVANTAGE</div>
-          <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-black text-[#0A0A0C] tracking-tight leading-[1.1] max-w-full mx-auto px-4">
+          <div className="text-[#0A0A0C] dark:text-white text-[10px] font-bold uppercase tracking-[0.2em] mb-4">THE ADVERTBYTES ADVANTAGE</div>
+          <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-black text-[#0A0A0C] dark:text-white tracking-tight leading-[1.1] max-w-full mx-auto px-4">
             Traditional agencies bill retainers.<br />
             We engineer <span className="underline decoration-black/30 underline-offset-8">measurable growth.</span>
           </h2>
@@ -299,9 +299,9 @@ export const DifferenceSection = () => {
             <div key={i} className="group h-[340px] w-full [perspective:1000px]">
               <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                 {/* Front Side */}
-                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white dark:bg-[#0A0A0C] rounded-[2rem] p-10 shadow-soft border border-gray-100 dark:border-gray-800 flex flex-col justify-center transition-shadow duration-300 group-hover:shadow-soft-lg">
-                  <div className="text-[#0A0A0C] text-5xl font-black mb-6 tracking-tighter opacity-90">{card.num}</div>
-                  <h3 className="text-2xl font-bold text-[#0A0A0C] leading-snug">{card.title}</h3>
+                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white dark:bg-[#141519] rounded-[2rem] p-10 shadow-soft border border-gray-100 dark:border-gray-800 flex flex-col justify-center transition-shadow duration-300 group-hover:shadow-soft-lg">
+                  <div className="text-[#0A0A0C] dark:text-white text-5xl font-black mb-6 tracking-tighter opacity-90">{card.num}</div>
+                  <h3 className="text-2xl font-bold text-[#0A0A0C] dark:text-white leading-snug">{card.title}</h3>
                   <div className="mt-8 text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
                     Hover to reveal <span className="text-lg">→</span>
                   </div>
@@ -351,7 +351,7 @@ export const PainPointsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16">
           <div className="text-gray-900 dark:text-gray-100 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">SOUND FAMILIAR?</div>
-          <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-black text-[#0A0A0C] tracking-tight leading-[1.1] max-w-full mx-auto px-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-black text-[#0A0A0C] dark:text-white tracking-tight leading-[1.1] max-w-full mx-auto px-4">
             You don't have a marketing budget problem.<br />
             You have a <span className="underline decoration-black/30 underline-offset-8">conversion & execution problem.</span>
           </h2>
@@ -364,11 +364,11 @@ export const PainPointsSection = () => {
               <div key={i} className="group h-[260px] w-full [perspective:1000px]">
                 <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                   {/* Front Side */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white dark:bg-[#0A0A0C] rounded-[2rem] p-8 flex flex-col justify-center shadow-soft border border-gray-200/80 transition-shadow duration-300 group-hover:shadow-soft-lg">
+                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white dark:bg-[#141519] rounded-[2rem] p-8 flex flex-col justify-center shadow-soft border border-gray-200/80 transition-shadow duration-300 group-hover:shadow-soft-lg">
                     <div className="w-12 h-12 mb-4 rounded-full bg-black/5 flex items-center justify-center flex-shrink-0">
                       <IconComponent className="h-5 w-5 text-black" />
                     </div>
-                    <h3 className="text-xl lg:text-2xl font-bold text-[#0A0A0C] leading-snug">{point.title}</h3>
+                    <h3 className="text-xl lg:text-2xl font-bold text-[#0A0A0C] dark:text-white leading-snug">{point.title}</h3>
                     <div className="mt-6 text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
                       Hover to reveal <span className="text-lg">→</span>
                     </div>
@@ -473,7 +473,7 @@ export const ServiceTabsSection = () => {
         </div>
 
         {/* Dynamic Card Content */}
-        <div className="w-full bg-white dark:bg-[#0A0A0C] rounded-[2rem] border border-gray-200 dark:border-gray-800 shadow-soft-lg p-8 sm:p-14 flex flex-col lg:flex-row gap-12 lg:gap-16 relative overflow-hidden">
+        <div className="w-full bg-white dark:bg-[#141519] rounded-[2rem] border border-gray-200 dark:border-gray-800 shadow-soft-lg p-8 sm:p-14 flex flex-col lg:flex-row gap-12 lg:gap-16 relative overflow-hidden">
           <div className="flex-1 relative z-10">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-md bg-gray-100 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-800">
@@ -481,7 +481,7 @@ export const ServiceTabsSection = () => {
               </span>
             </div>
             
-            <h4 className="text-2xl sm:text-3xl font-black text-[#0A0A0C] mb-4 leading-tight">{active.title}</h4>
+            <h4 className="text-2xl sm:text-3xl font-black text-[#0A0A0C] dark:text-white mb-4 leading-tight">{active.title}</h4>
             <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-8">{active.desc}</p>
             
             <div className="flex flex-wrap gap-2">
@@ -496,8 +496,8 @@ export const ServiceTabsSection = () => {
 
           <div className="flex-1 flex flex-col gap-4 relative z-10 justify-center">
             {active.stats.map((stat, i) => (
-              <div key={i} className="bg-white dark:bg-[#0A0A0C] rounded-2xl border border-gray-200 dark:border-gray-800 p-5 sm:p-6 flex items-center gap-6 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-soft transition-shadow">
-                <div className="text-3xl sm:text-4xl font-black tracking-tighter text-[#0A0A0C]">{stat.v}</div>
+              <div key={i} className="bg-white dark:bg-[#141519] rounded-2xl border border-gray-200 dark:border-gray-800 p-5 sm:p-6 flex items-center gap-6 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-soft transition-shadow">
+                <div className="text-3xl sm:text-4xl font-black tracking-tighter text-[#0A0A0C] dark:text-white">{stat.v}</div>
                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 leading-tight flex-1">{stat.l}</div>
               </div>
             ))}
@@ -546,7 +546,7 @@ export const ProcessSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-24">
           <div className="text-gray-900 dark:text-gray-100 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">OUR PROVEN OPERATING SYSTEM</div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A0A0C] tracking-tight leading-tight max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A0A0C] dark:text-white tracking-tight leading-tight max-w-3xl mx-auto">
             How we take you from unpredictable ad spend to a <span className="underline decoration-black/30 underline-offset-8">predictable growth machine.</span>
           </h2>
         </div>
@@ -569,7 +569,7 @@ export const ProcessSection = () => {
                   {step.eyebrow}
                 </div>
 
-                <h3 className="text-2xl font-black text-[#0A0A0C] mb-3">{step.title}</h3>
+                <h3 className="text-2xl font-black text-[#0A0A0C] dark:text-white mb-3">{step.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">{step.desc}</p>
 
                 <div className="flex items-center gap-2 mt-auto">

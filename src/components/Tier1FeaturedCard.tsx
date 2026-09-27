@@ -16,7 +16,7 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
   onOpenDetails,
 }) => {
   return (
-    <div className="group relative flex flex-col bg-white dark:bg-[#0A0A0C] border border-gray-200 dark:border-gray-800 rounded-3xl overflow-hidden transition-all duration-500 hover:border-black/30 hover:shadow-2xl hover:shadow-gray-200/50">
+    <div className="group relative flex flex-col bg-white dark:bg-[#141519] border border-gray-200 dark:border-gray-800 rounded-3xl overflow-hidden transition-all duration-500 hover:border-black/30 hover:shadow-2xl hover:shadow-gray-200/50">
       
       {/* High-End Image Container */}
       <div className="relative h-[200px] sm:h-[220px] w-full overflow-hidden bg-gray-100">
@@ -24,27 +24,27 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
           className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100 grayscale-[25%] group-hover:grayscale-0"
           style={{ backgroundImage: `url(${caseStudy.imageUrl})` }}
         />
-        {/* Sleek gradient fade to white */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent" />
+        {/* Sleek gradient fade to white or dark grey */}
+        <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#141519] via-white/50 dark:via-[#141519]/50 to-transparent" />
         
         {/* Floating Labels */}
         <div className="absolute top-6 left-6 flex items-center gap-2">
           <span className="font-mono text-[10px] font-bold text-white bg-[#0A0A0C] px-2 py-1 rounded uppercase tracking-widest shadow-sm">
             0{index + 1}
           </span>
-          <span className="rounded bg-white/90 backdrop-blur-md px-3 py-1 text-[10px] font-semibold text-[#0A0A0C] uppercase tracking-widest border border-gray-200 dark:border-gray-800 shadow-sm">
+          <span className="rounded bg-white/90 dark:bg-white/10 backdrop-blur-md px-3 py-1 text-[10px] font-semibold text-[#0A0A0C] dark:text-white uppercase tracking-widest border border-gray-200 dark:border-gray-700 shadow-sm">
             {caseStudy.categoryTag}
           </span>
         </div>
       </div>
 
       {/* Content Area */}
-      <div className="p-6 flex flex-col flex-grow justify-between relative -mt-6 bg-white dark:bg-[#0A0A0C] rounded-t-3xl">
+      <div className="p-6 flex flex-col flex-grow justify-between relative -mt-6 bg-white dark:bg-[#141519] rounded-t-3xl">
         
         {/* Title Block */}
         <div className="mb-4 flex items-end justify-between gap-4">
           <div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0A0A0C] tracking-tight mb-1">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0A0A0C] dark:text-white tracking-tight mb-1">
               {caseStudy.client}
             </h3>
             <p className="text-sm font-medium text-gray-500 tracking-wide uppercase">
