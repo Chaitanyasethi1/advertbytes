@@ -146,8 +146,16 @@ export const FooterSummary: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-          <p>© {new Date().getFullYear()} AdvertBytes. All rights reserved.</p>
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-gray-400">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <a href="/" className="flex items-center gap-2 group cursor-pointer transition-opacity hover:opacity-80">
+              <img src="/logo.png" alt="AdvertBytes Logo" className="h-8 w-auto object-contain" />
+              <span className="font-black tracking-tight text-lg text-white font-sans">
+                AdvertBytes
+              </span>
+            </a>
+            <p className="mt-2 sm:mt-0">© {new Date().getFullYear()} AdvertBytes. All rights reserved.</p>
+          </div>
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <a href="/privacy" className="hover:text-white focus:outline-none focus:underline transition-colors">Privacy Policy</a>
             <a href="/terms" className="hover:text-white focus:outline-none focus:underline transition-colors">Terms of Service</a>
