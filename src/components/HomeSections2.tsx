@@ -464,7 +464,7 @@ export const Footer = () => {
           </p>
           <div className="flex items-center gap-3">
              <a 
-               href="https://linkedin.com" 
+               href="https://www.linkedin.com/company/advert-bytes/" 
                target="_blank" 
                rel="noreferrer" 
                className="w-9 h-9 rounded-full bg-gray-50 border border-gray-200 dark:border-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-black hover:border-black transition-all shadow-sm"

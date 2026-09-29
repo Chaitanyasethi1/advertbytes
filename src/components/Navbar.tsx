@@ -136,7 +136,7 @@ export const Navbar: React.FC = () => {
         {/* Right Actions */}
         <div className="hidden lg:flex items-center gap-3">
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/advert-bytes/"
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
