@@ -84,7 +84,7 @@ export function Home() {
       <ToolsSection />
       <ServicesGridSection />
       <ResultsStripSection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <ComparisonSection />
       <FinalCTA />
 

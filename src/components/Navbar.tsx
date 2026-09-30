@@ -11,12 +11,12 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
 
   const servicesList = [
-    { title: 'Meta Ads Scaling', href: '#services', Icon: Smartphone },
-    { title: 'Google & YouTube Ads', href: '#services', Icon: Search },
-    { title: 'High-Ticket B2B Lead Gen', href: '#services', Icon: Briefcase },
-    { title: 'Performance Creative Studio', href: '#services', Icon: Clapperboard },
-    { title: 'Conversion Rate Optimization', href: '#services', Icon: Zap },
-    { title: 'Retention & Email Automation', href: '#services', Icon: RefreshCcw }
+    { title: 'Meta Ads Scaling', href: '#services-grid', Icon: Smartphone },
+    { title: 'Google & YouTube Ads', href: '#services-grid', Icon: Search },
+    { title: 'High-Ticket B2B Lead Gen', href: '#services-grid', Icon: Briefcase },
+    { title: 'Performance Creative Studio', href: '#services-grid', Icon: Clapperboard },
+    { title: 'Conversion Rate Optimization', href: '#services-grid', Icon: Zap },
+    { title: 'Retention & Email Automation', href: '#services-grid', Icon: RefreshCcw }
   ];
 
   const handleNavClick = (label: string, href: string) => {
@@ -43,8 +43,9 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
         {/* Logo */}
-        <a href="/" className="flex items-center cursor-pointer group">
-          <img src="/logo.png" alt="AdvertBytes Logo" className="h-14 md:h-[68px] w-auto object-contain transition-transform group-hover:scale-105 dark:bg-white dark:border-2 dark:border-gray-200 dark:rounded-xl dark:p-1.5" />
+        <a href="/" className="flex flex-col items-center justify-center cursor-pointer group pt-1">
+          <img src="/logo.png" alt="AdvertBytes Logo" className="h-16 md:h-[84px] w-auto object-contain transition-transform group-hover:scale-105 dark:bg-white dark:border-2 dark:border-gray-200 dark:rounded-xl dark:p-1.5" />
+          <span className="text-[10px] md:text-[11px] font-bold text-gray-800 dark:text-gray-300 tracking-wider uppercase mt-1">Marketing should make sense</span>
         </a>
         
         {/* Centered Navigation Pills */}

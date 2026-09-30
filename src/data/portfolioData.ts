@@ -52,7 +52,7 @@ export const TIER1_CASE_STUDIES: CaseStudyTier1[] = [
     id: 'greenways',
     client: 'Greenways',
     categoryTag: 'Ecommerce & Retail',
-    subtitle: 'Premium Ethnic Wear',
+    subtitle: "Premium Women's Wear",
     instagram: 'instagram.com/greenwaysdelhi',
     website: 'greenways.co',
     challenge: 'The objective was to increase ecommerce sales while improving the overall efficiency of paid traffic.',
@@ -99,9 +99,9 @@ export const TIER1_CASE_STUDIES: CaseStudyTier1[] = [
     story: 'With a focused lead generation strategy, Surface (tiles & surfaces) generated strong business between July 2025 – March 2026. Consistent lead forms, right-audience targeting, and campaign scaling drove cheaper qualified leads plus a strong boost in profile visits and brand visibility.',
     stats: [
       { value: '800+', label: 'Qualified Leads', numericTarget: 800, suffix: '+', decimals: 0 },
-      { value: '₹7–8L+', label: 'Revenue Generated', numericTarget: 8, prefix: '₹', suffix: 'L+', decimals: 0 },
+      { value: '₹12L+', label: 'Revenue Generated', numericTarget: 12, prefix: '₹', suffix: 'L+', decimals: 0 },
       { value: '₹100–₹115', label: 'Avg. Cost Per Lead', numericTarget: 108, prefix: '₹', suffix: ' CPL', decimals: 0 },
-      { value: '5%', label: 'Conversion Rate', numericTarget: 5, suffix: '% Conv', decimals: 0 },
+      { value: '3%', label: 'Conversion Rate', numericTarget: 3, suffix: '%', decimals: 0 },
     ],
     services: ['Lead Generation', 'Performance Marketing'],
     visualCueType: 'architectural',
@@ -182,7 +182,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
     summary: 'Strategic Facebook DM campaign engaging directly with potential high-ticket luxury buyers.',
     instagram: 'instagram.com/kararamujassmeindia',
     website: 'kararamujassme.com',
-    highlightStat: '2.71L+ Reach',
+    highlightStat: "322+ DM's with 2.5% conversion rate",
     stats: [
       { value: '322+', label: 'Campaign DMs', numericTarget: 322, suffix: '+', decimals: 0 },
       { value: '2–3%', label: 'Conversion Rate', numericTarget: 2.5, suffix: '%', decimals: 1 },
@@ -235,7 +235,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
     stats: [
       { value: '1,000+', label: 'Student Leads', numericTarget: 1000, suffix: '+', decimals: 0 },
       { value: '3.5%', label: 'Conv. Rate', numericTarget: 3.5, suffix: '%', decimals: 1 },
-      { value: '6 Months', label: 'Campaign Window', numericTarget: 6, suffix: ' Mo', decimals: 0 },
+      { value: '6 Months', label: 'Campaign Window', numericTarget: 6, suffix: ' Months', decimals: 0 },
     ],
     services: ['Education Meta Ads', 'High Intent Forms', 'Retargeting'],
     imageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=600'
@@ -250,7 +250,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
     highlightStat: '60x ROAS',
     stats: [
       { value: '60x', label: 'Peak ROAS', numericTarget: 60, suffix: 'x', decimals: 0 },
-      { value: 'Meta Ads', label: 'Primary Channel', numericTarget: 100, suffix: '% Paid', decimals: 0 },
+      { value: 'META', label: 'Primary Channel' },
       { value: 'Scale', label: 'High Velocity', numericTarget: 1, suffix: 'st Tier', decimals: 0 },
     ],
     services: ['Ecommerce Conversions', 'Video Creative Scaling', 'Meta Ads'],
@@ -315,7 +315,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
     stats: [
       { value: '1,000+', label: 'Orders', numericTarget: 1000, suffix: '+', decimals: 0 },
       { value: '₹1,000', label: 'Avg. Value', numericTarget: 1000, prefix: '₹', suffix: '', decimals: 0 },
-      { value: '19.07x', label: 'Return on Ads', numericTarget: 19.07, suffix: 'x', decimals: 2 },
+      { value: '19.07x', label: 'Return on Ad Spend', numericTarget: 19.07, suffix: 'x', decimals: 2 },
     ],
     services: ['Meta Purchase Ads', 'Lookalike Scaling', 'AOV Optimization'],
     imageUrl: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=600'

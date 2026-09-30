@@ -44,7 +44,7 @@ export const ServicesGridSection = () => {
   ];
 
   return (
-    <section className="bg-white dark:bg-[#0A0A0C] py-32 relative overflow-hidden bg-grid-pattern">
+    <section id="services-grid" className="bg-white dark:bg-[#0A0A0C] py-32 relative overflow-hidden bg-grid-pattern">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
         <div className="bg-[#0A0A0C] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-8 shadow-sm">
           COMPREHENSIVE GROWTH SUITE
@@ -241,7 +241,7 @@ export const ComparisonSection = () => {
     },
     {
       question: "Do we need to supply all the ad creatives, videos, and copy?",
-      answer: "Not necessarily. While we welcome any existing product assets you have, our in-house creative team scripts, designs, and iterates scroll-stopping video hooks, UGC-style creative, carousel designs, and direct-response ad copy engineered specifically for modern ad algorithms."
+      answer: "If we are handling your social media then we will handle the creative, otherwise we need that from your end."
     },
     {
       question: "What minimum ad spend budget do we need to partner with AdvertBytes?",

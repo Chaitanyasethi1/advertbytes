@@ -21,11 +21,11 @@ export const Tier1FeaturedCard: React.FC<Tier1FeaturedCardProps> = ({
       {/* High-End Image Container */}
       <div className="relative h-[200px] sm:h-[220px] w-full overflow-hidden bg-gray-100">
         <div 
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100 grayscale-[25%] group-hover:grayscale-0"
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
           style={{ backgroundImage: `url(${caseStudy.imageUrl})` }}
         />
-        {/* Sleek gradient fade to white or dark grey */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#141519] via-white/50 dark:via-[#141519]/50 to-transparent" />
+        {/* Sleek minimal gradient fade */}
+        <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#141519] via-transparent to-transparent opacity-80" />
         
         {/* Floating Labels */}
         <div className="absolute top-6 left-6 flex items-center gap-2">
