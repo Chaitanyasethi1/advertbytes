@@ -24,7 +24,6 @@ import {
   ResultsStripSection, 
   ClientLogoStripSection, 
   ComparisonSection, 
-  TestimonialsSection, 
   FinalCTA 
 } from '../components/HomeSections2';
 
