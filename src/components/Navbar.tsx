@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ArrowRight, ChevronDown, Menu, X, Smartphone, Search, Briefcase, Clapperboard, Zap, RefreshCcw } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -8,6 +8,9 @@ export const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileServicesExpanded, setMobileServicesExpanded] = useState(false);
   
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -19,6 +22,45 @@ export const Navbar: React.FC = () => {
     { title: 'Conversion Rate Optimization', targetId: 'service-card-cro', Icon: Zap },
     { title: 'Retention & Email Automation', targetId: 'service-card-retention', Icon: RefreshCcw }
   ];
+
+  // Hover handlers with debounce / grace period to prevent accidental closing
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setIsServicesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setIsServicesOpen(false);
+    }, 200);
+  };
+
+  // Close on outside click or Escape key
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsServicesOpen(false);
+      }
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsServicesOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   const handleSpecializationClick = (targetId: string) => {
     setIsServicesOpen(false);
@@ -117,7 +159,7 @@ export const Navbar: React.FC = () => {
           {/* Home */}
           <button
             onClick={() => handleNavClick('Home', '#top')}
-            className={`px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
+            className={`cursor-pointer px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
               activeItem === 'Home' 
                 ? 'text-black dark:text-white bg-gray-100 dark:bg-white/10 ring-1 ring-[#FACC15]/40' 
                 : 'text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5'
@@ -126,16 +168,19 @@ export const Navbar: React.FC = () => {
             Home
           </button>
 
-          {/* Services with Specializations Dropdown */}
+          {/* Services with Seamless Specializations Dropdown */}
           <div
+            ref={dropdownRef}
             className="relative"
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <button
-              onClick={() => handleNavClick('Services', '#services-grid')}
-              className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
-                activeItem === 'Services' 
+              onClick={() => {
+                setIsServicesOpen(prev => !prev);
+              }}
+              className={`cursor-pointer flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
+                activeItem === 'Services' || isServicesOpen
                   ? 'text-black dark:text-white bg-gray-100 dark:bg-white/10 ring-1 ring-[#FACC15]/40' 
                   : 'text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5'
               }`}
@@ -144,30 +189,39 @@ export const Navbar: React.FC = () => {
               <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${isServicesOpen ? 'rotate-180 text-black dark:text-white' : 'opacity-60'}`} />
             </button>
 
-            {/* Dropdown Menu */}
+            {/* Dropdown Menu Container with hover bridge buffer */}
             {isServicesOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white dark:bg-[#141519] rounded-2xl border border-gray-200/80 dark:border-gray-800 shadow-xl p-2.5 grid grid-cols-1 gap-1 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
-                <div className="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 dark:text-gray-500 px-3 py-1">
-                  Our Specializations
+              <div 
+                className="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 w-72 z-50 animate-in fade-in slide-in-from-top-1.5 duration-150"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                {/* Seamless hover bridge padding above the menu */}
+                <div className="absolute -top-3 left-0 right-0 h-3 pointer-events-auto" />
+
+                <div className="bg-white dark:bg-[#141519] rounded-2xl border border-gray-200/90 dark:border-gray-800 shadow-2xl p-2 grid grid-cols-1 gap-1">
+                  <div className="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 dark:text-gray-500 px-3 py-1">
+                    Our Specializations
+                  </div>
+                  {servicesList.map((service, idx) => {
+                    const IconComponent = service.Icon;
+                    return (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => handleSpecializationClick(service.targetId)}
+                        className="cursor-pointer flex items-center gap-3 p-2.5 rounded-xl hover:bg-gray-100/90 dark:hover:bg-white/10 text-left transition-all duration-150 group/item hover:pl-3.5 w-full"
+                      >
+                        <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-sm bg-gray-100 dark:bg-black text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-800 transition-all duration-150 group-hover/item:border-[#FACC15] group-hover/item:bg-[#FACC15] group-hover/item:text-black group-hover/item:scale-105">
+                          <IconComponent className="w-4 h-4" />
+                        </div>
+                        <span className="text-[13px] font-bold text-gray-700 dark:text-gray-200 group-hover/item:text-black dark:group-hover/item:text-white transition-colors">
+                          {service.title}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
-                {servicesList.map((service, idx) => {
-                  const IconComponent = service.Icon;
-                  return (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={() => handleSpecializationClick(service.targetId)}
-                      className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 text-left transition-all duration-200 group/item hover:pl-3.5"
-                    >
-                      <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-sm bg-gray-100 dark:bg-black text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-800 transition-colors duration-200 group-hover/item:border-[#FACC15] group-hover/item:text-[#FACC15]">
-                        <IconComponent className="w-4 h-4" />
-                      </div>
-                      <span className="text-[13px] font-bold text-gray-700 dark:text-gray-200 group-hover/item:text-black dark:group-hover/item:text-[#FACC15] transition-colors">
-                        {service.title}
-                      </span>
-                    </button>
-                  );
-                })}
               </div>
             )}
           </div>
@@ -175,7 +229,7 @@ export const Navbar: React.FC = () => {
           {/* Portfolio */}
           <button
             onClick={() => handleNavClick('Portfolio', '#portfolio')}
-            className={`px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
+            className={`cursor-pointer px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
               activeItem === 'Portfolio' 
                 ? 'text-black dark:text-white bg-gray-100 dark:bg-white/10 ring-1 ring-[#FACC15]/40' 
                 : 'text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5'
@@ -187,7 +241,7 @@ export const Navbar: React.FC = () => {
           {/* Blog */}
           <button
             onClick={() => handleNavClick('Blog', '#blog')}
-            className={`px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
+            className={`cursor-pointer px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
               activeItem === 'Blog' 
                 ? 'text-black dark:text-white bg-gray-100 dark:bg-white/10 ring-1 ring-[#FACC15]/40' 
                 : 'text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5'
@@ -199,7 +253,7 @@ export const Navbar: React.FC = () => {
           {/* Contact */}
           <button
             onClick={() => handleNavClick('Contact', '#contact')}
-            className={`px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
+            className={`cursor-pointer px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-200 ${
               activeItem === 'Contact' 
                 ? 'text-black dark:text-white bg-gray-100 dark:bg-white/10 ring-1 ring-[#FACC15]/40' 
                 : 'text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5'
@@ -217,13 +271,13 @@ export const Navbar: React.FC = () => {
             target="_blank"
             rel="noreferrer"
             aria-label="AdvertBytes on LinkedIn"
-            className="p-2.5 rounded-full border-[1.5px] border-gray-300 dark:border-gray-700 bg-white dark:bg-[#18191E] text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-[#FACC15] hover:border-[#FACC15] dark:hover:border-[#FACC15] hover:shadow-[0_0_12px_rgba(250,204,21,0.3)] transition-all"
+            className="p-2.5 rounded-full border-[1.5px] border-gray-300 dark:border-gray-700 bg-white dark:bg-[#18191E] text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-[#FACC15] hover:border-[#FACC15] dark:hover:border-[#FACC15] hover:shadow-[0_0_12px_rgba(250,204,21,0.3)] transition-all cursor-pointer"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
           <a
             href="tel:8527120220"
-            className="flex items-center gap-2 rounded-full bg-[#0A0A0C] dark:bg-[#18191E] px-6 py-2.5 text-[13px] font-bold text-white hover:bg-black dark:hover:bg-[#202228] transition-all border-[1.5px] border-[#FACC15] shadow-[0_0_12px_rgba(250,204,21,0.25)] hover:shadow-[0_0_20px_rgba(250,204,21,0.45)]"
+            className="cursor-pointer flex items-center gap-2 rounded-full bg-[#0A0A0C] dark:bg-[#18191E] px-6 py-2.5 text-[13px] font-bold text-white hover:bg-black dark:hover:bg-[#202228] transition-all border-[1.5px] border-[#FACC15] shadow-[0_0_12px_rgba(250,204,21,0.25)] hover:shadow-[0_0_20px_rgba(250,204,21,0.45)]"
           >
             <span>Book a Strategy Call</span>
             <ArrowRight className="h-4 w-4 text-[#FACC15]" />
@@ -233,7 +287,7 @@ export const Navbar: React.FC = () => {
         {/* Mobile Hamburger Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="lg:hidden p-2 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
+          className="cursor-pointer lg:hidden p-2 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
           aria-label="Toggle Navigation"
         >
           {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -246,7 +300,7 @@ export const Navbar: React.FC = () => {
         <div className="lg:hidden mt-3 pt-3 pb-5 border-t border-gray-100 dark:border-gray-800 flex flex-col gap-2 animate-in fade-in duration-200 max-h-[85vh] overflow-y-auto">
           <button
             onClick={() => handleNavClick('Home', '#top')}
-            className="text-left px-4 py-2.5 rounded-xl font-bold text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5"
+            className="cursor-pointer text-left px-4 py-2.5 rounded-xl font-bold text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5"
           >
             Home
           </button>
@@ -255,7 +309,7 @@ export const Navbar: React.FC = () => {
           <div>
             <button
               onClick={() => setMobileServicesExpanded(!mobileServicesExpanded)}
-              className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl font-bold text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5"
+              className="cursor-pointer w-full flex items-center justify-between px-4 py-2.5 rounded-xl font-bold text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5"
             >
               <span>Services</span>
               <ChevronDown className={`h-4 w-4 transition-transform ${mobileServicesExpanded ? 'rotate-180' : ''}`} />
@@ -266,7 +320,7 @@ export const Navbar: React.FC = () => {
                   <button
                     key={idx}
                     onClick={() => handleSpecializationClick(service.targetId)}
-                    className="text-left px-3 py-2 text-xs font-semibold text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-[#FACC15] hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg"
+                    className="cursor-pointer text-left px-3 py-2 text-xs font-semibold text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-[#FACC15] hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg"
                   >
                     {service.title}
                   </button>
@@ -277,31 +331,31 @@ export const Navbar: React.FC = () => {
 
           <button
             onClick={() => handleNavClick('Portfolio', '#portfolio')}
-            className="text-left px-4 py-2.5 rounded-xl font-bold text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5"
+            className="cursor-pointer text-left px-4 py-2.5 rounded-xl font-bold text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5"
           >
             Portfolio
           </button>
           <button
             onClick={() => handleNavClick('About', '#about')}
-            className="text-left px-4 py-2.5 rounded-xl font-bold text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5"
+            className="cursor-pointer text-left px-4 py-2.5 rounded-xl font-bold text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5"
           >
             About
           </button>
           <button
             onClick={() => handleNavClick('Blog', '#blog')}
-            className="text-left px-4 py-2.5 rounded-xl font-bold text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5"
+            className="cursor-pointer text-left px-4 py-2.5 rounded-xl font-bold text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5"
           >
             Blog
           </button>
           <button
             onClick={() => handleNavClick('Contact', '#contact')}
-            className="text-left px-4 py-2.5 rounded-xl font-bold text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5"
+            className="cursor-pointer text-left px-4 py-2.5 rounded-xl font-bold text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5"
           >
             Contact
           </button>
           <a
             href="tel:8527120220"
-            className="flex items-center justify-center gap-2 rounded-full bg-[#0A0A0C] dark:bg-[#18191E] px-6 py-3 text-sm font-bold text-white transition-all border-[1.5px] border-[#FACC15] shadow-md mt-2"
+            className="cursor-pointer flex items-center justify-center gap-2 rounded-full bg-[#0A0A0C] dark:bg-[#18191E] px-6 py-3 text-sm font-bold text-white transition-all border-[1.5px] border-[#FACC15] shadow-md mt-2"
           >
             <span>Book a Strategy Call</span>
             <ArrowRight className="h-4 w-4 text-[#FACC15]" />
