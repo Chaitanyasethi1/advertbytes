@@ -23,6 +23,7 @@ import {
   ServicesGridSection, 
   ResultsStripSection, 
   ClientLogoStripSection, 
+  TestimonialsSection,
   ComparisonSection, 
   FinalCTA 
 } from '../components/HomeSections2';
@@ -31,7 +32,7 @@ import { TIER1_CASE_STUDIES, TIER2_CASE_STUDIES } from '../data/portfolioData';
 import type { CategoryFilter, CaseStudyTier1, CaseStudyTier2 } from '../data/portfolioData';
 
 export function Home() {
-
+  const SHOW_TESTIMONIALS = false;
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>('All');
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudyTier1 | CaseStudyTier2 | null>(null);
 
@@ -54,7 +55,7 @@ export function Home() {
       <ClientLogoStripSection />
       <DifferenceSection />
 
-      <section id="portfolio" className="bg-[#FBFBFB] dark:bg-[#0A0A0C] py-16 sm:py-20">
+      <section id="portfolio" className="bg-[var(--bg-page)] dark:bg-[#0A0A0C] py-16 sm:py-20">
         <SectionHeader onExploreClick={handleScrollToGrid} />
         
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8">
@@ -83,7 +84,7 @@ export function Home() {
       <ToolsSection />
       <ServicesGridSection />
       <ResultsStripSection />
-      {/* <TestimonialsSection /> */}
+      {SHOW_TESTIMONIALS && <TestimonialsSection />}
       <ComparisonSection />
       <FinalCTA />
 

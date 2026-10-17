@@ -21,7 +21,7 @@ export const AbstractArtwork: React.FC<AbstractArtworkProps> = ({ type, classNam
           <line x1="160" y1="0" x2="160" y2="180" stroke="#2A2A38" strokeWidth="0.8" strokeDasharray="3 3" />
           <line x1="280" y1="0" x2="280" y2="180" stroke="#2A2A38" strokeWidth="0.8" strokeDasharray="3 3" />
 
-          {/* Stylized woven silk motif / ethnic drapery curves */}
+          {/* Stylized luxury couture motif / premium women's wear drapery curves */}
           <path
             d="M 20 140 C 80 40, 140 160, 200 60 C 240 0, 280 90, 310 40"
             stroke="#4A4A5E"
@@ -58,7 +58,7 @@ export const AbstractArtwork: React.FC<AbstractArtworkProps> = ({ type, classNam
 
           {/* Editorial tag */}
           <text x="24" y="32" fill="#8E8E9F" fontSize="10" fontFamily="JetBrains Mono" letterSpacing="1.5">
-            CRAFT × SCALE // ETHNIC 2025
+            CRAFT × SCALE // WOMEN'S WEAR 2025
           </text>
         </svg>
       </div>

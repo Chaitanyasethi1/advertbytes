@@ -146,15 +146,15 @@ const LiveGrowthShowcase = () => {
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[85vh] pt-28 sm:pt-34 pb-16 overflow-hidden flex items-start bg-[#F8F9FA] dark:bg-[#0A0A0C] bg-grid-pattern">
+    <section className="relative min-h-[85vh] pt-32 sm:pt-40 pb-16 overflow-hidden flex items-start bg-[var(--bg-page)] bg-grid-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           
           <div className="flex flex-col items-start pt-0">
             {/* Live Indicator Pill */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-800 bg-white/90 backdrop-blur-sm px-4 py-1.5 mb-6 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
-              <span className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#0A0A0C] dark:text-white">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-700/80 bg-white dark:bg-[#141519] px-4 py-1.5 mb-6 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-black dark:bg-[#FACC15] animate-pulse" />
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#0A0A0C] dark:text-gray-100">
                 PERFORMANCE MARKETING & REVENUE PARTNER
               </span>
             </div>
@@ -176,10 +176,10 @@ export const HeroSection = () => {
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-8">
               <a 
                 href="tel:7827778719" 
-                className="w-full sm:w-auto group relative flex items-center justify-center gap-2 rounded-full bg-[#0A0A0C] dark:bg-white px-8 py-4 text-sm font-bold text-white dark:text-[#0A0A0C] hover:bg-black dark:hover:bg-gray-100 transition-all duration-300 shadow-md hover:shadow-xl"
+                className="w-full sm:w-auto group relative flex items-center justify-center gap-2 rounded-full bg-[#0A0A0C] dark:bg-[#18191E] px-8 py-4 text-sm font-bold text-white transition-all duration-300 border-[1.5px] border-[#FACC15] shadow-[0_0_12px_rgba(250,204,21,0.25)] hover:shadow-[0_0_20px_rgba(250,204,21,0.45)] hover:bg-black dark:hover:bg-[#202228]"
               >
                 <span>Book a Strategy Call</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-4 w-4 text-[#FACC15] transition-transform group-hover:translate-x-1" />
               </a>
               
               <a 
@@ -407,7 +407,7 @@ export const ServiceTabsSection = () => {
       tags: ['Meta Advantage+ Shopping', 'Google Performance Max', 'Shopify AOV & CRO Lift', 'UGC Video Ads', 'Klaviyo Email Retention'],
       stats: [
         { v: '11.78x', l: 'Peak Campaign ROAS (Gulab Wala)' },
-        { v: '9.31x', l: 'Ethnic Wear ROAS (Greenways)' },
+        { v: '9.31x', l: "Women's Wear ROAS (Greenways)" },
         { v: '₹13L+', l: 'Single Month Sales Scale' }
       ]
     },
@@ -450,14 +450,22 @@ export const ServiceTabsSection = () => {
         </p>
 
         {/* Tab Controls */}
-        <div className="bg-gray-100 p-1.5 rounded-full flex gap-1 mb-12 shadow-inner border border-gray-200 dark:border-gray-800 backdrop-blur-md relative max-w-lg w-full justify-between">
+        <div 
+          role="tablist"
+          aria-label="Specialization categories"
+          className="bg-gray-200/90 dark:bg-gray-200/95 p-1.5 rounded-full flex gap-1 mb-12 shadow-inner border border-gray-300 dark:border-gray-300 backdrop-blur-md relative max-w-lg w-full justify-between"
+        >
           {tabs.map((tab) => (
             <button
               key={tab.id}
+              role="tab"
+              aria-selected={activeTab === tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={cn(
-                "relative z-10 flex-1 px-4 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-full transition-colors duration-300 text-center",
-                activeTab === tab.id ? "text-white" : "text-gray-600 dark:text-gray-300 hover:text-black"
+                "relative z-10 flex-1 px-4 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-full transition-colors duration-300 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FACC15]",
+                activeTab === tab.id 
+                  ? "text-white" 
+                  : "text-gray-900 dark:text-gray-900 hover:text-black font-extrabold"
               )}
             >
               {tab.label}
@@ -472,11 +480,11 @@ export const ServiceTabsSection = () => {
           />
         </div>
 
-        {/* Dynamic Card Content */}
-        <div className="w-full bg-white dark:bg-[#141519] rounded-[2rem] border border-gray-200 dark:border-gray-800 shadow-soft-lg p-8 sm:p-14 flex flex-col lg:flex-row gap-12 lg:gap-16 relative overflow-hidden">
+        {/* Dynamic Card Content with Animated Yellow Border Beam */}
+        <div className="w-full bg-white dark:bg-[#141519] rounded-[2rem] border border-gray-200 dark:border-gray-800 shadow-soft-lg p-8 sm:p-14 flex flex-col lg:flex-row gap-12 lg:gap-16 relative overflow-hidden border-beam">
           <div className="flex-1 relative z-10">
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-md bg-gray-100 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-800">
+              <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-md bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white border border-gray-200 dark:border-white/20">
                 {active.badge}
               </span>
             </div>
@@ -496,7 +504,7 @@ export const ServiceTabsSection = () => {
 
           <div className="flex-1 flex flex-col gap-4 relative z-10 justify-center">
             {active.stats.map((stat, i) => (
-              <div key={i} className="bg-white dark:bg-[#141519] rounded-2xl border border-gray-200 dark:border-gray-800 p-5 sm:p-6 flex items-center gap-6 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-soft transition-shadow">
+              <div key={i} className="bg-white dark:bg-[#141519] rounded-2xl border border-gray-200 dark:border-gray-800 p-5 sm:p-6 flex items-center gap-6 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-soft transition-shadow border-beam">
                 <div className="text-3xl sm:text-4xl font-black tracking-tighter text-[#0A0A0C] dark:text-white">{stat.v}</div>
                 <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 leading-tight flex-1">{stat.l}</div>
               </div>

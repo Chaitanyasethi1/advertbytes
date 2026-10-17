@@ -146,19 +146,14 @@ export const FooterSummary: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-gray-600 dark:text-gray-400">
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-            <a href="/" className="flex items-center gap-2 group cursor-pointer transition-opacity hover:opacity-80">
-              <span className="font-black tracking-tight text-lg text-[#0A0A0C] dark:text-white font-sans">
-                AdvertBytes
-              </span>
-            </a>
-            <p className="mt-2 sm:mt-0">© {new Date().getFullYear()} AdvertBytes. All rights reserved.</p>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            <a href="/privacy" className="hover:text-[#0A0A0C] dark:hover:text-white focus:outline-none focus:underline transition-colors">Privacy Policy</a>
-            <a href="/terms" className="hover:text-[#0A0A0C] dark:hover:text-white focus:outline-none focus:underline transition-colors">Terms of Service</a>
-            <a href="/refund" className="hover:text-[#0A0A0C] dark:hover:text-white focus:outline-none focus:underline transition-colors">Refund Policy</a>
+        <div className="pt-8 flex flex-col items-center justify-center gap-3 text-xs text-gray-500 dark:text-gray-400 text-center">
+          <p>© 2026 AdvertBytes. All rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-gray-500 dark:text-gray-400">
+            <a href="/privacy" className="hover:text-[#0A0A0C] dark:hover:text-white transition-colors">Privacy Policy</a>
+            <span>•</span>
+            <a href="/terms" className="hover:text-[#0A0A0C] dark:hover:text-white transition-colors">Terms of Service</a>
+            <span>•</span>
+            <a href="/refund" className="hover:text-[#0A0A0C] dark:hover:text-white transition-colors">Refund Policy</a>
           </div>
         </div>
 

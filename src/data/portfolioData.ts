@@ -57,7 +57,7 @@ export const TIER1_CASE_STUDIES: CaseStudyTier1[] = [
     website: 'greenways.co',
     challenge: 'The objective was to increase ecommerce sales while improving the overall efficiency of paid traffic.',
     approach: 'We combined paid social and search campaigns with a conversion-focused ecommerce strategy to reach relevant audiences and optimize towards purchases.',
-    story: 'With a carefully crafted Meta & Google Ads strategy, Greenways — a premium ethnic wear brand — scaled new heights in July 2025. By targeting the right audience across platforms (82K+ sessions, 166K+ impressions on Google, 2.5L+ on Meta), Greenways achieved a powerful 9.31x ROAS with smartly optimised ad spend.',
+    story: "With a bespoke Meta & Google Ads strategy, Greenways — a distinguished Premium Women's Wear brand — scaled new heights in July 2025. By targeting high-intent fashion audiences across platforms (82K+ sessions, 166K+ impressions on Google, 2.5L+ on Meta), Greenways achieved a powerful 9.31x ROAS with smartly optimised ad spend.",
     stats: [
       { value: '₹13,05,051+', label: 'Total Revenue', numericTarget: 13.05, prefix: '₹', suffix: 'L+', decimals: 2 },
       { value: '178', label: 'Confirmed Orders', numericTarget: 178, suffix: ' Orders', decimals: 0 },
@@ -182,11 +182,10 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
     summary: 'Strategic Facebook DM campaign engaging directly with potential high-ticket luxury buyers.',
     instagram: 'instagram.com/kararamujassmeindia',
     website: 'kararamujassme.com',
-    highlightStat: "322+ DM's with 2.5% conversion rate",
+    highlightStat: '322+ DMs with 2.5% conversion rate',
     stats: [
-      { value: '322+', label: 'Campaign DMs', numericTarget: 322, suffix: '+', decimals: 0 },
-      { value: '2–3%', label: 'Conversion Rate', numericTarget: 2.5, suffix: '%', decimals: 1 },
-      { value: '2,71,000+', label: 'Impressions', numericTarget: 2.71, suffix: 'L+', decimals: 2 },
+      { value: '322+', label: 'DMs', numericTarget: 322, suffix: '+', decimals: 0 },
+      { value: '2.5%', label: 'Conversion Rate', numericTarget: 2.5, suffix: '%', decimals: 1 },
     ],
     services: ['Luxury Meta Ads', 'Direct Enquiries', 'Audience Building'],
     imageUrl: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=600'
@@ -354,7 +353,7 @@ export const TIER2_CASE_STUDIES: CaseStudyTier2[] = [
 ];
 
 export const CLIENT_LOGOS = [
-  { name: 'Greenways', label: 'GREENWAYS', category: 'Ethnic Wear' },
+  { name: 'Greenways', label: 'GREENWAYS', category: "Premium Women's Wear" },
   { name: 'Sole House', label: 'SOLE HOUSE', category: 'Footwear' },
   { name: 'Surface by Sefar', label: 'SURFACE', category: 'Surfaces & Tiles' },
   { name: 'Gulab Wala', label: 'GULAB WALA', category: 'Sweets & Confectionery' },

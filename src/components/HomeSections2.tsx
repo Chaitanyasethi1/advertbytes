@@ -5,6 +5,7 @@ import { CrowdCanvas } from './ui/skiper39';
 export const ServicesGridSection = () => {
   const services = [
     { 
+      id: 'service-card-meta',
       title: 'Meta Ads (Facebook & Instagram)', 
       desc: 'Scale high-converting Advantage+ shopping campaigns, dynamic retargeting, and algorithmic customer acquisition that turns cold audiences into paying customers.', 
       Icon: Smartphone, 
@@ -12,30 +13,35 @@ export const ServicesGridSection = () => {
       isFlagship: true 
     },
     { 
+      id: 'service-card-google',
       title: 'Google & YouTube Ads', 
       desc: 'Dominate high-intent search queries and capture buyers at the exact moment of decision with Google Search, Performance Max (PMax), and YouTube discovery funnels.', 
       Icon: Search, 
       tag: 'Intent Capture' 
     },
     { 
+      id: 'service-card-leadgen',
       title: 'High-Ticket Lead Generation', 
       desc: 'Eliminate tyre-kickers with qualified B2B lead funnels, automated instant forms, and WhatsApp/CRM integrations for high-value commercial sales.', 
       Icon: Briefcase, 
       tag: 'B2B Pipeline' 
     },
     { 
+      id: 'service-card-studio',
       title: 'Performance Creative & UGC Studio', 
       desc: 'Our in-house studio scripts, edits, and delivers scroll-stopping UGC videos, 3D motion hooks, and direct-response carousel ads that drop CAC.', 
       Icon: Clapperboard, 
       tag: 'In-House Studio' 
     },
     { 
+      id: 'service-card-cro',
       title: 'Conversion Rate Optimization (CRO)', 
       desc: 'Fix leaky funnels and multiply your revenue per session. We build and test high-converting Shopify product pages, advertorials, and streamlined checkout flows.', 
       Icon: Zap, 
       tag: 'AOV & LTV Lift' 
     },
     { 
+      id: 'service-card-retention',
       title: 'Retention & Email Automation', 
       desc: 'Maximize customer lifetime value (LTV) with intelligent Klaviyo flows, abandoned cart recovery, VIP loyalty sequences, and personalized SMS alerts.', 
       Icon: RefreshCcw, 
@@ -62,7 +68,11 @@ export const ServicesGridSection = () => {
           {services.map((service, i) => {
             const IconComponent = service.Icon;
             return (
-              <div key={i} className="group h-[320px] w-full [perspective:1000px]">
+              <div 
+                key={i} 
+                id={service.id}
+                className="group h-[320px] w-full [perspective:1000px] scroll-mt-28 rounded-[2rem] transition-all"
+              >
                 <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                   
                   {/* Front Side */}
@@ -119,20 +129,20 @@ export const ServicesGridSection = () => {
 
 export const ClientLogoStripSection = () => {
   const clients = [
-    { name: 'Greenways', category: 'Premium Ethnic Wear', metric: '9.31x ROAS' },
+    { name: 'Greenways', category: "Premium Women's Wear", metric: '9.31x ROAS' },
     { name: 'Sole House', category: "Designer Women's Footwear", metric: '3.41x ROAS' },
     { name: 'Gulab Wala', category: 'Confectionery & Sweets', metric: '11.78x ROAS' },
     { name: 'Detailing Devils', category: 'Luxury Automotive', metric: '₹77 CPL' },
     { name: 'Surface by Sefar', category: 'Architectural Surfaces', metric: '800+ Leads' },
-    { name: 'Karara Mujassme', category: 'Luxury Marble Decor', metric: '2.71L+ Reach' },
+    { name: 'Karara Mujassme', category: 'Luxury Marble Decor', metric: '322+ DMs · 2.5% Conversion Rate' },
     { name: 'Aple Lites', category: 'Architectural Lighting', metric: '750+ Leads' },
     { name: 'Exotic Garden Centre', category: 'Flora & Landscaping', metric: '830+ DMs' },
   ];
 
   return (
-    <section className="bg-white dark:bg-[#0A0A0C] py-16 border-y border-gray-200/80 overflow-hidden">
+    <section className="bg-white dark:bg-[#08080A] py-16 border-y border-gray-200/80 dark:border-gray-800/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-8 text-center">
-        <div className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-gray-500">
+        <div className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-gray-500 dark:text-gray-400">
           PROUDLY ACCELERATING SCALE FOR INDUSTRY LEADERS
         </div>
       </div>
@@ -143,13 +153,15 @@ export const ClientLogoStripSection = () => {
           {[...clients, ...clients].map((client, i) => (
             <div 
               key={i} 
-              className="inline-flex items-center gap-3.5 px-6 py-3 rounded-full bg-gray-50 border border-gray-200/90 shadow-sm shrink-0 hover:border-black transition-colors"
+              title={`${client.name} | ${client.category} | ${client.metric}`}
+              aria-label={`${client.name} — ${client.category} with ${client.metric}`}
+              className="inline-flex items-center gap-3.5 px-6 py-3 rounded-full bg-white dark:bg-[#141519] border border-gray-200/90 dark:border-gray-800 shadow-sm shrink-0 hover:border-black dark:hover:border-[#FACC15] transition-colors"
             >
-              <div className="w-2 h-2 rounded-full bg-black" />
-              <span className="font-extrabold text-sm text-[#0A0A0C] dark:text-white">{client.name}</span>
-              <span className="text-gray-300">|</span>
-              <span className="text-xs text-gray-500 font-medium">{client.category}</span>
-              <span className="px-2 py-0.5 rounded-md bg-gray-200 text-gray-900 dark:text-gray-100 text-[10px] font-bold font-mono">
+              <div className="w-2 h-2 rounded-full bg-black dark:bg-[#FACC15]" />
+              <span className="font-extrabold text-sm text-[#0A0A0C] dark:text-gray-100">{client.name}</span>
+              <span className="text-gray-300 dark:text-gray-600">|</span>
+              <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">{client.category}</span>
+              <span className="px-2.5 py-0.5 rounded-md bg-gray-100 dark:bg-[#1E2028] text-gray-900 dark:text-[#FACC15] border border-gray-200 dark:border-gray-700/60 text-[10px] font-bold font-mono">
                 {client.metric}
               </span>
             </div>
@@ -241,7 +253,7 @@ export const ComparisonSection = () => {
     },
     {
       question: "Do we need to supply all the ad creatives, videos, and copy?",
-      answer: "If we are handling your social media then we will handle the creative, otherwise we need that from your end."
+      answer: "Not necessarily. If we are managing your social media, our in-house creative team will handle the creative end to end: scripts, designs, scroll-stopping video hooks, UGC-style creative, carousels, and direct-response ad copy engineered for modern ad algorithms. If we are not managing your social media, we will need the creative assets (product images, videos and brand material) from your end. While we welcome any existing product assets you have, we can still advise on the formats that perform best."
     },
     {
       question: "What minimum ad spend budget do we need to partner with AdvertBytes?",
@@ -254,7 +266,7 @@ export const ComparisonSection = () => {
   ];
 
   return (
-    <section id="faq" className="bg-white dark:bg-[#0A0A0C] py-28 sm:py-32 bg-grid-pattern relative border-t border-gray-200/60">
+    <section id="faq" className="bg-white dark:bg-[#08080A] py-28 sm:py-32 bg-grid-pattern relative border-t border-gray-200/60 dark:border-gray-800/60">
       <div className="max-w-4xl mx-auto px-6">
         
         {/* Header */}
@@ -263,7 +275,7 @@ export const ComparisonSection = () => {
             FREQUENTLY ASKED QUESTIONS
           </div>
           <h2 className="text-4xl sm:text-5xl font-black text-[#0A0A0C] dark:text-white tracking-tight leading-tight mb-4">
-            Everything you need to know about <span className="underline decoration-black/30 underline-offset-8">scaling with AdvertBytes.</span>
+            Everything you need to know about <span className="underline decoration-black/30 dark:decoration-[#FACC15]/40 underline-offset-8">scaling with AdvertBytes.</span>
           </h2>
           <p className="text-base text-gray-600 dark:text-gray-300 font-medium max-w-xl mx-auto leading-relaxed">
             Transparent answers regarding our campaigns, creative workflows, timelines, and partnership structure.
@@ -277,17 +289,22 @@ export const ComparisonSection = () => {
             return (
               <div
                 key={index}
-                className={`bg-white dark:bg-[#0A0A0C] rounded-2xl border transition-all duration-300 overflow-hidden shadow-sm ${
-                  isOpen ? 'border-black shadow-md' : 'border-gray-200/90 hover:border-gray-400'
+                className={`bg-white dark:bg-[#141519] rounded-2xl border transition-all duration-300 overflow-hidden shadow-sm ${
+                  isOpen 
+                    ? 'border-black dark:border-[#FACC15] shadow-md ring-1 ring-black/5 dark:ring-[#FACC15]/20' 
+                    : 'border-gray-200/90 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600'
                 }`}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-base text-[#0A0A0C] dark:text-white hover:text-black transition-colors"
+                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-base text-[#0A0A0C] dark:text-gray-100 hover:text-black dark:hover:text-[#FACC15] focus-visible:text-black dark:focus-visible:text-[#FACC15] transition-colors"
+                  aria-expanded={isOpen}
                 >
                   <span className="leading-snug">{faq.question}</span>
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                    isOpen ? 'bg-[#0A0A0C] text-white rotate-180' : 'bg-gray-100 text-gray-500'
+                    isOpen 
+                      ? 'bg-[#0A0A0C] text-white dark:bg-[#FACC15] dark:text-black rotate-180' 
+                      : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-300'
                   }`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
@@ -311,9 +328,9 @@ export const ComparisonSection = () => {
 export const TestimonialsSection = () => {
   const testimonials = [
     { 
-      quote: "AdvertBytes took our Meta & Google ad campaigns from a modest 2.1x ROAS to a breathtaking 9.31x ROAS during peak festive sales. Their creative testing velocity and deep understanding of Indian ethnic retail is unmatched.", 
+      quote: "AdvertBytes took our Meta & Google ad campaigns from a modest 2.1x ROAS to a breathtaking 9.31x ROAS during peak festive sales. Their creative testing velocity and deep understanding of the Premium Women's Wear market is unmatched.", 
       name: "Priya R.", 
-      role: "CMO, Greenways (Ethnic Wear)", 
+      role: "CMO, Greenways (Premium Women's Wear)", 
       image: "/images/founder-priya.jpg",
       metric: "9.31x ROAS • ₹13L+ Sales"
     },

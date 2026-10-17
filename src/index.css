@@ -1,32 +1,146 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+@property --beam-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes beam-rotate {
+  to {
+    --beam-angle: 360deg;
+  }
+}
+
+@keyframes yellow-highlight-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(250, 204, 21, 0.8), 0 0 20px rgba(250, 204, 21, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(250, 204, 21, 0);
+  }
+}
+
+.highlight-yellow-pulse {
+  animation: yellow-highlight-pulse 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 @layer base {
   :root {
     --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
+
+    /* Premium Theme Tokens */
+    --bg-page: #FAF8F5;
+    --bg-page-gradient: radial-gradient(circle at 50% 0%, #FFFFFF 0%, #FAF8F5 70%);
+    --bg-card: #FFFFFF;
+    --text-primary: #0D0D11;
+    --text-muted: #52525B;
+    --border-color: rgba(26, 24, 22, 0.07);
+    --grid-line: rgba(28, 25, 23, 0.02);
+
+    /* Yellow Accent Tokens */
+    --accent-yellow: #FACC15;
+    --accent-yellow-soft: rgba(250, 204, 21, 0.15);
+    --accent-yellow-glow: 0 0 16px rgba(250, 204, 21, 0.35);
+  }
+
+  .dark {
+    --bg-page: #08080A;
+    --bg-page-gradient: radial-gradient(circle at 50% -10%, rgba(250, 204, 21, 0.04) 0%, #08080A 60%);
+    --bg-card: #141519;
+    --text-primary: #F8F8FA;
+    --text-muted: #9E9EA8;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --grid-line: rgba(255, 255, 255, 0.02);
+
+    --accent-yellow: #FACC15;
+    --accent-yellow-soft: rgba(250, 204, 21, 0.2);
+    --accent-yellow-glow: 0 0 20px rgba(250, 204, 21, 0.45);
   }
 
   body {
     font-family: var(--font-sans);
-    background-color: #F8F9FA;
-    color: #0A0A0C;
+    background-color: var(--bg-page);
+    background-image: var(--bg-page-gradient);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text-primary);
     overflow-x: hidden;
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     letter-spacing: -0.02em;
   }
+
+  /* Universal focus-visible for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--accent-yellow) !important;
+    outline-offset: 2px !important;
+  }
 }
 
-/* Custom Grid Background (Trayarunya style) */
+/* Custom Grid Background with low contrast */
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line, rgba(28, 25, 23, 0.02)) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line, rgba(28, 25, 23, 0.02)) 1px, transparent 1px);
+}
+
+/* Traveling Animated Yellow Border Beam */
+.border-beam {
+  position: relative;
+  border: 1px solid rgba(250, 204, 21, 0.35); /* fallback */
+}
+
+@supports (--beam-angle: 0deg) {
+  .border-beam {
+    border: 1px solid rgba(250, 204, 21, 0.15);
+  }
+
+  .border-beam::before {
+    content: '';
+    position: absolute;
+    inset: -1.5px;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: conic-gradient(
+      from var(--beam-angle, 0deg) at 50% 50%,
+      transparent 0deg,
+      transparent 60deg,
+      #FACC15 120deg,
+      #FEF08A 140deg,
+      transparent 180deg,
+      transparent 360deg
+    );
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    animation: beam-rotate 5s linear infinite;
+    z-index: 20;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .border-beam::before {
+    animation: none;
+    background: #FACC15;
+    opacity: 0.4;
+  }
+  .highlight-yellow-pulse {
+    animation: none;
+  }
 }
 
 /* Very soft, diffused shadows for white cards */
@@ -62,4 +176,3 @@
 .animate-marquee:hover {
   animation-play-state: paused;
 }
-
